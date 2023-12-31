@@ -1,0 +1,55 @@
+.Footer-wrapper {
+  display:flex;
+  background-color: #fe5400;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.3s ease; /* Smooth transition for height change */
+  overflow: hidden;
+}
+
+.Footer p {
+  font-weight: bold;
+  color:#02181f;
+  width: 20vw;
+  /* border: 3px solid black; */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  align-items: center;
+}
+
+/* .scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+
+
+} */
+
+.Footer {
+  display: flex;
+  /* margin-top: 20px; */
+
+  white-space: nowrap;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 8s;
+  animation-duration: 30s;
+}
+
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}

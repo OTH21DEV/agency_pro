@@ -1,0 +1,28 @@
+.Gear{
+    background:white;
+    height:30px;
+    width:30px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    position: fixed;       /* Fixed positioning relative to the viewport */
+  top: 50%;              /* Centered vertically */
+  right: 0;              /* Aligned to the right edge of the viewport */
+  transform: translateY(-50%);
+}
+
+.Gear-icon{
+ 
+    width:20px;
+    /* padding:8px; */
+    animation: rotate-gear 4s linear infinite;
+}
+
+@keyframes rotate-gear {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(365deg);
+    }
+  }

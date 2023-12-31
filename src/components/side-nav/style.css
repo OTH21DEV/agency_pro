@@ -1,0 +1,25 @@
+.SideNav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-right:60px;
+}
+
+.SideNav-menu img {
+  width: 40px;
+}
+
+.SideNav-menu {
+  cursor: pointer;
+
+  flex-grow: 1; /* Allows the menu div to take up the remaining space */
+  display: flex; /* Establishes a nested flex container */
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+}
+
+.SideNav-logo img {
+  width: 70px;
+  align-self: flex-start;
+  margin-top: 50px;
+}

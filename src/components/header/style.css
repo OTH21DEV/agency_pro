@@ -1,0 +1,19 @@
+.Header{
+    display:flex;
+    align-items: baseline;
+    margin-top:20px;
+    height:100px;
+}
+
+.Header-arrow{
+    width:14px;
+    height:14px;
+    margin-left:35px;
+    display:inline
+}
+
+.Header-title{
+   color:white;
+   line-height:1.7em;
+   letter-spacing: 0.1em;
+}
