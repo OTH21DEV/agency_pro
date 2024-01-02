@@ -2,8 +2,8 @@
   display:flex;
   background-color: #fe5400;
   width: 100vw;
-  position: absolute;
-  bottom: 0;
+  position: absolute; 
+   bottom: 0;
   left: 0;
   transition: height 0.3s ease; /* Smooth transition for height change */
   overflow: hidden;
@@ -27,7 +27,9 @@
 
 
 } */
-
+.expanded-footer {
+  height: 60px; /* Expanded height of the footer */
+}
 .Footer {
   display: flex;
   /* margin-top: 20px; */

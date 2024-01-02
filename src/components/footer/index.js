@@ -44,6 +44,7 @@ const Footer = () => {
 
       // Update the last scroll position
       setLastScrollTop(currentScrollPos <= 0 ? 0 : currentScrollPos);
+      
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -51,6 +52,7 @@ const Footer = () => {
   }, [lastScrollTop]);
 
   // //test
+
 
   const items = ["DIGITAL SOLUTION", "DEVELOPMENT", "STRATEGY", "SEO", "DESIGN"];
 

@@ -11,22 +11,22 @@ import Footer from "../../components/footer";
 const Main = () => {
   return (
     <>
-    <PageLayout>
-      <SideNav></SideNav>
-      <Header
-        title={
-          <>
-            Strategy, Design, Solution
-            <br />
-            Development
-          </>
-        }
-        icon={arrow}
-      ></Header>{" "}
-      <Heading text={"designs and develops stunning online experiences. "} icon={arrow_big}></Heading>
-      <Gear icon={gear}></Gear>
-      <Footer></Footer>
-    </PageLayout>
+      <PageLayout>
+        <SideNav></SideNav>
+        <Header
+          title={
+            <>
+              Strategy, Design, Solution
+              <br />
+              Development
+            </>
+          }
+          icon={arrow}
+        ></Header>{" "}
+        <Heading text={"designs and develops stunning online experiences. "} icon={arrow_big}></Heading>
+        <Gear icon={gear}></Gear>
+        <Footer></Footer>
+      </PageLayout>
     </>
   );
 };

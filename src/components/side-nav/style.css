@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   margin-right:60px;
+  padding-left:10px;
 }
 
 .SideNav-menu img {
@@ -22,4 +23,26 @@
   width: 70px;
   align-self: flex-start;
   margin-top: 50px;
+}
+
+
+html {
+  background: #001c25; /* Adjust this color to match your page's background color */
+}
+.fade-out{
+  /* opacity:0; 
+  transition: opacity 0.9s  */
+  animation: fade-out 0.5s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
