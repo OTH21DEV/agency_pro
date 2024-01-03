@@ -26,22 +26,76 @@
 
 .Plan {
   padding-left: 40px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 .Plan-contact {
+
   height: 100%;
-  background-color: #222831;
-  background-color: #15191f;
-  background-color: #fe5400;
-  width: 30%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  position: relative;
+  background-image: url("../../assets/ellipse.png"),url("../../assets/ellipse_small.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position:right 116px bottom -77px, right 44px bottom 81px;
+
+
+  /* animation: floatBackgroundLarge 10s linear infinite, floatBackgroundSmall 8s linear infinite forwards; */
+  animation-name: floatBackgroundLarge, floatBackgroundSmall;
+  animation-duration: 12s, 10s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: infinite, infinite;
+
+}
+
+@keyframes floatBackgroundLarge {
+  0%, 100% {
+    background-position: right 116px bottom -77px; /* Only change position of first background */
+  }
+  50% {
+    background-position: right 150px bottom -107px; /* Move only the first background */
+  }
+}
+
+@keyframes floatBackgroundSmall {
+  0%, 100% {
+    background-position: right 116px bottom -77px, right 44px bottom 81px; /* First background stays put while second moves */
+  }
+  50% {
+    background-position: right 116px bottom -77px, right 14px bottom 20px; /* Only the second background moves */
+  }
+}
+
+.Plan-contact-info{
+    position: relative; /* Adjust if needed for layering */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 25px;
+  
+    background: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border: 1px solid rgba(255, 255, 255, 0.27); */
+}
+.Plan-contact div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 25px;
 }
-
+.Plan-contact div span{
+ padding:40px;
+ display:flex;
+ align-items: center;
+  background-color: blue;
+  color:white;
+  font-weight: bold;
+}
 .Plan-contact h2 {
   color: white;
   font-size: 1.8em;
@@ -58,37 +112,36 @@
   line-height: 1; */
 }
 
-.Plan-wavy:hover span{
-    position:relative;
-    
-    animation: animate 1s ease-in-out forwards;
-    animation-delay: calc(0.1s * var(--i))
+.Plan-wavy:hover span {
+  position: relative;
+
+  animation: animate 1s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
 }
 
-.Plan-wavy span{
-    position: relative;
-  
+.Plan-wavy span {
+  position: relative;
 }
 
-
-.Plan-wavy{
-    display: flex;
-    color: white;
-    font-size: 6em;
-    width: 100%;
-    margin-bottom:5px;
-    font-family: "Lato", sans-serif; /* Added comma */
-    line-height: 1;
-    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0,0,0,0.06)); /* Removed space before parenthesis */
+.Plan-wavy {
+  display: flex;
+  color: white;
+  font-size: 6em;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: "Lato", sans-serif; /* Added comma */
+  line-height: 1;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.06)); /* Removed space before parenthesis */
 }
 @keyframes animate {
-    0%{
-        transform: translateY(0);
-    }
-    20%{
-        transform:translateY(-15px)
-    }
-    40%,100%{
-        transform:translateY(0px)
-    }
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
 }

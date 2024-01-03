@@ -55,10 +55,24 @@ const SitePlan = () => {
       </div>
 
       <aside className={cn("contact")}>
+
+<div>
+<span>+</span>
+<span>+</span>
+<span>+</span>
+<span>+</span>
+<span>+</span>
+<span>+</span>
+</div>
+
+        <div className={cn("contact-info")}>
+
         <h2>Get in touch</h2>
         <p>00 33 6 00 00 00 00</p>
         <p>info@webaccuracy.com</p>
         <p></p>
+        </div>
+          
       </aside>
     </section>
   );
