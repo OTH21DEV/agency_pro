@@ -6,9 +6,9 @@
   background-repeat: no-repeat;
   display: flex;
   flex-wrap:wrap;
-  height: calc(100vh + 20px)
+  height: calc(100vh + 20px);
   /* flex-direction: column; */
-
+  border-top-left-radius: 50px
 }
 
 html, body {

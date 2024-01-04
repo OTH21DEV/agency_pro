@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 import dots from "../../assets/dots.png";
+import arrow from "../../assets/arrow.png"
 // import logo_without from "../../assets/logo_without.png";
 import "./style.css";
 
-const SideNav = () => {
-  const cn = bem("SideNav");
+const MenuButton = () => {
+  const cn = bem("Menu");
   let navigate = useNavigate();
 
   const [isClicked, setIsClicked] = useState(false);
@@ -23,12 +24,14 @@ const SideNav = () => {
   }
 
   return (
-    <div className={cn("")}>
-      <div className={cn("menu")} onClick={handleClick}>
-        <img src={dots} alt=""></img>
-      </div>
+  
+
+    
+    <div className={cn("arrow")} onClick={handleClick}>
+      <img src={arrow} alt=""></img>
     </div>
+  
   );
 };
 
-export default SideNav;
+export default MenuButton

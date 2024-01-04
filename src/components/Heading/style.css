@@ -1,7 +1,7 @@
 .Heading-title {
   color: white;
   font-size: 9em;
-width:100%;
+  width: 100%;
   position: relative;
   line-height: 1;
 }
@@ -11,7 +11,7 @@ width:100%;
   font-size: 15px;
   word-wrap: break-word; /* This is the standard property */
   overflow-wrap: break-word;
-width:40%;
+  width: 40%;
   margin-left: 20px;
   z-index: 2;
   font-weight: lighter;
@@ -25,7 +25,7 @@ width:40%;
   overflow-wrap: break-word;
   width: 100%;
   position: relative;
-  top: -50em;
+  top: -12em;
   display: flex;
 
   position: relative;
@@ -46,6 +46,11 @@ width:40%;
   margin-left: 10px;
 
   vertical-align: middle;
+
+
+  background-color: white;
+  color: #001c25;
+
 }
 
 .Heading-accuracy-pro {
@@ -54,6 +59,6 @@ width:40%;
 }
 
 .agency-container {
-    display: flex;
-    align-items: center; /* Center children vertically */
-  }
+  display: flex;
+  align-items: center; /* Center children vertically */
+}
