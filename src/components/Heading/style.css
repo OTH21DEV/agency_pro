@@ -19,7 +19,8 @@
 }
 
 .Heading {
-  margin-top: 100px;
+  /* margin-top: 100px; */
+  padding-top: 138px;
   margin-left: 6em;
   word-wrap: break-word; /* This is the standard property */
   overflow-wrap: break-word;

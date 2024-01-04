@@ -3,8 +3,8 @@
   background-color: #fe5400;
   width: 100vw;
   position: absolute; 
-   bottom: 0;
-  
+   /* bottom: 0; */
+   bottom: 1em;
   left: 0;
   transition: height 0.3s ease; /* Smooth transition for height change */
   overflow: hidden;

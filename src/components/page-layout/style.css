@@ -1,6 +1,7 @@
 .PageLayout {
   box-shadow: 0 0 15px 5px #0000003b;
   font-family: "Lato", sans-serif;
+  font-family: 'Syne', sans-serif;
   background-size: cover;
   background-image: linear-gradient(rgba(0, 28, 37, 0.8), rgba(0, 28, 37, 0.8)), url("../../assets/bg.jpg");
   background-repeat: no-repeat;

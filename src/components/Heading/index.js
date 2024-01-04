@@ -46,6 +46,7 @@ return (
           <span className="Heading-text">{text}</span>
         </div>
       </h1>
+
     </div>
   );
 };
