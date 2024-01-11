@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    /* overflow: hidden; */
+    overflow: hidden;
   }
   
   .slider {
@@ -16,4 +16,10 @@
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
+  }
+  .arrow-big img{
+     width:254px;
+     height:200px;
+     margin-left:156px;
+     margin-top:94px
   }

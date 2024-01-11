@@ -9,9 +9,10 @@ const LangueBar = () => {
     const cn = bem("Langue");
   return (
     <div className={cn("")}>
-<span className={cn("text")}>ENG</span>
 <img src={globe}alt=""></img>
-
+<span className={cn("text")}>ENG</span>
+<span className={cn("text")}>FRA</span>
+<span className={cn("text")}>RUS</span>
     </div>
   )
 }

@@ -8,7 +8,7 @@ const Footer = () => {
 
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const footerStyle = {
-    height: isScrollingDown ? "60px" : "20px", // Initial value will be '20px' because isScrollingDown is false
+    height: isScrollingDown ? "60px" : "40px", // Initial value will be '20px' because isScrollingDown is false
     transition: "height 0.3s",
     // overflow: "hidden",
   };
@@ -39,7 +39,7 @@ const Footer = () => {
       } else {
         // Scrolling UP
         setIsScrollingDown(false);
-        document.querySelector(".Footer-wrapper").style.height = "20px";
+        document.querySelector(".Footer-wrapper").style.height = "40px";
       }
 
       // Update the last scroll position

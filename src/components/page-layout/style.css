@@ -6,13 +6,26 @@
   background-image: linear-gradient(rgba(0, 28, 37, 0.8), rgba(0, 28, 37, 0.8)), url("../../assets/bg.jpg");
   background-repeat: no-repeat;
   display: flex;
-  flex-wrap:wrap;
+  /* flex-wrap:wrap; */
   height: calc(100vh + 20px);
   /* flex-direction: column; */
-  border-top-left-radius: 50px
+  /* border-top-left-radius: 50px; */
+  flex-direction:column;
+/* 
+   background: linear-gradient(270deg, #f06, #30cfd0, #ffcf71, #ee7752);
+  background-size: 400% 400%;
+  position: relative;
+  animation: movingGradient 8s ease infinite;  */
+  
 }
 
 html, body {
   height: 100%;
   margin: 0; /* Remove default margin */
+}
+
+@keyframes movingGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

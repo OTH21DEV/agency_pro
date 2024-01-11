@@ -1,18 +1,22 @@
 .Langue{
     display:flex;
+    justify-content:flex-end;
     height:45px;
-    background-color: white;
-    margin-left:95px;
+    /* background-color: white; */
+    margin-right:40px;
     align-items: center;
 }
 .Langue img{
     width: 20px;
-    margin-left: 10px;
-    cursor:pointer
+
+    /* cursor:pointer */
 }
 
 .Langue-text{
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size:1em;
-    color:#001c25
+    color:#001c25;
+    color:white;
+    margin-left: 10px;
+    cursor: pointer;
 }

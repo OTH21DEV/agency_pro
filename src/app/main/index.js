@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import SideNav from "../../components/menu-button";
 import PageLayout from "../../components/page-layout";
 import Header from "../../components/header";
@@ -10,31 +10,18 @@ import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
 import MenuButton from "../../components/menu-button";
 import LangueBar from "../../components/langue-bar";
-import SitePlan from '../../components/site-plan'
+import SitePlan from "../../components/site-plan";
 
 import HomePage from "../../components/home-page";
+// import LightBackground from "../../components/light-bg";
+import AnimatedBackground from "../../components/light-bg";
+
 
 const Main = () => {
-
-
-
-
   return (
-    // <>
-    // <LangueBar></LangueBar>
-    //   <PageLayout>
-      
-    //     <Heading text={"designs and develops stunning online experiences. "} icon={arrow_big}></Heading>
-    //    <MenuButton></MenuButton>
-       
-    //     <Gear icon={gear}></Gear>
-    //     <Footer></Footer>
-    //   </PageLayout>
-    // </>
-
-
-<HomePage></HomePage>
-
+  // <AnimatedBackground>
+      <HomePage></HomePage>
+      // </AnimatedBackground>
   );
 };
 

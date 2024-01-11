@@ -4,6 +4,39 @@
   width: 100%;
   position: relative;
   line-height: 1;
+  margin-bottom:0
+}
+
+@media all and (min-width: 375px) and (max-width: 500px) {
+   .Heading-title {
+    padding:10px 0;
+  }
+}
+@media all and (max-width: 2500px) {
+  .Heading-title {
+    font-size: 14em; /* Adjusted to a smaller size */
+  }
+}
+
+
+@media all and (max-width: 1600px) {
+  .Heading-title {
+    font-size: 7em; /* Adjusted to a smaller size */
+  }
+}
+
+/* Further decrease the font size for screens smaller than 768px */
+@media all and (max-width: 768px) {
+  .Heading-title {
+    font-size: 5em; /* Adjusted to a smaller size */
+  }
+}
+
+/* Even further decrease the font size for screens smaller than 480px */
+@media all and (max-width: 480px) {
+  .Heading-title {
+    font-size: 3em; /* Adjusted to a smaller size suitable for mobile devices */
+  }
 }
 
 .Heading-text {
@@ -20,13 +53,13 @@
 
 .Heading {
   /* margin-top: 100px; */
-  padding-top: 138px;
+  /* padding-top: 138px; */
   margin-left: 6em;
   word-wrap: break-word; /* This is the standard property */
   overflow-wrap: break-word;
   width: 100%;
-  position: relative;
-  top: -12em;
+  /* position: relative;
+  top: -12em; */
   display: flex;
 
   position: relative;
@@ -49,8 +82,8 @@
   vertical-align: middle;
 
 
-  background-color: white;
-  color: #001c25;
+  /* background-color: white;
+  color: #001c25; */
 
 }
 

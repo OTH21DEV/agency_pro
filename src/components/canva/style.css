@@ -1,0 +1,8 @@
+#gradient-canvas {
+    width:100%;
+    height:100%;
+    --gradientcolorzero: #6ec3f4;
+    --gradientcolorone: #3a3aff;
+    --gradientcolortwo: #ff61ab;
+    --gradientcolorthree: #E63946;
+}

@@ -1,0 +1,23 @@
+.Slogan {
+    color :white;
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-weight: bold;
+    font-size:1.5em;
+}
+.Slogan li{
+    margin-bottom:10px;
+    padding-left:15px
+}
+.Slogan-wrapper{
+    /* position: relative;
+    bottom: 14em;
+    right: -48em;
+    width: 100%; */
+    display:flex;
+    justify-content:flex-end;
+    /* position: relative;
+    bottom: 20em; */
+    margin-right:30px
+}
