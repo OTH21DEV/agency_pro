@@ -1,0 +1,74 @@
+.Work-flow-card-wrapper{
+    background-color:#f7f7f7;
+    /* color:black; */
+    /* height:100vh; */
+    display:flex;
+    width:100%;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    padding: 2.5rem 3.12rem 0rem 3.12rem;
+    grid-column-gap: 0.25rem;
+    
+    transition: all 0.5s ease;
+}
+
+.Work-flow-card-wrapper:hover{
+    background-color: #222831;
+    color:white;
+}
+.Work-flow-title span{
+    
+    letter-spacing: -.14063rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: TT Hoves, sans-serif;
+    font-size: 2.813rem;
+    font-weight: 400;
+    line-height: 110%;
+    opacity: .2;
+    padding-right: 5px;
+}
+
+.Work-flow-title{
+    
+    
+    letter-spacing: -.14063rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: TT Hoves, sans-serif;
+    font-size: 2.813rem;
+    font-weight: 400;
+    line-height: 110%;
+    /* width:40% */
+flex:1 0 0;
+    
+}
+
+.Work-flow-text{
+
+    margin: 0;
+        font-family: TT Hoves, sans-serif;
+        font-size: 1.25rem;
+        line-height: 150%;
+        /* width:40% */
+        flex:1 0 0;
+        margin-right: 3.12rem;
+     text-align: justify;
+}
+
+.Work-flow-line{
+    width: 93vw;
+    height: 0.0625rem;
+    background-color: #e2e2e2;
+}
+
+.Work-flow-line:hover{
+    background-color:#222831
+}
+
+.Work-flow-card-section{
+    display:flex;
+    padding-right:3.12rem;
+   padding-bottom:2.5rem;
+   /* : 2.5rem 3.12rem ; */
+}

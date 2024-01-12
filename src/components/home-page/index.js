@@ -13,6 +13,8 @@ import LangueBar from "../../components/langue-bar";
 import SitePlan from "../../components/site-plan";
 import Slogan from "../slogan";
 import TableContent from "../table-content";
+// import WorkFlowCard from "../work-flow-card";
+import WorkFlow from "../work-flow";
 import "./style.css";
 
 const HomePage = () => {
@@ -58,6 +60,8 @@ const HomePage = () => {
         </div> */}
       {/* </div> */}
       <TableContent />
+    
+   <WorkFlow></WorkFlow>
     </div>
   );
 };

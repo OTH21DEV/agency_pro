@@ -17,7 +17,7 @@
     width:38%;
     background-color:white;
     margin:3px;
-    padding:50px
+    padding:50px; cursor:pointer;
 }
 #gradient-canvas {
   width:100%;
@@ -161,8 +161,9 @@ justify-content:center;
   display: flex;
   color: white;
   color:black;
-  /* font-size: 2.813rem; */
-  font-size: 4.813rem;
+  font-size: 2.813rem;
+  letter-spacing: -.14063rem;
+  /* font-size: 4.813rem; */
   width: 100%;
   margin-bottom: 10px;
   font-family: "Lato", sans-serif; /* Added comma */
