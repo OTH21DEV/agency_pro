@@ -10,7 +10,7 @@ import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
 import MenuButton from "../../components/menu-button";
 import LangueBar from "../../components/langue-bar";
-import SitePlan from "../../components/site-plan";
+// import SitePlan from "../../components/site-plan";
 
 import HomePage from "../../components/home-page";
 // import LightBackground from "../../components/light-bg";

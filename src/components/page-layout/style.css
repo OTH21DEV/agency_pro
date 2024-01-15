@@ -3,7 +3,7 @@
   font-family: "Lato", sans-serif;
   font-family: 'Syne', sans-serif;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 28, 37, 0.8), rgba(0, 28, 37, 0.8)), url("../../assets/bg.jpg");
+  background-image: linear-gradient(rgba(0, 28, 37, 0.8), rgba(0, 28, 37, 0.8)), url("../../assets/bg.png");
   background-repeat: no-repeat;
   display: flex;
   /* flex-wrap:wrap; */

@@ -11,13 +11,33 @@
     background-size: 100%; */
 }
 
-.rt{
+.Plan-services{
   display: flex;
     justify-content: center;
+    justify-content: space-between;
     width:38%;
     background-color:white;
     margin:3px;
     padding:50px; cursor:pointer;
+    flex-direction:column;
+    min-height:220px;
+}
+
+.Plan-services p{
+  margin-bottom: 0;
+  margin-top:40px;
+  /* margin-top:50px; */
+    font-family: TT Hoves, sans-serif;
+    font-size: 1.25rem;
+    line-height: 150%;
+}
+.Plan-arrow {
+margin-top:20px;
+  align-self: flex-end;
+}
+.Plan-arrow img{
+  width:40px;
+ 
 }
 #gradient-canvas {
   width:100%;
@@ -175,9 +195,9 @@ justify-content:center;
 /* width: 38%; */
 width:100%;
 margin:  3px;
-margin:  60px;
+/* margin:  60px; */
 background-color: white;
-justify-content:center;
+/* justify-content:center; */
 
 background-color: white;
   

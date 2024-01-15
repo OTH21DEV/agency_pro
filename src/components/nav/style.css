@@ -1,0 +1,18 @@
+.Nav-wrapper {
+  display: flex;
+  list-style: none;
+  /* border: 1px solid white;
+  border-radius : 10px */
+}
+
+.Nav-wrapper li {
+  padding-right: 2.25rem;
+  margin:10px 0;
+  height: 1.5rem;
+  color: white;
+  letter-spacing: -0.03rem;
+  /* font-size: 1.125rem; */
+  font-weight: lighter;
+  cursor: pointer;
+  
+}

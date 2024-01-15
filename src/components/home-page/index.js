@@ -10,11 +10,12 @@ import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
 import MenuButton from "../../components/menu-button";
 import LangueBar from "../../components/langue-bar";
-import SitePlan from "../../components/site-plan";
+// import SitePlan from "../../components/site-plan";
 import Slogan from "../slogan";
 import TableContent from "../table-content";
 // import WorkFlowCard from "../work-flow-card";
 import WorkFlow from "../work-flow";
+import NavBar from "../nav-bar";
 import "./style.css";
 
 const HomePage = () => {
@@ -33,7 +34,8 @@ const HomePage = () => {
         <div className="page">
           
             <PageLayout>
-              <LangueBar />
+              <NavBar></NavBar>
+              {/* <LangueBar /> */}
               <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." />
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div className="arrow-big">
@@ -59,9 +61,9 @@ const HomePage = () => {
           <SitePlan />
         </div> */}
       {/* </div> */}
-      <TableContent />
     
    <WorkFlow></WorkFlow>
+      <TableContent />
     </div>
   );
 };
