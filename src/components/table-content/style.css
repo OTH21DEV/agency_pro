@@ -2,13 +2,10 @@
   background-color: #001c25;
   background-color: white;
   /* background-color: #f7f7f7 ; */
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: space-between;
-  /* background-image:url(../../assets/test-bg.png);
-  background-position: 100% 100%;
-    background-repeat: no-repeat;
-    background-size: 100%; */
+
 }
 
 .Plan-services{
@@ -20,16 +17,39 @@
     margin:3px;
     padding:50px; cursor:pointer;
     flex-direction:column;
-    min-height:220px;
+    height:220px;
+    
 }
-
-.Plan-services p{
+.Plan-services-active{
+  display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    width:100%;
+    background-color:white;
+    margin:3px;
+    padding:50px; cursor:pointer;
+    flex-direction:column;
+    height:auto;
+    
+}
+.Plan-text{
   margin-bottom: 0;
   margin-top:40px;
   /* margin-top:50px; */
     font-family: TT Hoves, sans-serif;
     font-size: 1.25rem;
     line-height: 150%;
+}
+
+.Plan-text-active{
+ 
+  margin-bottom: 0;
+  margin-top:40px;
+  /* margin-top:50px; */
+    font-family: TT Hoves, sans-serif;
+    font-size: 1.25rem;
+    line-height: 150%;
+   
 }
 .Plan-arrow {
 margin-top:20px;

@@ -1,0 +1,24 @@
+.Plan-container {
+    background-color: #001c25;
+    background-color: white;
+    /* background-color: #f7f7f7 ; */
+    /* height: 100vh; */
+    display: flex;
+    justify-content: space-between;
+    /* background-image:url(../../assets/test-bg.png);
+    background-position: 100% 100%;
+      background-repeat: no-repeat;
+      background-size: 100%; */
+  }
+  .Plan {
+ 
+    justify-content:center;
+      display: flex;
+      /* flex-direction: column;
+      justify-content: space-evenly; */
+      flex-wrap:wrap;
+      width:100%;
+      align-items:center;
+      align-content: center;
+      background-color:  #f7f7f7 ;
+    }
