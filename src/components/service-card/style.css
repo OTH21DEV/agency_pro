@@ -1,229 +1,305 @@
-.Plan-services{
-    display: flex;
-      justify-content: center;
-      justify-content: space-between;
-      width:38%;
-      background-color:white;
-      margin:3px;
-      padding:50px; cursor:pointer;
-      flex-direction:column;
-      height:220px;
-      
-  }
-  .Plan-services-active{
-    display: flex;
-      justify-content: center;
-      justify-content: space-between;
-      /* width:100%;
-      transition: flex-basis 0.3s ease; */
-      height: auto;
-      background-color:white;
-      margin:3px;
-      padding:50px; cursor:pointer;
-      flex-direction:column;
-      /* height:auto; */
-      
-  }
-  .Plan-text{
-    margin-bottom: 0;
-    margin-top:40px;
-    /* margin-top:50px; */
-      font-family: TT Hoves, sans-serif;
-      font-size: 1.25rem;
-      line-height: 150%;
-  }
-  
-  .Plan-text-active{
-   
-    margin-bottom: 0;
-    margin-top:40px;
-    /* margin-top:50px; */
-      font-family: TT Hoves, sans-serif;
-      font-size: 1.25rem;
-      line-height: 150%;
-     
-  }
-  .Plan-arrow {
-  margin-top:20px;
-    align-self: flex-end;
-  }
-  .Plan-arrow img{
-    width:40px;
-   
-  }
-  #gradient-canvas {
-    width:100%;
-    height:100%;
-    --gradientcolorzero: #6ec3f4;
-    --gradientcolorone: #3a3aff;
-    --gradientcolortwo: #ff61ab;
-    --gradientcolorthree: #E63946;
-  }
-  
-  .fade-in {
-    opacity: 0;
-    animation: fadein 0.5s forwards;
-  }
-  
-  @keyframes fadein {
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .Plan h1 {
-    color: white;
-    /* color: black; */
-    font-size: 6em;
-    width: 100%;
-    font-family: "Lato" sans-serif;
-    line-height: 1;
-   
-  }
-  
-  .Plan {
-   
-  justify-content:center;
-    display: flex;
-    /* flex-direction: column;
-    justify-content: space-evenly; */
-    flex-wrap:wrap;
-    width:100%;
-    align-items:center;
-    align-content: center;
-    background-color:  #f7f7f7 ;
-  }
-  .Plan-contact {
-  
-    height: 100%;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    padding-left: 25px;
+
+  /* .Plan-services {
     position: relative;
-    background-image: url("../../assets/ellipse.png"),url("../../assets/ellipse_small.png");
-    background-repeat: no-repeat, no-repeat;
-    background-position:right 116px bottom -77px, right 44px bottom 81px;
-  
-  
-    /* animation: floatBackgroundLarge 10s linear infinite, floatBackgroundSmall 8s linear infinite forwards; */
-    animation-name: floatBackgroundLarge, floatBackgroundSmall;
-    animation-duration: 12s, 10s;
-    animation-timing-function: linear, linear;
-    animation-iteration-count: infinite, infinite;
-  
-  }
-  
-  @keyframes floatBackgroundLarge {
-    0%, 100% {
-      background-position: right 116px bottom -77px; /* Only change position of first background */
-    }
-    50% {
-      background-position: right 150px bottom -107px; /* Move only the first background */
-    }
-  }
-  
-  @keyframes floatBackgroundSmall {
-    0%, 100% {
-      background-position: right 116px bottom -77px, right 44px bottom 81px; /* First background stays put while second moves */
-    }
-    50% {
-      background-position: right 116px bottom -77px, right 14px bottom 20px; /* Only the second background moves */
-    }
-  }
-  
-  .Plan-contact-info{
-      position: relative; /* Adjust if needed for layering */
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 25px;
-    
-      background: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      /* border: 1px solid rgba(255, 255, 255, 0.27);
-       */
-       /* border-top-left-radius: 50px; */
-  }
-  .Plan-contact div {
+    background-color: white; 
+    z-index: 1; 
     display: flex;
+    justify-content: space-between;
+    width: 25%;
+    background-color: white; 
+    margin: 3px;
+    padding: 50px;
+    cursor: pointer;
     flex-direction: column;
-    justify-content: center;
-  }
-  .Plan-contact div span{
-   padding:40px;
-   display:flex;
-   align-items: center;
-    background-color: blue;
-    color:white;
-    font-weight: bold;
-  }
-  .Plan-contact h2 {
-    color: white;
-    font-size: 1.8em;
-    width: 100%;
-    font-family: "Lato" sans-serif;
-    line-height: 1;
-  }
   
-  .Plan-contact p {
-    color: white;
-    /* color:black */
-    /* font-size: 1.8em;
+    height: 560px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.Plan-services .background-image {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(34, 40, 49, 0), rgba(34, 40, 49, 0.8)),url("../../assets/bg-rotated.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0; 
+    transition: opacity 0.5s ease;
+    z-index: -1; 
+}
+
+.Plan-services:hover .background-image {
+    opacity: 1; 
+} */
+
+
+.Plan-services {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 38%;
+  margin: 3px;
+  padding: 50px;
+  cursor: pointer;
+  flex-direction: column;
+  height: 190px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: white; 
+  /* transition: background-color 0.5s ease;  */
+
+}
+
+
+.Plan-services:hover .Plan-text {
+ color:white /* Fully visible on hover */
+}
+.Plan-services:hover .Plan-wavy span{
+  color:white 
+ }
+.Plan-services-active {
+  /* max-height: 500px; Maximum height when card is active */
+  overflow-y: scroll;
+  width: 38%;
+  height: 160px;
+  height: 190px; 
+  
+  display: flex;
+  justify-content: space-between;
+ 
+  background-color: white;
+  margin: 3px;
+  padding: 50px;
+  cursor: pointer;
+  flex-direction: column;
+  overflow-x: hidden;
+text-align: justify;
+}
+
+.Plan-number{
+  letter-spacing: -0.14063rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: TT Hoves, sans-serif;
+  font-size: 8.813rem;
+  font-weight: 400;
+  line-height: 110%;
+  opacity: 0.2;
+  padding-right: 5px
+}
+.Plan-services-active::-webkit-scrollbar {
+  width: 6px;
+}
+.Plan-services-active::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.Plan-services-active::-webkit-scrollbar-thumb {
+
+  background: #e2e2e2; /* Color of the scrollbar thumb */
+  border-radius: 6px;
+}
+
+.Plan-services-active::-webkit-scrollbar-thumb :hover {
+  background: #555;
+}
+
+.Plan-text {
+  margin-bottom: 0;
+  margin-top: 40px;
+  /* margin-top:50px; */
+  font-family: TT Hoves, sans-serif;
+  font-size: 1.25rem;
+  line-height: 150%;
+}
+
+.Plan-text-active {
+  margin-bottom: 0;
+  margin-top: 40px;
+  /* margin-top:50px; */
+  font-family: TT Hoves, sans-serif;
+  font-size: 1.25rem;
+  line-height: 150%;
+  /* color:white */
+}
+.Plan-arrow {
+  margin-top: 20px;
+  align-self: flex-end;
+}
+.Plan-arrow img {
+  width: 40px;
+}
+#gradient-canvas {
+  width: 100%;
+  height: 100%;
+  --gradientcolorzero: #6ec3f4;
+  --gradientcolorone: #3a3aff;
+  --gradientcolortwo: #ff61ab;
+  --gradientcolorthree: #e63946;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadein 0.5s forwards;
+}
+
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
+.Plan h1 {
+  color: white;
+  /* color: black; */
+  font-size: 6em;
+  width: 100%;
+  font-family: "Lato" sans-serif;
+  line-height: 1;
+}
+
+.Plan {
+  justify-content: center;
+  display: flex;
+  /* flex-direction: column;
+    justify-content: space-evenly; */
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  background-color: #f7f7f7;
+}
+.Plan-contact {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  position: relative;
+  background-image: url("../../assets/ellipse.png"), url("../../assets/ellipse_small.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 116px bottom -77px, right 44px bottom 81px;
+
+  /* animation: floatBackgroundLarge 10s linear infinite, floatBackgroundSmall 8s linear infinite forwards; */
+  animation-name: floatBackgroundLarge, floatBackgroundSmall;
+  animation-duration: 12s, 10s;
+  animation-timing-function: linear, linear;
+  animation-iteration-count: infinite, infinite;
+}
+
+@keyframes floatBackgroundLarge {
+  0%,
+  100% {
+    background-position: right 116px bottom -77px; /* Only change position of first background */
+  }
+  50% {
+    background-position: right 150px bottom -107px; /* Move only the first background */
+  }
+}
+
+@keyframes floatBackgroundSmall {
+  0%,
+  100% {
+    background-position: right 116px bottom -77px, right 44px bottom 81px; /* First background stays put while second moves */
+  }
+  50% {
+    background-position: right 116px bottom -77px, right 14px bottom 20px; /* Only the second background moves */
+  }
+}
+
+.Plan-contact-info {
+  position: relative; /* Adjust if needed for layering */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 25px;
+
+  background: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(255, 255, 255, 0.27);
+       */
+  /* border-top-left-radius: 50px; */
+}
+.Plan-contact div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Plan-contact div span {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}
+.Plan-contact h2 {
+  color: white;
+  font-size: 1.8em;
+  width: 100%;
+  font-family: "Lato" sans-serif;
+  line-height: 1;
+}
+
+.Plan-contact p {
+  color: white;
+  /* color:black */
+  /* font-size: 1.8em;
     width: 100%;
     font-family: "Lato" sans-serif;
     line-height: 1; */
-  }
-  
-  .Plan-wavy:hover span {
-    position: relative;
-  
-    animation: animate 1s ease-in-out forwards;
-    animation-delay: calc(0.1s * var(--i));
-  }
-  
-  .Plan-wavy span {
-    position: relative;
-  }
-  
-  .Plan-wavy {
-    display: flex;
-    color: white;
-    color:black;
-    font-size: 2.813rem;
-    letter-spacing: -.14063rem;
-    /* font-size: 4.813rem; */
-    width: 100%;
-    margin-bottom: 10px;
-    font-family: "Lato", sans-serif; /* Added comma */
-    line-height: 1;
-    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.06)); 
-    -webkit-box-reflect: below -7px linear-gradient(transparent, rgba(0, 0, 0, 0.11)); 
-  
-  
+}
+
+.Plan-wavy:hover span {
+  position: relative;
+
+  animation: animate 1s ease-in-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.Plan-wavy span {
+  position: relative;
+}
+
+.Plan-wavy {
+  display: flex;
+  color: white;
+  color: black;
+  font-size: 2.813rem;
+  letter-spacing: -0.14063rem;
+  /* font-size: 4.813rem; */
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: "Lato", sans-serif; /* Added comma */
+  line-height: 1;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-reflect: below -7px linear-gradient(transparent, rgba(0, 0, 0, 0.11));
+
   /* width: 38%; */
-  width:100%;
-  margin:  3px;
+  width: 100%;
+  /* margin: 3px; */
   /* margin:  60px; */
-  background-color: white;
-  /* justify-content:center; */
-  
-  background-color: white;
-    
+  /* background-color: white;
+
+
+  background-color: white; */
+
+}
+@keyframes animate {
+  0% {
+    transform: translateY(0);
   }
-  @keyframes animate {
-    0% {
-      transform: translateY(0);
-    }
-    20% {
-      transform: translateY(-15px);
-    }
-    40%,
-    100% {
-      transform: translateY(0px);
-    }
+  20% {
+    transform: translateY(-15px);
   }
-  
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
+}

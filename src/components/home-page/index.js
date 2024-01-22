@@ -17,6 +17,7 @@ import TableContent from "../table-content";
 import WorkFlow from "../work-flow";
 import NavBar from "../nav-bar";
 import ServiceCards from "../service-cards";
+import ProjectCards from "../project-cards";
 import "./style.css";
 
 const HomePage = () => {
@@ -66,6 +67,7 @@ const HomePage = () => {
    <WorkFlow></WorkFlow>
       {/* <TableContent /> */}
       <ServiceCards></ServiceCards>
+      <ProjectCards></ProjectCards>
     </div>
   );
 };

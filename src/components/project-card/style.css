@@ -1,0 +1,41 @@
+.phone-frame {
+  position: relative;
+  width: 400px; /* Set the width of the phone frame */
+  height: 400px; /* Set the height of the phone frame */
+  margin: auto; /* Centering the phone frame horizontally */
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+}
+.phone-frame img {
+  display: block; /* Remove default image bottom spacing */
+  width: 100%; /* Make phone frame image fill the parent frame */
+  height: auto;
+  
+}
+.screen-content {
+  position: absolute;
+  width: 173px; /* Set the width of the screen content */
+  height: 365px; /* Set the height of the screen content */
+  /* top: 50%; */
+  /* left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -90.5%);  */
+
+  overflow: hidden; /* Hide any content that overflows */
+  width: 100%;
+   left: 28.5%;
+
+}
+
+.screen-content img {
+  width: 100%; /* Image width should be at most 100% of its container */
+  height: 100%; /* Image height should be at most 100% of its container */
+  display: block; /* Remove default image spacing */
+  border-radius: 17px;
+  object-fit: contain;
+  
+  /* width: 220px;
+  height: 365px; */
+  max-width: 173px;
+}
