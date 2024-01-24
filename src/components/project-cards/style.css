@@ -1,0 +1,30 @@
+.Slider {
+  
+  /* background-color: yellowgreen; */
+  overflow: hidden;
+  display: flex;
+  /*test*/
+  height:100vh;
+  position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#next,
+#prev {
+  position: absolute;
+  /* top: 40%; */
+  background-color: transparent;
+  border: none;
+  /* font-size:xxx-large; */
+  font-family: monospace;
+  font-weight: bold;
+  left: 50px;
+  color: white;
+}
+
+#next {
+  left: unset;
+  right: 50px;
+}

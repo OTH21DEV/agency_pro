@@ -9,7 +9,7 @@ const Nav = () => {
       <li
         onClick={(e) => {
           e.preventDefault();
-          console.log(e);
+         
           window.scrollTo({
             top: document.getElementById("work-flow").offsetTop,
             behavior: "smooth",
@@ -21,7 +21,7 @@ const Nav = () => {
       <li
         onClick={(e) => {
           e.preventDefault();
-          console.log(e);
+ 
           window.scrollTo({
             top: document.querySelector(".Plan-container").offsetTop,
             behavior: "smooth",
@@ -30,7 +30,14 @@ const Nav = () => {
       >
         Services
       </li>
-      <li>Portfolio</li>
+      <li  onClick={(e) => {
+          e.preventDefault();
+         
+          window.scrollTo({
+            top: document.querySelector(".Slider").offsetTop,
+            behavior: "smooth",
+          });
+        }}>Portfolio</li>
       <li>Contact</li>
     </ul>
   );

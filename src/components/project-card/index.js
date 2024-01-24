@@ -1,23 +1,30 @@
 import React, { useEffect, useState, useRef } from "react";
-import phone_frame from "../../assets/phone_frame.png"
 
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 
+const ProjectCard = ({ phone_frame, screen_image, description, active, id }) => {
+  const cn = bem("Nav-wrapper");
 
-
-import screen from "../../assets/ecran_mobile.png"
-const ProjectCard = () => {
-    const cn = bem("Nav-wrapper");
-
-    return (
+  return (
+    <>
       <div className="phone-frame">
         <img src={phone_frame} alt="Phone Frame" />
         <div className="screen-content">
-          <img src={screen} alt="Web Project Screenshot" />
+          <img src={screen_image} alt="Web Project Screenshot" />
         </div>
       </div>
-    );
-  }
 
-export default ProjectCard
+      {active === id && (
+        <div className={cn("project-description")}>
+          <p>{description}</p>
+        </div>
+      )}
+
+
+
+    </>
+  );
+};
+
+export default ProjectCard;
