@@ -9,60 +9,71 @@ import dashboard_screen from "../../assets/dasboard_screen.png";
 import rest_screen from "../../assets/rest_screen.png";
 import bank_screen from "../../assets/bank_screen.png";
 import immo_screen from "../../assets/immo_screen.png";
+import arrow_slider from "../../assets/arrow-slider.png";
 
 const ProjectCards = () => {
   const cn = bem("Slider");
 
   const projects = [
     {
-      id:0,
-      description: [" UI/UX Design , Responsive Web Design , Graphic Design"],
+      id: 0,
+      description: [
+        " Banking App Landing Page : Crafted using React and Redux for seamless state management. This platform ensures secure access through a robust user token authentication system. Experience smooth financial operations with real-time API connectivity and enjoy compatibility across all devices. ",
+      ],
       backgroundImage: bank_screen,
     },
     {
-      id:1,
-      description: [" UI/UX Design , Responsive Web Design , Graphic Design"],
+      id: 1,
+      description: [
+        " Fitness Tracking Dashboard :  React-crafted dashboard is the ultimate hub for monitoring the fitness activities. It presents a user-friendly landing page that encapsulates rich data from various APIs. Visualize the progress, set goals, and analyze detailed activity metrics. ",
+      ],
       backgroundImage: dashboard_screen,
     },
     {
-      id:2,
-      description: [" UI/UX Design , Responsive Web Design , Graphic Design"],
+      id: 2,
+      description: [
+        " Restaurant Landing Page : Discover culinary excellence where React's dynamic capabilities meet breathtaking animations. Delight in a sumptuous interface that brings the menu to life, creating an immersive experience as you navigate through the offerings. ",
+      ],
       backgroundImage: rest_screen,
     },
     {
-      id:3,
-      description: [" Corporate Network App : a secure and streamlined platform designed to enhance corporate communications. Built with React, Node.js, Express, and MySQL, our app empowers teams to manage and discuss internal publications with ease. Experience efficient content management and real-time collaboration in one intuitive interface."],
+      id: 3,
+      description: [
+        " Corporate Network App : A secure and streamlined platform designed to enhance corporate communications. Built with React, Node.js, Express, and MySQL, the app empowers teams to manage and discuss internal publications with ease. Experience efficient content management and real-time collaboration in one intuitive interface.",
+      ],
       backgroundImage: screen_image,
     },
     {
-      id:4,
-      description: [" UI/UX Design , Responsive Web Design , Graphic Design"],
+      id: 4,
+      description: [
+        " Real Estate App Landing Page : React-powered landing page features a stunning gallery of properties, responsive design for all devices, and advanced search filters to streamline the search.",
+      ],
       backgroundImage: immo_screen,
     },
-    {
-      id:5,
-      description:[" UI/UX Design , Responsive Web Design , Graphic Design"],
-      backgroundImage: dashboard_screen,
-    },
-
+    // {
+    //   id:5,
+    //   description:[" Fitness Tracking Dashboard : the React-crafted dashboard is the ultimate hub for monitoring your fitness activities. It presents a user-friendly landing page that encapsulates rich data from various APIs. Visualize your progress, set goals, and analyze detailed activity metrics — all at your fingertips. "],
+    //   backgroundImage: dashboard_screen,
+    // },
   ];
-
-
-
 
   const [active, setActive] = useState(3);
 
   const handlePrevClick = () => {
-    setActive(prevActive => (prevActive - 1 + projects.length) % projects.length);
+    setActive((prevActive) => (prevActive - 1 + projects.length) % projects.length);
+    console.log('Active before:', active);
   };
-  
+
   const handleNextClick = () => {
-    setActive(prevActive => (prevActive + 1) % projects.length);
+    setActive((prevActive) => (prevActive + 1) % projects.length);
+    console.log('Active after:', active);
   };
+
+
 
   useEffect(() => {
     let phoneFrames = document.querySelectorAll(".phone-frame");
-    console.log(phoneFrames[active])
+    console.log(phoneFrames[active]);
 
     const load = () => {
       phoneFrames[active].style.transform = `none`;
@@ -74,9 +85,9 @@ const ProjectCards = () => {
       for (let i = active + 1; i < phoneFrames.length; i++) {
         stt++;
         // applyStylesToFrame(phoneFrames[i], 120 * stt, -stt, 1 - 0.2 * stt);
-        phoneFrames[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
+        phoneFrames[i].style.transform = `translateX(${132 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
         phoneFrames[i].style.zIndex = -stt;
-        phoneFrames[i].style.filter = "blur(2px)";
+        phoneFrames[i].style.filter = "blur(1px)";
         phoneFrames[i].style.opacity = stt > 2 ? 0 : 0.6;
       }
 
@@ -84,37 +95,34 @@ const ProjectCards = () => {
       for (let i = active - 1; i >= 0; i--) {
         stt++;
         // applyStylesToFrame(phoneFrames[i][i], -120 * stt, -stt, 1 - 0.2 * stt);
-        phoneFrames[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
+        phoneFrames[i].style.transform = `translateX(${-132 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
         phoneFrames[i].style.zIndex = -stt;
-        phoneFrames[i].style.filter = "blur(2px)";
+        phoneFrames[i].style.filter = "blur(1px)";
         phoneFrames[i].style.opacity = stt > 2 ? 0 : 0.6;
       }
-    
-    }
+    };
     load();
-
-
   }, [active]);
 
   return (
+    // <section>
     <div className={cn("")}>
-      {/* <ProjectCard></ProjectCard> */}
+ 
 
       {projects.map((project, index) => (
-        
-        <ProjectCard id={project.id}active={active}key={index} screen_image={project.backgroundImage} phone_frame={phone_frame} description={project.description}/>
-      
-        
-        
+        <ProjectCard   id={project.id} active={active} key={project.id} screen_image={project.backgroundImage} phone_frame={phone_frame} description={project.description} />
       ))}
-      <button id="prev" onClick={handlePrevClick}>
-        `prev`{" "}
-      </button>
-      <button id="next" onClick={handleNextClick}>
-        `next`{" "}
-      </button>
+ 
+      <div id="prev" onClick={handlePrevClick}>
+        <img src={arrow_slider} alt=""></img>
+      </div>
+
+      <div id="next" onClick={handleNextClick}>
+        <img src={arrow_slider} alt=""></img>
+      </div>
 
     </div>
+    //  </section>
   );
 };
 

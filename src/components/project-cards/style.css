@@ -1,30 +1,66 @@
 .Slider {
-  
-  /* background-color: yellowgreen; */
+  z-index: 99;
+  background-color: #f7f7f7;
   overflow: hidden;
   display: flex;
   /*test*/
-  height:100vh;
-  position:relative;
-  display:flex;
+  height: 100vh;
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
+  
 }
-
+section{
+  position:relative;
+}
 #next,
 #prev {
   position: absolute;
-  /* top: 40%; */
-  background-color: transparent;
-  border: none;
-  /* font-size:xxx-large; */
-  font-family: monospace;
-  font-weight: bold;
+  top: 40%;
+
   left: 50px;
-  color: white;
+  color: black;
+  cursor: pointer;
+  top: 35%; 
+  transform: translateY(-35%); 
+  opacity:0.7;
+  transition: opacity 0.3s ease;
 }
 
 #next {
   left: unset;
   right: 50px;
+}
+#prev img {
+  transform: rotate(90deg);
+  width: 40px;
+}
+
+#next img {
+  transform: rotate(-90deg);
+  width: 40px;
+}
+
+#prev {
+  left: 12vw; /* Keeps a distance from the left edge based on viewport width */
+}
+
+#next {
+  right: 12vw; /* Keeps a distance from the right edge based on viewport width */
+}
+
+#prev img {
+  transform: translateX(-35%) rotate(90deg);
+  width: 40px;
+}
+
+#next img {
+  transform: translateX(35%) rotate(-90deg);
+  width: 40px;
+}
+
+#next:hover,
+#prev:hover {
+  opacity: 1; 
 }
