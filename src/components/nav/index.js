@@ -11,7 +11,7 @@ const Nav = () => {
           e.preventDefault();
          
           window.scrollTo({
-            top: document.getElementById("work-flow").offsetTop,
+            top: document.querySelector(".Work-flow-section").offsetTop,
             behavior: "smooth",
           });
         }}
@@ -38,7 +38,14 @@ const Nav = () => {
             behavior: "smooth",
           });
         }}>Portfolio</li>
-      <li>Contact</li>
+      <li onClick={(e) => {
+          e.preventDefault();
+         
+          window.scrollTo({
+            top: document.querySelector(".Contact").offsetTop,
+            behavior: "smooth",
+          });
+        }}>Contact</li>
     </ul>
   );
 };

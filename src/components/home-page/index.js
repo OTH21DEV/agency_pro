@@ -18,6 +18,8 @@ import WorkFlow from "../work-flow";
 import NavBar from "../nav-bar";
 import ServiceCards from "../service-cards";
 import ProjectCards from "../project-cards";
+import Contact from "../contact";
+import ScrollTop from "../scroll-top";
 import "./style.css";
 
 const HomePage = () => {
@@ -57,6 +59,8 @@ const HomePage = () => {
   
       <ServiceCards></ServiceCards>
       <ProjectCards></ProjectCards>
+      <Contact></Contact>
+      <ScrollTop></ScrollTop>
     </div>
   );
 };
