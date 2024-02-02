@@ -26,7 +26,7 @@ const ServiceCard = ({ title, description, bulletPoints, isOpen, index, onClick,
   };
   
   const cardStyle = {
-    backgroundImage: isHovered ? `linear-gradient(rgba(34, 40, 49, 0.4), rgba(34, 40, 49, .8)),url(${backgroundImage})` : "none",
+    backgroundImage: isHovered ? `linear-gradient(rgba(34, 40, 49, 0.4), rgba(34, 40, 49, 1)),url(${backgroundImage})` : "none",
     backgroundSize: isHovered ? 'cover' : '', 
     backgroundPosition: isHovered ? 'center' : '', 
     backgroundRepeat: isHovered ? 'no-repeat' : '',

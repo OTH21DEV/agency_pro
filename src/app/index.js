@@ -2,14 +2,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import React from "react";
 import Main from "./main";
 import Plan from "./plan"
-import PageTrasitionWrapper from "../components/page-transition";
+
 
 const App = () => {
     return (
       <>
         <Router>
           <Routes>
-            <Route path="/" element={<PageTrasitionWrapper><Main/></PageTrasitionWrapper>}></Route>
+            <Route path="/" element={<Main/>}></Route>
             {/* <Route path="/plan" element={<PageTrasitionWrapper><Plan/></PageTrasitionWrapper>}></Route> */}
             {/* <Route path="/work-flow" element={<WorkFlowCard/>}></Route> */}
             {/* <Route path="/login" element={<Login />} />

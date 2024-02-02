@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
-import contact_bg from"../../assets/contact_bg.jpg"
-import arrow_white from"../../assets/arrow_white.png"
+import contact_bg from "../../assets/contact_bg.jpg";
+import arrow_white from "../../assets/arrow_white.png";
+
 const Contact = () => {
   const cn = bem("Contact");
   const text =
@@ -12,29 +13,33 @@ const Contact = () => {
   const sentences = text.split(/\. +/);
 
   return (
-    <section className={cn("")}>
+    <>
+      <section className={cn("")}>
         <div className={cn("bg")}>
-            <img src={contact_bg} alt=""></img>
+          <img src={contact_bg} alt=""></img>
         </div>
-      <div className={cn("wrapper")}>
-        <div className={cn("content")}>
-          {sentences.map((sentence, index) => (
-            <p key={index}>
-              {sentence}
-              {index !== sentences.length - 1 && `.\n`}
-            </p>
-          ))}
-          {/* <p>{text}</p> */}
-        </div>
+        <div className={cn("wrapper")}>
+          <div className={cn("content")}>
+            {sentences.map((sentence, index) => (
+              <p key={index}>
+                {sentence}
+                {index !== sentences.length - 1 && `.\n`}
+              </p>
+            ))}
+            {/* <p>{text}</p> */}
+          </div>
           <div className={cn("email")}>
             <h2>Have a project in your mind?</h2>
             <a href="mailto:contact@test.com" className={cn("link")}>
-            <p>Contact Us</p>
-<img src={arrow_white} alt=""></img>
+              <p>Contact Us</p>
+              <img src={arrow_white} alt=""></img>
             </a>
           </div>
-      </div>
-    </section>
+        </div>
+
+      </section>
+    
+    </>
   );
 };
 

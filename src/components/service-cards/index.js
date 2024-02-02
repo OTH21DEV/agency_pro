@@ -24,8 +24,9 @@ const ServiceCards = () => {
       bulletPoints: ["UI/UX Design: crafting user interfaces and experiences.", "Responsive Web Design: ensuring websites look good on all devices.", "Graphic Design: Creating visual content.",
     
     ],
+    backgroundImage: backgroundI,
     // backgroundImage: backgroundImage,
-    backgroundImage: backgroundDes,
+    // backgroundImage: backgroundDes,
     },
     // ... add other service categories here
     {
@@ -41,8 +42,8 @@ const ServiceCards = () => {
 
         "  Web Application Development: building dynamic and interactive web applications tailored to specific business needs.",
       ],
-      // backgroundImage: backgroundImg,
-      backgroundImage: backgroundDev,
+      backgroundImage: backgroundImage,
+      // backgroundImage: backgroundDev,
     },
     {
       title: "Support & Maintenance Services",
@@ -64,7 +65,7 @@ const ServiceCards = () => {
         " Search Engine Optimization (SEO): optimizing websites to rank higher in search engine results and attract more organic traffic.",
         "Web Accessibility: ensuring that websites are accessible to individuals with disabilities, compliant with WCAG guidelines.",
       ],
-      backgroundImage: backgroundI,
+      backgroundImage: backgroundImg ,
     },
   ];
 

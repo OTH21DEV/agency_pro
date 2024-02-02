@@ -1,0 +1,107 @@
+.loader-container {
+  display: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #0d232a;
+  padding-right: 3.12rem;
+  transition: transform 0.5s ease-in-out;
+  /* visibility: hidden; */
+}
+
+.loader-container div {
+  color: white;
+  justify-self: flex-end;
+  padding-left: 3.12rem;
+  letter-spacing: -0.14063rem;
+
+  font-family: TT Hoves, sans-serif;
+  font-size: 1.213rem;
+}
+.loader-container div p {
+  margin: 0;
+  font-size: 1 rem;
+}
+.animated-number {
+  font-size: 5rem; 
+  color: white;
+  letter-spacing: -0.14063rem;
+  font-family: TT Hoves, sans-serif;
+  font-size: 7.813rem;
+  font-weight: 400;
+  align-self: flex-end;
+}
+
+/* The initial state of number before and after '23' */
+.animated-number {
+  opacity: 1;
+
+}
+
+/* Keyframes for 23 to slide up and fade out, while scaling down */
+@keyframes slideUpFadeOut {
+  to {
+ 
+    transform: translateY(-100%);
+  }
+}
+
+/* Trigger the slideUpFadeOut for the initial number */
+.animated-number:not(.from-middle-position):not(.from-end-position) {
+  animation-name: slideUpFadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+/* Style for number '67' to start from where '23' ended, scaled down, and slide into place */
+.from-middle-position {
+
+  transform: translateY(-100%); /* Start from '23's end position and scaled down */
+  animation-name: fadeInSlideDownScaleUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.03s;
+  animation-timing-function: ease;
+
+}
+
+/* Keyframes for 67 to fade in, slide down, and scale up into position */
+@keyframes fadeInSlideDownScaleUp {
+  to {
+    opacity: 1;
+    transform: translateY(-200%);
+  }
+}
+
+.from-end-position {
+
+  transform: translateY(-200%); /* Start from '67's end position */
+  animation-name: slideUpFor100;
+  animation-duration: 0.5s; 
+  animation-timing-function: ease;
+  animation-fill-mode: forwards; 
+  animation-delay: 0.06s; 
+}
+
+/* Keyframes for 100 to slide up into final position */
+@keyframes slideUpFor100 {
+  to {
+    opacity: 1;
+    transform: translateY(-400%);
+  }
+}
+/* Adding a transition for the slide up effect */
+.loader-container {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* When the loader container is finished, it should slide up */
+.loader-container.slide-up {
+  transform: translateY(-100vh);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Added opacity to transition */
+  /* display: none; */
+
+}

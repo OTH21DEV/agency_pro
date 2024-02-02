@@ -1,4 +1,10 @@
-.Nav-bar-wrapper{
-    display:flex;
-    justify-content: end;
+.Nav-bar-wrapper {
+  display: flex;
+  justify-content: end;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out 0.8s;
+}
+
+.Nav-bar-wrapper.visible {
+  transform: translateY(0);
 }
