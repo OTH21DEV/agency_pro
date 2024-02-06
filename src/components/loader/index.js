@@ -61,7 +61,7 @@ const Loader = () => {
     const showPageContainer = document.querySelector(".container");
 const navBar =  document.querySelector(".Nav-bar-wrapper")
 const heading = document.querySelector(".Heading")
-
+const pro = document.querySelector(".Heading-pro")
     if (isSlidingUp) {
       loaderContainerRef.current.classList.add("slide-up");
 
@@ -84,9 +84,10 @@ const heading = document.querySelector(".Heading")
           navBar.addEventListener('transitionend', () => {
             // Only after the NavBar has finished transitioning, show the Heading
             heading.classList.add("visible");
+      
+           pro.classList.add("visible");
           });
-          // heading.classList.add("visible");
-         
+     
 
         }, earlyStartMs);
       };

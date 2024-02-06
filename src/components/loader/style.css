@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   background-color: #0d232a;
+  background-color: black;
   padding-right: 3.12rem;
   transition: transform 0.5s ease-in-out;
   /* visibility: hidden; */
@@ -19,6 +20,7 @@
 
   font-family: TT Hoves, sans-serif;
   font-size: 1.213rem;
+  color:  #e1dfdd
 }
 .loader-container div p {
   margin: 0;
@@ -32,6 +34,7 @@
   font-size: 7.813rem;
   font-weight: 400;
   align-self: flex-end;
+  color:#e1dfdd
 }
 
 /* The initial state of number before and after '23' */

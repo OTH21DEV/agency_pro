@@ -1,18 +1,26 @@
 .Nav-wrapper {
   display: flex;
   list-style: none;
-
+  mix-blend-mode: multiply;
+  padding-bottom: 30px;
+  /* background-color: transparent; */
 
 }
 
 .Nav-wrapper li {
   padding-right: 2.25rem;
-  margin:10px 0;
+  margin: 10px 0;
   height: 1.5rem;
-  color: white;
   letter-spacing: -0.03rem;
-  /* font-size: 1.125rem; */
-  font-weight: lighter;
   cursor: pointer;
-  
+  color: black; /* Text color */
+  font-weight: bold;
+  font-size: 1.25rem;
+
 }
+
+/* Variables (adjust these according to your color scheme) */
+:root {
+  --light-grey: #ddd;
+}
+

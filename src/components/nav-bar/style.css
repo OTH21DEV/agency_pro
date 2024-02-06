@@ -3,8 +3,29 @@
   justify-content: end;
   transform: translateY(-100%);
   transition: transform 0.5s ease-in-out 0.8s;
+ 
+  background-color: #e1dfdd;
 }
-
 .Nav-bar-wrapper.visible {
   transform: translateY(0);
+
+
+}
+
+
+
+.Nav-bar-wrapper---sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #e1dfdd;
+    /* mix-blend-mode:difference;
+    color:#e1dfdd;
+
+    z-index: 10000; */
+
+    /* z-index:10000; */
+    /* background-color: #e1dfdd; */
 }

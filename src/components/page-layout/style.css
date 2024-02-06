@@ -1,26 +1,18 @@
 .PageLayout {
   box-shadow: 0 0 15px 5px #0000003b;
   font-family: "Lato", sans-serif;
-  font-family: 'Syne', sans-serif;
-  background-size: cover;
+  font-family: "Syne", sans-serif;
+  /* background-size: cover;
   background-image: linear-gradient(rgba(0, 28, 37, 0.8), rgba(0, 28, 37, 0.8)), url("../../assets/bg.png");
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   display: flex;
-  /* flex-wrap:wrap; */
   height: calc(100vh + 20px);
-  /* flex-direction: column; */
-  /* border-top-left-radius: 50px; */
-  flex-direction:column;
-/* 
-   background: linear-gradient(270deg, #f06, #30cfd0, #ffcf71, #ee7752);
-  background-size: 400% 400%;
-  position: relative;
-  animation: movingGradient 8s ease infinite;  */
-  
+  flex-direction: column;
+  background-color: #e1dfdd;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  margin: 0; 
+  margin: 0;
 }
-
