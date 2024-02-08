@@ -9,6 +9,18 @@
     transition: .3s;
 
   }
+  .image-container-wrapper{
+    height:300px;
+    opacity:0;
+    overflow: hidden;
+    transition: transform 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+    transform: scaleY(40%); /* Start state */
+    transform-origin: bottom;
+  }
+  .image-container-wrapper.visible{
+    transform: scaleY(100%);
+    opacity: 1;
+  }
   
   #image-container {
     margin-left:3em;
@@ -19,7 +31,8 @@
     height: 200px;
     z-index: 4;
 
-    background: url("../../assets/contact_bg.jpg");
+    /* background: url("../../assets/contact_bg.jpg"); */
+    /* background: url("../../assets/video.mp4"); */
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,15 +42,28 @@
     cursor:none;
 
     transition: transform 1s cubic-bezier(0.62,0.05,0.01,0.99);
+    transform-origin: 50% 50%;
   }
+
+
+
+  #background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Ensure the video stays in the background */
+    object-fit: cover;
+  }
+
   #image-container.dragging {
     transform: scaleY(1.2); 
   }
-  #image-container.dragging .custom-cursor {
-    transform: scale(1.2) scaleY(1.2 / 1.2);
-    opacity: 1;
-  }
- 
+
    #image-container:hover .custom-cursor,
    #image-container:active .custom-cursor {
      

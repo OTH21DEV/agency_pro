@@ -65,6 +65,7 @@ const pro = document.querySelector(".Heading-pro")
 const text = document.querySelector(".Heading-text")
 const arrow = document.querySelector(".arrow-big")
 const slogan = document.querySelector(".Slogan")
+const image = document.querySelector(".image-container-wrapper")
 
     if (isSlidingUp) {
       loaderContainerRef.current.classList.add("slide-up");
@@ -93,8 +94,13 @@ const slogan = document.querySelector(".Slogan")
            text.classList.add("visible");
           arrow.classList.add("visible");
           slogan.classList.add("visible");
+          image.classList.add("visible");
+          image.style.transitionDelay=".3s"
           });
-     
+      // heading.addEventListener('transitionend', () => {
+   
+      //     image.classList.add("visible");
+      //     });
 
         }, earlyStartMs);
       };

@@ -2,18 +2,19 @@
     color :white;
     font-family: 'Syne', sans-serif;
     text-transform: uppercase;
-    letter-spacing: .2em;
+    /* letter-spacing: .2em; */
     font-weight: bold;
     font-size:1.5em;
     list-style:none;
 
-
+padding-left:20px;
     overflow: hidden;
 
 
 }
 .Slogan li {
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    
     padding-left: 15px; 
     color: black;
     opacity: 0;
@@ -37,7 +38,7 @@
     opacity: 1;
 }
 .Slogan li{
-    margin-bottom:10px;
+    /* margin-bottom:10px; */
     padding-left:15px; color:black
 }
 .Slogan-wrapper{
