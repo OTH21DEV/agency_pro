@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import SideNav from "../../components/menu-button";
 import PageLayout from "../../components/page-layout";
 import Header from "../../components/header";
@@ -22,91 +22,52 @@ import Contact from "../contact";
 import ScrollTop from "../scroll-top";
 import ContactFooter from "../contact-footer";
 import Loader from "../loader";
-
+import DraggableImg from "../draggable-img";
 import "./style.css";
 
 const HomePage = () => {
-
-
   const [loadingComplete, setLoadingComplete] = useState(false);
   const containerRef = useRef();
 
 
-//   return (
-//     <>
-//       <Loader > </Loader>
-//       {/* <div ref={containerRef} className={`container ${loadingComplete ? 'slide-in' : ''}`}> */}
-//       <div  className={"container"}>
-//         <div className="page">
-//           <PageLayout>
-//             <NavBar></NavBar>
-//             {/* <LangueBar /> */}
-//             <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." />
-//             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-//               <div className="arrow-big">
-//                 <img src={arrow_big} alt=""></img>
-//               </div>
-//               <div style={{ display: "flex", flexDirection: "column-reverse", alignItems: "flex-end", marginRight: "60px", marginTop: "60px" }}>
-//                 <Slogan></Slogan>
-//               </div>
-//             </div>
-//             <Gear icon={gear} />
-//           </PageLayout>
-//           <Footer />
-//         </div>
-
-//         <WorkFlow></WorkFlow>
-
-//         <ServiceCards></ServiceCards>
-//         <ProjectCards></ProjectCards>
-//         <Contact></Contact>
-//         <ContactFooter></ContactFooter>
-//         <ScrollTop></ScrollTop>
-//       </div>
-//     </>
-//   );
-// };
-
-return (
-  <>
-    <Loader > </Loader>
-    {/* <div ref={containerRef} className={`container ${loadingComplete ? 'slide-in' : ''}`}> */}
-    <div  className={"container"}>
-          <NavBar></NavBar>
-      {/* <div className="page"> */}
+  return (
+    <>
+      <Loader> </Loader>
+      {/* <div ref={containerRef} className={`container ${loadingComplete ? 'slide-in' : ''}`}> */}
+      <div className={"container"}>
+        <NavBar></NavBar>
+        {/* <div className="page"> */}
         {/* <PageLayout> */}
-          {/* <LangueBar /> */}
+        {/* <LangueBar /> */}
 
-
-          <div className="page">
-
+        <div className="page">
           <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." />
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <DraggableImg/>
+          <div style={{ display: "flex", alignItems: "center", position: "absolute", bottom: "0", paddingLeft: "3rem" }}>
+            
             <div className="arrow-big">
-              <img src={arrow_big} alt=""></img>
+              <img src={arrow_big} alt="" className="arrow-big-img"></img>
             </div>
-            <div style={{ display: "flex", flexDirection: "column-reverse", alignItems: "flex-end", marginRight: "60px", marginTop: "60px" }}>
+            <div style={{ display: "flex", flexDirection: "column-reverse", alignItems: "flex-end" }}>
               <Slogan></Slogan>
             </div>
           </div>
+        </div>
 
-
-</div>
-
-          <Gear icon={gear} />
+        <Gear icon={gear} />
         {/* </PageLayout> */}
         <Footer />
-      {/* </div> */}
+        {/* </div> */}
 
-      <WorkFlow></WorkFlow>
+        <WorkFlow></WorkFlow>
 
-      <ServiceCards></ServiceCards>
-      <ProjectCards></ProjectCards>
-      <Contact></Contact>
-      <ContactFooter></ContactFooter>
-      <ScrollTop></ScrollTop>
-    </div>
-  </>
-);
+        <ServiceCards></ServiceCards>
+        <ProjectCards></ProjectCards>
+        <Contact></Contact>
+        <ContactFooter></ContactFooter>
+        <ScrollTop></ScrollTop>
+      </div>
+    </>
+  );
 };
 export default HomePage;

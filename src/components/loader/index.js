@@ -62,6 +62,10 @@ const Loader = () => {
 const navBar =  document.querySelector(".Nav-bar-wrapper")
 const heading = document.querySelector(".Heading")
 const pro = document.querySelector(".Heading-pro")
+const text = document.querySelector(".Heading-text")
+const arrow = document.querySelector(".arrow-big")
+const slogan = document.querySelector(".Slogan")
+
     if (isSlidingUp) {
       loaderContainerRef.current.classList.add("slide-up");
 
@@ -86,6 +90,9 @@ const pro = document.querySelector(".Heading-pro")
             heading.classList.add("visible");
       
            pro.classList.add("visible");
+           text.classList.add("visible");
+          arrow.classList.add("visible");
+          slogan.classList.add("visible");
           });
      
 

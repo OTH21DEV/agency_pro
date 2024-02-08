@@ -1,21 +1,4 @@
-/* .Heading-title {
-  color: white;
-  font-size: 9em;
-  width: 100%;
-  position: relative;
-  line-height: 1;
-  margin-bottom:0;
-  margin-top:0
-} */
-.Heading {
-  color: white;
 
-  /* font-size: 9em; */
-  position: relative;
-  line-height: 1;
-  margin-bottom: 0;
-  margin-top: 0;
-}
 
 .Heading-title {
   display: inline-block;
@@ -69,34 +52,64 @@
 .Heading-text {
   color: black;
   font-size: 15px;
-  word-wrap: break-word; /* This is the standard property */
+  word-wrap: break-word;
   overflow-wrap: break-word;
-  width: 40%;
+  /* width: 40%; */
   margin-left: 20px;
-  z-index: 2;
+  /* z-index: 2; */
   font-weight: lighter;
   letter-spacing: 0.2em;
+
+  
+  color: black;
+  font-size: 1.25em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+
+  white-space: normal; /* Allows text to wrap */
+  word-break: break-word; /* Wraps long words onto the next line */
+  hyphens: auto;
+
+  opacity: 0;
+
+  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transform: translateY(80%); /* Start state */
+
 }
 
-.Heading {
-  /* margin-top: 100px; */
-  /* padding-top: 138px; */
-  margin-left: 6em;
-  word-wrap: break-word; /* This is the standard property */
-  overflow-wrap: break-word;
-  width: 100%;
-  /* position: relative;
-  top: -12em; */
-  display: flex;
+.Heading-text.visible {
+  transform: translateY(0%);
+  opacity: 1;
+}
 
-  position: relative;
+.Heading-title-wrapper {
+  display: flex;
+  align-items:center;
+  flex-wrap: wrap;
+ 
+}
+.Heading-accuracy-pro {
+  display: flex; /* Ensures accuracy letters and PRO stay on one line together */
+  flex-wrap: nowrap; 
+  align-items: center;
+}
+.Heading {
+
+
+
+  color: white;
+  margin-left: 3em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 }
 .Heading-test {
   display: flex;
   white-space: nowrap;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width:100%;
   align-items: center;
 }
 .Heading-pro {
@@ -115,12 +128,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: white;
-  color: #001c25; */
+  
+  color:black;
   opacity: 0;
-color:black;
-  /* transform: translateY(8%);
-  transition: transform 0.25s ease-in-out 1.8s; */
+
   transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
   transform: translateY(80%); /* Start state */
 }
