@@ -5,7 +5,7 @@ import Header from "../../components/header";
 import arrow from "../../assets/arrow.png";
 import Gear from "../../components/gear";
 import gear from "../../assets/gear_black.png";
-import arrow_big from "../../assets/arrow_big.png";
+// import arrow_big from "../../assets/arrow_big.png";
 import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
 import MenuButton from "../../components/menu-button";
@@ -23,6 +23,7 @@ import ScrollTop from "../scroll-top";
 import ContactFooter from "../contact-footer";
 import Loader from "../loader";
 import DraggableImg from "../draggable-img";
+import arrow_big from "../../assets/arrow_down_outline.png";
 import "./style.css";
 
 const HomePage = () => {
