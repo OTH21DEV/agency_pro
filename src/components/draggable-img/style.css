@@ -58,18 +58,7 @@
   transition: transform 1s cubic-bezier(0.62, 0.05, 0.01, 0.99), clip-path 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99);
 }
 
-/* 
-#image-container:hover .custom-cursor{
 
-transform: scale(0.833,0.833);
-opacity: 1;
-}
-#image-container:active .custom-cursor {
-
-  transform: scale(1, 0.833);
-  transform-origin: center center;
-  opacity: 1;
-  } */
 .custom-cursor {
 width: 91px;
 height: 91px;

@@ -75,7 +75,7 @@ const Nav = () => {
           e.preventDefault();
  
           window.scrollTo({
-            top: document.querySelector(".Plan-container").offsetTop,
+            top: document.querySelector(".services-section").offsetTop,
             behavior: "smooth",
           });
         }}

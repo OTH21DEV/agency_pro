@@ -37,7 +37,7 @@ const HomePage = () => {
       {/* <div ref={containerRef} className={`container ${loadingComplete ? 'slide-in' : ''}`}> */}
       <div className={"container"}>
         <NavBar></NavBar>
-        {/* <div className="page"> */}
+       
         {/* <PageLayout> */}
         {/* <LangueBar /> */}
 
@@ -55,19 +55,19 @@ const HomePage = () => {
           </div>
         </div>
 
-        <Gear icon={gear} />
         {/* </PageLayout> */}
         <Footer />
-        {/* </div> */}
 
-        <WorkFlow></WorkFlow>
 
         <ServiceCards></ServiceCards>
+        <WorkFlow></WorkFlow>
+
         <ProjectCards></ProjectCards>
         <Contact></Contact>
         <ContactFooter></ContactFooter>
         <ScrollTop></ScrollTop>
       </div>
+      {document.querySelector('.container.slide-in') && <Gear icon={gear} />}
     </>
   );
 };

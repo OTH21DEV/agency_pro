@@ -35,14 +35,16 @@ const DraggableImg = () => {
 
   const onMouseDown = useCallback(
     (e) => {
+        disableTransition();
       const pos = posRef.current;
       startPosRef.current = e.clientX; // Store the starting X position
 
       const imageContainer = containerRef.current;
-      if (imageContainer && customCursorRef.current) {
+      if (imageContainer ) {
+        enableTransition()
         imageContainer.classList.add("dragging");
         imageContainer.style.transform = `scaleY(1.2)`;
-        customCursorRef.current.classList.add("cursor-dragging");
+       
       }
 
       const onMouseMove = (moveEvent) => {
@@ -60,9 +62,9 @@ const DraggableImg = () => {
         //   }
         requestAnimationFrame(() => {
           pos.style.setProperty("--x", `0px`);
-          if (imageContainer && customCursorRef.current) {
+          if (imageContainer ) {
             imageContainer.classList.remove("dragging");
-            customCursorRef.current.classList.remove("cursor-dragging");
+          
             imageContainer.style.transform = ""; // Remove the inline transform style
             enableTransition();
           }

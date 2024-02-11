@@ -1,14 +1,14 @@
 .container {
   width: 100%;
-  /* overflow: hidden; */
+
   background-color: #0d232a;
   transform: translateY(100vh);
   transition: transform 0.5s ease-in-out;
-  /* display: none; */
+
 
   background-color: #e1dfdd;
   overflow: hidden;
-  /* height:100vh */
+  
 }
 
 .container.slide-in {
