@@ -68,7 +68,7 @@ const Nav = () => {
           });
         }}
       >
-        How we work
+       01/ How we work
       </li>
       <li
         onClick={(e) => {
@@ -80,7 +80,7 @@ const Nav = () => {
           });
         }}
       >
-        Services
+        02/ Services
       </li>
       <li  onClick={(e) => {
           e.preventDefault();
@@ -89,7 +89,7 @@ const Nav = () => {
             top: document.querySelector(".Slider").offsetTop,
             behavior: "smooth",
           });
-        }}>Portfolio</li>
+        }}>03/ Portfolio</li>
       <li onClick={(e) => {
           e.preventDefault();
          
@@ -97,7 +97,7 @@ const Nav = () => {
             top: document.querySelector(".Contact").offsetTop,
             behavior: "smooth",
           });
-        }}>Contact</li>
+        }}>04/ Contact</li>
     </ul>
   );
 };

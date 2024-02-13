@@ -24,13 +24,13 @@ import { cn as bem } from "@bem-react/classname";
 //   const handleMouseLeave = () => {
 //     setIsHovered(false);
 //   };
-  
+
 //   const cardStyle = {
 //     backgroundImage: isHovered ? `linear-gradient(rgba(34, 40, 49, 0.4), rgba(34, 40, 49, 1)),url(${backgroundImage})` : "none",
-//     backgroundSize: isHovered ? 'cover' : '', 
-//     backgroundPosition: isHovered ? 'center' : '', 
+//     backgroundSize: isHovered ? 'cover' : '',
+//     backgroundPosition: isHovered ? 'center' : '',
 //     backgroundRepeat: isHovered ? 'no-repeat' : '',
-//     transition: 'opacity 0.5s ease, background-image 0.5s ease', 
+//     transition: 'opacity 0.5s ease, background-image 0.5s ease',
 //   };
 //   console.log(cardStyle);
 //   return (
@@ -57,13 +57,13 @@ import { cn as bem } from "@bem-react/classname";
 //         </p>
 //       ) : (
 //         <p className={cn("text")}>{renderDescription(description)}</p>
-      
+
 //       )}
 
 //       <div onClick={onClick} className={cn("arrow")}>
 //         <img src={arrow_down} alt=""></img>
 //       </div>
-        
+
 //         </div>
 
 //     </div>
@@ -75,24 +75,50 @@ import { cn as bem } from "@bem-react/classname";
 
 // import React from 'react'
 
+function ServiceCard({ number, title, style, description, bulletPoints, isOpen, index, onClick }) {
+  const cn = bem("Plan");
 
-function ServiceCard({number,title,style}) {
+  // const renderDescription = (desc) => {
+  //   return desc.split(",").map((phrase, idx) => (
+  //     <React.Fragment key={idx}>
+  //       {phrase.trim()}
+  //       <br />
+  //     </React.Fragment>
+  //   ));
+  // };
+
   return (
-    
-    <div className="service-card" style={style}>
+    <div className="service-card" style={{ borderTop: index === 0 ? "2px solid grey" : undefined, marginTop: index === 0 ? "85px" : undefined }}>
       <div className="service-card-title">
+        <h2>{number}</h2>
 
-      <h2>{number}</h2>
-      <p>{title}</p>
+      {isOpen ? (
+          <p className={`service-card-content ${isOpen ? "open" : "service-card-content"}`}>
+            {bulletPoints.map((point, index) => (
+              <React.Fragment key={index}>
+                {point.split(/:(.+)/).map((chunk, chunkIndex) => (chunkIndex === 0 ? <strong>{chunk}:</strong> : chunk))}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
+        ) : (
+          <p className="service-card-content">{title}</p>
+        )} 
+
+
+
       </div>
       <div>
-        
-        <span>+</span>
+        <div className="toggle-button" onClick={onClick}>
+          <span className={`bar horizontal ${isOpen ? "open" : ""}`}></span>
+          <span className={`bar vertical ${isOpen ? "open" : ""}`}></span>
+        </div>
       </div>
-      </div>
+    </div>
+  );
 
 
-  )
+
 }
 
-export default ServiceCard
+export default ServiceCard;

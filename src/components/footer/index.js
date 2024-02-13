@@ -8,9 +8,8 @@ const Footer = () => {
 
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const footerStyle = {
-    height: isScrollingDown ? "60px" : "40px", // Initial value will be '20px' because isScrollingDown is false
+    height: isScrollingDown ? "60px" : "40px",
     transition: "height 0.3s",
-    // overflow: "hidden",
   };
 
   const paraStyle = {
@@ -18,41 +17,36 @@ const Footer = () => {
     transition: "opacity 0.3s",
     height: isScrollingDown ? "auto" : 0,
     overflow: "hidden",
-    // marginRight: "80px",
   };
 
   useEffect(() => {
     const handleScroll = () => {
       let currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Check if we're scrolling down
+      // Check if scrolling down
       if (currentScrollPos > lastScrollTop) {
         // Scrolling DOWN
         setIsScrollingDown(true);
         document.querySelector(".Footer-wrapper").style.height = "60px";
 
-        // let elements =  document.querySelectorAll('.Footer p')
         let elements = document.querySelectorAll(".Footer div ");
         elements.forEach(function (element) {
           element.classList.add("scroll-text");
         });
-      } else {
-        // Scrolling UP
+      }
+      // Check if the scroll up to the top
+      else if (currentScrollPos === 0) {
         setIsScrollingDown(false);
         document.querySelector(".Footer-wrapper").style.height = "40px";
       }
 
       // Update the last scroll position
       setLastScrollTop(currentScrollPos <= 0 ? 0 : currentScrollPos);
-      
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollTop]);
-
-  // //test
-
 
   const items = ["DIGITAL SOLUTION", "DEVELOPMENT", "STRATEGY", "SEO", "DESIGN"];
 
@@ -81,8 +75,6 @@ const Footer = () => {
           <p style={paraStyle}>DEVELOPMENT</p>
           <p style={paraStyle}>STRATEGY</p>
           <p style={paraStyle}>DESIGN</p>
-
-     
         </div>
       </div>
     </>
