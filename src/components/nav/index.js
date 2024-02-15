@@ -86,7 +86,7 @@ const Nav = () => {
           e.preventDefault();
          
           window.scrollTo({
-            top: document.querySelector(".Slider").offsetTop,
+            top: document.querySelector(".projects-section").offsetTop,
             behavior: "smooth",
           });
         }}>03/ Portfolio</li>

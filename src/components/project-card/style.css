@@ -49,17 +49,14 @@
   color: black;
   height: 250px;
   transition: all 0.5s ease;
-
 }
 .Nav-wrapper-project-description:hover {
   background-color: #222831;
   color: white;
 }
 
-.Nav-wrapper-project-description:hover .description-content{
-  
+.Nav-wrapper-project-description:hover .description-content {
   background-color: #222831;
- 
 }
 .Nav-wrapper-project-description p {
   font-size: 1.25rem;
@@ -105,4 +102,43 @@
 
 .Nav-wrapper-hidden {
   display: none;
+}
+
+/**/
+
+.parallax-container {
+  width: 100%;
+  display: flex;
+
+  height: 300vh;
+}
+
+.fixed-content {
+  width: 50%;
+  height: 100vh ;
+  background-color: #f8f8f8;
+  margin: 0;
+  z-index: 10;
+}
+
+.scroll-content {
+  width: 50%;
+}
+
+.top-right,
+.bottom-left,
+.bottom-right {
+  height: 100vh;
+}
+
+.top-right {
+  background: blue;
+}
+
+.bottom-left {
+  background: red;
+}
+
+.bottom-right {
+  background: black;
 }
