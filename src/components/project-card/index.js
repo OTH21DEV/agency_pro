@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Rellax from "rellax";
+
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 
@@ -60,81 +60,24 @@ import { Controller, Scene } from "react-scrollmagic";
 
 // export default ProjectCard;
 
-// const ProjectCard = () => {
-
-//   const topRightRef = useRef(null);
-//   const bottomLeftRef = useRef(null);
-//   const bottomRightRef = useRef(null);
-
-//   useEffect(() => {
-//     // Initialize Rellax with the refs to your elements
-//     const rellaxTopRight = new Rellax(topRightRef.current, {
-//       speed: -2,
-//       center: false,
-//       wrapper: null,
-//       round: true,
-//       vertical: true,
-//       horizontal: false
-//     });
-
-//     const rellaxBottomLeft = new Rellax(bottomLeftRef.current, {
-//       speed: -2,
-//       center: false,
-//       wrapper: null,
-//       round: true,
-//       vertical: true,
-//       horizontal: false
-//     });
-
-//     const rellaxBottomRight = new Rellax(bottomRightRef.current, {
-//       speed: -2,
-//       center: false,
-//       wrapper: null,
-//       round: true,
-//       vertical: true,
-//       horizontal: false
-//     });
-
-//     // Clean up function to destroy Rellax instances when the component unmounts
-//     return () => {
-//       rellaxTopRight.destroy();
-//       rellaxBottomLeft.destroy();
-//       rellaxBottomRight.destroy();
-//     };
-//   }, []);
-//   return (
-//     <div className="parallax-container">
-//       <div className="fixed-content">Fixed Content</div>
-//       <div className="scroll-content">
-//         {/* Attach the ref to element */}
-//         <div ref={topRightRef} className="top-right">Top Right Content</div>
-//         <div ref={bottomLeftRef} className="bottom-left">Bottom Left Content</div>
-//         <div ref={bottomRightRef} className="bottom-right">Bottom Right Content</div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProjectCard
-
 const ProjectCard = () => {
-return (
+  return (
     <div className="parallax-container">
-      {/* The Controller wraps around Scenes which contains elements we want to animate */}
       <Controller>
-        <Scene duration={"600"} triggerHook={0} pin pushF>
-          {/* Fixed Content always in view */}
-          {(progress) => (
-            <div className="fixed-content">Fixed Content</div>
-          )}
+        <Scene duration={"100%"} triggerHook={0.2} pin triggerElement={".test"}>
+          <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
+            <div className="fixed-content">Fixed Content1</div>
+            <div className="fixed-contentt">Fixed Content2</div>
+          </div>
         </Scene>
       </Controller>
+
       {/* Scrollable content */}
       <div className="scroll-content">
         <div className="top-right">Top Right Content</div>
         {/* The bottom-left was commented out before so left commented */}
-        {/* <div className="bottom-left">Bottom Left Content</div> */}
         <div className="bottom-right">Bottom Right Content</div>
+        {/* <div className="bottom-left">Bottom Left Content</div> */}
       </div>
     </div>
   );

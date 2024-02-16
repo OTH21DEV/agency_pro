@@ -142,8 +142,29 @@ import arrow_slider from "../../assets/arrow-slider.png";
 
 
 const ProjectCards = () => {
+  let projects = ["P", "R", "O", "J", "E", "C", "T", "S"]
+
   return (
+    <section className="projects-section">
+       <div className="services-wrapper">
+         <h2>03/</h2>
+         <span className="title-wrapper">
+           {projects.map((lettre, key) => {
+             const style = { transitionDelay: `${key * 0.07}s` };
+             return (
+               <span key={key} className="services-title" style={style}>
+                 {lettre}
+               </span>
+             );
+           })}
+         </span>
+       </div>
+       <div className="project-cards-heading">
+         <h3>PROJECTS</h3>
+         <p>Browse our handpicked selection of latest web projects, each a testament to our technical skill and creative innovation. </p>
+       </div> 
     <ProjectCard></ProjectCard>
+    </section>
   )
 }
 
