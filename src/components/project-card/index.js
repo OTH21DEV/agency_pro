@@ -2,7 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
-
+import network_img from "../../assets/network.jpg"
+import dashboard_v1 from "../../assets/dashboard_v1.jpg"
+// import network_img from "../../assets/network_img_tel.jpg"
+// import network_img from "../../assets/network_img_v3.jpg"
+// import network_img from "../../assets/network_img_v4.jpg"
 import { Controller, Scene } from "react-scrollmagic";
 
 // const ProjectCard = ({ phone_frame, screen_image, description, active, id }) => {
@@ -74,9 +78,11 @@ const ProjectCard = () => {
 
       {/* Scrollable content */}
       <div className="scroll-content">
-        <div className="top-right">Top Right Content</div>
+        <div className="top-right">
+          <img src={network_img} alt=""></img>
+        </div>
         {/* The bottom-left was commented out before so left commented */}
-        <div className="bottom-right">Bottom Right Content</div>
+        <div className="bottom-right"> <img src={dashboard_v1} alt=""></img></div>
         {/* <div className="bottom-left">Bottom Left Content</div> */}
       </div>
     </div>
