@@ -63,8 +63,8 @@ const HomePage = () => {
         {/* <WorkFlow></WorkFlow> */}
 
         <ProjectCards></ProjectCards>
-        {/* <Contact></Contact>
-        <ContactFooter></ContactFooter> */}
+      {/* <Contact></Contact> */}
+        <ContactFooter></ContactFooter> 
         <ScrollTop></ScrollTop>
       </div>
       {document.querySelector('.container.slide-in') && <Gear icon={gear} />}
