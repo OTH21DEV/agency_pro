@@ -116,18 +116,72 @@
 
 .fixed-content {
   width: 100%;
-  height: 50vh;
-  background-color: #f8f8f8;
-  margin-bottom: 30px;
+  /* position: relative;  */
+  position: relative;
+  margin-bottom:20vh;
 
-  /*for scrollmagic purpose*/
+font-weight: 500;
+
 }
+
+.fixed-content-letter{
+  margin-right: -4px;
+  display: inline-block; 
+  /* border-bottom: 10px solid black; */
+  position: relative; 
+  
+  font-size: 6em;;
+  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+
+.fixed-content .underline,
+.fixed-contentt .underline{
+  content: '';
+  position: absolute;
+ top: 8em;
+  left: 0;
+  right: 0;
+  height: 10px; /* Height of the underline */
+  background-color: black; /* Color of the underline */
+  transition: transform 1.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transform: scaleX(1); /* Start fully visible */
+  transform-origin: left /* Transform from the right side */
+  
+}
+
+.fixed-content:hover .underline,
+.fixed-contentt:hover .underline {
+  transform: scaleX(0); 
+}
+.fixed-content:hover .underline,
+.fixed-contentt:hover .underline {
+  transform: scaleX(0); 
+}
+
+
+
+
 .fixed-contentt {
   width: 100%;
   height: 50vh;
-  background-color: #f8f8f8;
+  font-weight: 500;
+  position: relative;
 }
-
+.project-card-title{
+width:60%;
+  font-family: PP Neue Montreal,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+.project-card-title p{
+  margin-top:80px;
+  text-align: justify;
+  margin-left:4em;
+  font-size: 1.2em;
+  font-weight: 500;
+  opacity: 0.8;
+  width:100%
+}
 .scrollmagic-pin-spacer .test {
   position: relative !important;
   inset: 0px auto auto 0px !important;
@@ -144,11 +198,13 @@
 .top-right,
 .bottom-right {
   height: 100vh;
+  overflow: hidden;
 }
 
 .top-right {
-  /* background: blue; */
+
   margin-bottom: 30px;
+
 }
 
 .bottom-right {
@@ -160,3 +216,11 @@
   width:100%;height:100%;
 
 }
+
+
+.top-right img{
+ 
+  margin-bottom: 30px;
+
+}
+
