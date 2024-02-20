@@ -24,15 +24,24 @@ const Heading = ({ title, text, icon }) => {
   //   );
   // };
 
-  let web = ["W", "E", "B"];
-  let accuracy = ["A", "C", "C", "U", "R", "A", "C", "Y"];
-  let agency = ["A", "G", "E", "N", "C", "Y"];
-  let pro = ["P", "R", "O"];
+  // let web = ["W", "E", "B"];
+  // let accuracy = ["A", "C", "C", "U", "R", "A", "C", "Y"];
+  // let agency = ["A", "G", "E", "N", "C", "Y"];
+  // let pro = ["P", "R", "O"];
 
-  const baseDelayPro = accuracy.length * 0.07;
+
+  let web = ["C", "R", "E","A","T","E","S"];
+  // let accuracy = ["&"];
+  let agency = ["B", "U", "I", "L", "D", "S"];
+  let pro = ["&"];
+
+
+  const baseDelayPro = web.length * 0.07;
   const style = { transitionDelay: `${baseDelayPro + 0.07}s` };
 
   return (
+
+
     <div className="Heading">
       {/* Heading titles */}
       <div className="Heading-title-wrapper">
@@ -47,7 +56,7 @@ const Heading = ({ title, text, icon }) => {
     <span style={{ margin: "0 10px" }}></span>
         {/* Group accuracy and PRO together so they can wrap together */}
         <div className="Heading-accuracy-pro">
-          {accuracy.map((lettre, key) => {
+          {/* {accuracy.map((lettre, key) => {
             const baseDelay = web.length * 0.07;
             const style = { transitionDelay: `${baseDelay + key * 0.07}s` };
             return (
@@ -55,8 +64,8 @@ const Heading = ({ title, text, icon }) => {
                 {lettre}
               </span>
             );
-          })}
-          <span className="Heading-pro" style={style}>PRO</span>
+          })} */}
+          <span className="Heading-pro" style={style}>{pro}</span>
         </div>
       </div>
   
@@ -80,5 +89,53 @@ const Heading = ({ title, text, icon }) => {
       </div>
     </div>
   );
+
+  //   <div className="Heading">
+  //     {/* Heading titles */}
+  //     <div className="Heading-title-wrapper">
+  //       {web.map((lettre, key) => {
+  //         const style = { transitionDelay: `${key * 0.07}s` };
+  //         return (
+  //           <span key={key} className="Heading-title" style={style}>
+  //             {lettre}
+  //           </span>
+  //         );
+  //       })}
+  //   <span style={{ margin: "0 10px" }}></span>
+  //       {/* Group accuracy and PRO together so they can wrap together */}
+  //       <div className="Heading-accuracy-pro">
+  //         {accuracy.map((lettre, key) => {
+  //           const baseDelay = web.length * 0.07;
+  //           const style = { transitionDelay: `${baseDelay + key * 0.07}s` };
+  //           return (
+  //             <span key={key} className="Heading-title" style={style}>
+  //               {lettre}
+  //             </span>
+  //           );
+  //         })}
+  //         <span className="Heading-pro" style={style}>PRO</span>
+  //       </div>
+  //     </div>
+  
+ 
+  
+  //     {/* Agency data */}
+  //     <div className="Heading-test">
+  //       {agency.map((lettre, key) => {
+  //         const baseDelayWebAndAccuracy = web.length * 0.07;
+  //         const style = { transitionDelay: `${baseDelayWebAndAccuracy + key * 0.07}s` };
+  //         return (
+  //           <div key={key} className="agency-container">
+  //             <span className="Heading-title" style={style}>
+  //               {lettre}
+  //             </span>
+  //           </div>
+  //         );
+  //       })}
+  //            {/* Heading text */}
+  //     <div className="Heading-text" style={style}>{text}</div>
+  //     </div>
+  //   </div>
+  // );
 };
 export default Heading;

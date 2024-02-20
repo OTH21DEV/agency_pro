@@ -3,7 +3,7 @@ import Nav from "../nav";
 import LangueBar from "../langue-bar";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
-
+import logo from "../../assets/logo_new.png";
 const NavBar = () => {
   const cn = bem("Nav-bar-wrapper");
 
@@ -30,6 +30,9 @@ const NavBar = () => {
   return (
 
     <div className={cn("")}>
+             <div className="logo-wrapper">
+          <img src={logo} alt=""></img>
+        </div>
       <Nav></Nav>
       {/* <LangueBar></LangueBar> */}
     </div>

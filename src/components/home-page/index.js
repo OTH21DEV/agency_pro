@@ -42,7 +42,8 @@ const HomePage = () => {
         {/* <LangueBar /> */}
 
         <div className="page">
-          <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." />
+        <Heading text="stunning online experiences for Enterprises, Startups  & E-commerce" />
+          {/* <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." /> */}
           <DraggableImg/>
           <div style={{ display: "flex", alignItems: "center", position: "absolute", bottom: "0", paddingLeft: "3rem" }}>
             
