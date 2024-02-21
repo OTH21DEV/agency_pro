@@ -4,8 +4,11 @@ import LangueBar from "../langue-bar";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
 import logo from "../../assets/logo_new.png";
+import browser from "../../assets/browser.png";
+
 const NavBar = () => {
   const cn = bem("Nav-bar-wrapper");
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +33,11 @@ const NavBar = () => {
   return (
 
     <div className={cn("")}>
-             <div className="logo-wrapper">
+             {/* <div className="logo-wrapper">
           <img src={logo} alt=""></img>
-        </div>
+          <img src={browser} alt=""></img>
+          <h2>fromScratch</h2>
+        </div> */}
       <Nav></Nav>
       {/* <LangueBar></LangueBar> */}
     </div>

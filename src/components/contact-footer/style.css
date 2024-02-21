@@ -11,7 +11,10 @@
     padding: 5.12rem 0rem;
     width: calc(100% - 6.24rem);
 }
-
+.contact-section{
+  background-color: #e1dfdd;
+  /* height:100vh; */
+}
 .Contact-footer h1{
   /* padding:3.12rem; */
   letter-spacing: -0.14063rem;
@@ -106,7 +109,7 @@ cursor:pointer;
 .contact-wrapper{
   display:flex;
   margin-left: 7.5em;
-
+  background-color: #e1dfdd;
   margin-bottom: 4em;
   display:flex;
   justify-content: space-between;
@@ -129,7 +132,7 @@ cursor:pointer;
  
 }
 
-.logo-wrapper{
+/* .logo-wrapper{
 margin-left:3.5em;
 width:250px;
 height: 75px;
@@ -146,7 +149,7 @@ right: 0;
   object-fit: cover;
 
  
-}
+} */
 
 .contact-about{
   display:flex;

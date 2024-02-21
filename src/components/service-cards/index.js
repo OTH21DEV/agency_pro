@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ServiceCard from "../service-card";
+import { Link, useLocation } from "react-router-dom";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
 import backgroundImage from "../../assets/bg-rotated.png";
@@ -8,6 +9,7 @@ import backgroundIm from "../../assets/test_bg_upside_right.png";
 import backgroundI from "../../assets/test_bg_upside_down.png";
 import backgroundDev from "../../assets/bg_dev.jpg";
 import backgroundDes from "../../assets/bg_des.jpg";
+import transition from "../../transition";
 
 // const ServiceCards = () => {
 //   const cn = bem("Plan");
@@ -96,6 +98,10 @@ import backgroundDes from "../../assets/bg_des.jpg";
 function ServiceCards() {
   let servicesTitle = ["S", "E", "R", "V", "I", "C", "E", "S"];
 
+
+
+
+
   const services = [
     {
       title: "Design Services",
@@ -147,7 +153,7 @@ function ServiceCards() {
   }
 
   return (
-    <section className="services-section">
+    <section className="services-section"  >
       <div className="services-wrapper">
         <h2>02/</h2>
         <span className="title-wrapper">
@@ -161,6 +167,14 @@ function ServiceCards() {
           })}
         </span>
       </div>
+      <div className="contact-about">
+        <h3>ABOUT</h3>
+        <p>
+          {" "}
+          Specializing in custom and user-friendly web solutions, the focus is on meeting specific client needs through a commitment to excellence and attention to detail. Each project is approached with the utmost care, ensuring that the delivered websites are engaging, functional, and successful in enhancing online presence for businesses and individuals alike.{" "}
+        </p>
+      </div>
+
       <div className="service-card-wrapper">
         {/* <ServiceCard number={"01"} title={"Design Services"} style={{ borderTop: "2px solid grey", marginTop: "85px" }} onClick={() => handleClick(id)} id={0}></ServiceCard>
         <ServiceCard number={"02"} title={"Development Services"}></ServiceCard>
@@ -184,4 +198,4 @@ function ServiceCards() {
   );
 }
 
-export default ServiceCards;
+export default transition(ServiceCards);

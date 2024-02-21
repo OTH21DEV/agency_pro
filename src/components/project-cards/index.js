@@ -10,6 +10,7 @@ import rest_screen from "../../assets/rest_screen.png";
 import bank_screen from "../../assets/bank_screen.png";
 import immo_screen from "../../assets/immo_screen.png";
 import arrow_slider from "../../assets/arrow-slider.png";
+import transition from "../../transition";
 
 // const ProjectCards = () => {
 //   const cn = bem("Slider");
@@ -169,7 +170,7 @@ const ProjectCards = () => {
 }
 
 
-export default ProjectCards
+export default transition(ProjectCards)
 
 //  {/* <div className="services-wrapper">
 //         <h2>03/</h2>
