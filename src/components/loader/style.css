@@ -15,38 +15,38 @@
 .loader-container div {
   color: white;
   justify-self: flex-end;
-  /* padding-left: 3.12rem; */
+  padding-left: 3.12rem;
   letter-spacing: -0.14063rem;
-
+  padding-top: 1rem;
   font-family: TT Hoves, sans-serif;
   font-size: 1.213rem;
-  color:  #e1dfdd
+  color: #e1dfdd;
+
 }
-.loader-container div p {
+.loader-container div p,
+h2 {
   margin: 0;
   font-size: 1 rem;
 }
 .animated-number {
-  font-size: 5rem; 
+  font-size: 5rem;
   color: white;
   letter-spacing: -0.14063rem;
   font-family: TT Hoves, sans-serif;
   font-size: 7.813rem;
   font-weight: 400;
   align-self: flex-end;
-  color:#e1dfdd
+  color: #e1dfdd;
 }
 
 /* The initial state of number before and after '23' */
 .animated-number {
   opacity: 1;
-
 }
 
 /* Keyframes for 23 to slide up and fade out, while scaling down */
 @keyframes slideUpFadeOut {
   to {
- 
     transform: translateY(-100%);
   }
 }
@@ -61,14 +61,12 @@
 
 /* Style for number '67' to start from where '23' ended, scaled down, and slide into place */
 .from-middle-position {
-
   transform: translateY(-100%); /* Start from '23's end position and scaled down */
   animation-name: fadeInSlideDownScaleUp;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-delay: 0.03s;
   animation-timing-function: ease;
-
 }
 
 /* Keyframes for 67 to fade in, slide down, and scale up into position */
@@ -80,13 +78,12 @@
 }
 
 .from-end-position {
-
   transform: translateY(-200%); /* Start from '67's end position */
   animation-name: slideUpFor100;
-  animation-duration: 0.5s; 
+  animation-duration: 0.5s;
   animation-timing-function: ease;
-  animation-fill-mode: forwards; 
-  animation-delay: 0.06s; 
+  animation-fill-mode: forwards;
+  animation-delay: 0.06s;
 }
 
 /* Keyframes for 100 to slide up into final position */
@@ -106,16 +103,15 @@
   transform: translateY(-100vh);
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Added opacity to transition */
   /* display: none; */
-
 }
-.logo-wrapper{
-  width:150px;
-  height:150px;
-  padding:0
+.logo-wrapper {
+  width: 150px;
+  height: 150px;
+  padding: 0;
 }
 .logo-wrapper img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:0
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
 }

@@ -2,6 +2,7 @@ import "./style.css";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../../assets/logo_white.png";
+import { useNavClick } from "../../app";
 
 const Loader = () => {
   const [isLoaderFinished, setIsLoaderFinished] = useState(false);
@@ -11,6 +12,10 @@ const Loader = () => {
   const numberRef = useRef();
   const loaderContainerRef = useRef();
   const numberContainerEl = numberRef.current;
+
+  const { hasNavClicked } = useNavClick();
+
+
   // Function to generate two random numbers and add 100
   const generateRandomNumbers = () => {
     let first = Math.floor(Math.random() * (98 - 1)) + 1;
@@ -37,7 +42,10 @@ const Loader = () => {
     const handleAnimationEnd = () => {
       if (numberIndex < 2) {
         setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
-      } else {
+      } 
+
+      
+      else {
         setIsSlidingUp(true);
         setIsLoaderFinished(true); // Trigger the end of the loading sequence
       }
@@ -49,11 +57,13 @@ const Loader = () => {
       if (numberRef.current) {
         numberRef.current.removeEventListener("animationend", handleAnimationEnd);
       }
-    
     };
-  }, [numberIndex]);
+  }, [numberIndex,hasNavClicked]);
+
+  const location = useLocation();
 
   useEffect(() => {
+    console.log(hasNavClicked)
     const showPageContainer = document.querySelector(".container");
     const navBar = document.querySelector(".Nav-bar-wrapper");
     const heading = document.querySelector(".Heading");
@@ -63,26 +73,72 @@ const Loader = () => {
     const slogan = document.querySelector(".Slogan");
     const image = document.querySelector(".image-container-wrapper");
 
-
     const loaderContainerEl = loaderContainerRef.current;
 
 
-    if (isSlidingUp) {
+    const elementsToMakeVisible = [
+      document.querySelector(".Nav-bar-wrapper"),
+      document.querySelector(".Heading"),
+      document.querySelector(".Heading-pro"),
+      document.querySelector(".Heading-text"),
+      document.querySelector(".arrow-big"),
+      document.querySelector(".Slogan"),
+      document.querySelector(".image-container-wrapper"),
+    ];
+  
+    const makeElementsVisible = () => {
+      elementsToMakeVisible.forEach((element) => {
+        if (element) {
+          element.classList.add("visible");
+        }
+      });
+    };
+  
+    // Immediately make elements visible if navigation was clicked
+    if (hasNavClicked) {
+      console.log('yes')
+      makeElementsVisible();
+      return; // Exit effect early since no slide-up or timed visibility management needed.
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (isSlidingUp ) {
+
+
+
+
+
+      
+
       loaderContainerEl.classList.add("slide-up");
 
       let timerId;
 
       const transitionEndHandler = () => {
+
         // Instead of waiting for the transition to end, start a timer to slide in the container earlier
         const loaderTransitionDuration = getComputedStyle(loaderContainerRef.current).transitionDuration;
         // Convert seconds to milliseconds and decrease it slightly to slide in the container before the loader finishes
-        const earlyStartMs = parseFloat(loaderTransitionDuration) * 1000 - 200; // You can adjust the 200ms delay as needed
+        const earlyStartMs = parseFloat(loaderTransitionDuration) * 1000 - 200;
 
         // Schedule sliding in the main content before the loader finishes
         timerId = setTimeout(() => {
           loaderContainerEl.style.display = "none"; // Hide the loader
           showPageContainer.classList.add("slide-in"); // Slide in the main content
-          //test for animation
+
           navBar.classList.add("visible"); // Slide in the main content
 
           navBar.addEventListener("transitionend", () => {
@@ -96,10 +152,7 @@ const Loader = () => {
             image.classList.add("visible");
             image.style.transitionDelay = ".3s";
           });
-          // heading.addEventListener('transitionend', () => {
 
-          //     image.classList.add("visible");
-          //     });
         }, earlyStartMs);
       };
 
@@ -112,10 +165,12 @@ const Loader = () => {
         if (loaderContainerEl) {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
         }
-        // loaderContainerRef.current.removeEventListener("transitionstart", transitionEndHandler);
+
       };
     }
-  }, [isSlidingUp]);
+  }, [isSlidingUp, location.pathname,hasNavClicked]);
+
+
 
   const getClassName = () => {
     switch (numbers[numberIndex]) {
@@ -131,10 +186,10 @@ const Loader = () => {
   return (
     <div ref={loaderContainerRef} className="loader-container">
       <div>
-        {/* <h2>Web Accuracy Agency</h2> */}
-             <div className="logo-wrapper">
+        <h2>fromScratch</h2>
+        {/* <div className="logo-wrapper">
           <img src={logo} alt=""></img>
-        </div>
+        </div> */}
         <p>© 2024 ALL RIGHTS RESERVED.</p>
       </div>
       <span ref={numberRef} className={`animated-number ${getClassName()}`}>

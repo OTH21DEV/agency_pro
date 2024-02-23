@@ -2,8 +2,9 @@
   margin: 0;
   display: flex;
   list-style: none;
-
   font-family: "Syne", sans-serif;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .Nav-wrapper a {

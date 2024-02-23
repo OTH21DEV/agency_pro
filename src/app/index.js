@@ -23,11 +23,17 @@ export const NavClickProvider = ({ children }) => {
 const AnimatedRoutes = () => {
   const location = useLocation();
   const { hasNavClicked } = useNavClick();
-  if (!hasNavClicked) {
-    <Routes>
-      <Route path="/" element={<Main />} />
-    </Routes>;
-  }
+  // if (!hasNavClicked) {
+  //   // <Routes>
+  //   //   <Route path="/" element={<Main />} />
+  //   // </Routes>;
+  //   return (
+  //     <Routes>
+  //       <Route path="/" element={<Main />} />
+  //       {/* Other routes can be included here if needed */}
+  //     </Routes>
+  //   );
+  // }
 
   return (
     <AnimatePresence mode="wait" >

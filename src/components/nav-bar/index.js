@@ -33,6 +33,7 @@ const NavBar = () => {
   return (
 
     <div className={cn("")}>
+        {/* <h2>fromScratch</h2> */}
              {/* <div className="logo-wrapper">
           <img src={logo} alt=""></img>
           <img src={browser} alt=""></img>

@@ -1,28 +1,36 @@
-import React, { useState, useRef } from "react";
-
+import React, { useState, useRef,useEffect } from "react";
 import Gear from "../../components/gear";
 import gear from "../../assets/gear_black.png";
-
 import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
-
 import Slogan from "../slogan";
-
 import NavBar from "../nav-bar";
 import ServiceCards from "../service-cards";
 import ProjectCards from "../project-cards";
-
-import ScrollTop from "../scroll-top";
 import ContactFooter from "../contact-footer";
 import Loader from "../loader";
 import DraggableImg from "../draggable-img";
 import arrow_big from "../../assets/arrow_down_outline.png";
 import "./style.css";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {useLocation } from "react-router-dom";
+import transition from "../../transition";
+import { useNavClick } from "../../app";
 
 const HomePage = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
   const containerRef = useRef();
+  const [loading, setLoading] = useState(true);
+
+const location = useLocation()
+
+const { hasNavClicked} = useNavClick(); 
+
+  // useEffect(() => {
+
+  //   if (hasNavClicked && location.pathname === "/contact") {
+  //     setLoading(false);
+  //   }
+  // }, [hasNavClicked,setLoading,location.pathname]);
 
   return (
     <>
@@ -60,4 +68,4 @@ const HomePage = () => {
     </>
   );
 };
-export default HomePage;
+export default transition(HomePage)

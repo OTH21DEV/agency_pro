@@ -11,7 +11,9 @@ import bank_screen from "../../assets/bank_screen.png";
 import immo_screen from "../../assets/immo_screen.png";
 import arrow_slider from "../../assets/arrow-slider.png";
 import transition from "../../transition";
-
+import NavBar from "../nav-bar";
+import { Link, useLocation } from "react-router-dom";
+import { useNavClick } from "../../app";
 // const ProjectCards = () => {
 //   const cn = bem("Slider");
 
@@ -144,9 +146,38 @@ import transition from "../../transition";
 
 const ProjectCards = () => {
   let projects = ["P", "R", "O", "J", "E", "C", "T", "S"]
+  const location = useLocation();
+
+  const { hasNavClicked} = useNavClick(); 
+  useEffect(() => {
+    const navBar = document.querySelector(".Nav-bar-wrapper");
+  
+    let timer;
+  
+    if (location.pathname === '/portfolio') {
+      timer = setTimeout(() => {
+        if(navBar) {
+         
+          navBar.classList.add('visible');
+  
+        
+        }
+      }, 500); 
+    } 
+    // else if (navBar) {
+    
+    //   navBar.classList.remove('visible');
+     
+    // }
+  
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+  
 
   return (
+   
     <section className="projects-section">
+  { hasNavClicked ?<NavBar />:""}
        <div className="services-wrapper">
          <h2>03/</h2>
          <span className="title-wrapper">
@@ -166,6 +197,7 @@ const ProjectCards = () => {
        </div> 
     <ProjectCard></ProjectCard>
     </section>
+   
   )
 }
 
