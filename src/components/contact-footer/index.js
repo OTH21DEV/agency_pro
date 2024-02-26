@@ -15,12 +15,16 @@ const ContactFooter = () => {
 
   const location = useLocation();
 
-  const { hasNavClicked } = useNavClick();
-  const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
+  const { hasNavClicked, setHasNavClicked } = useNavClick();
+  const { hasHomepageClicked } = useHomeClick();
 
   /*Displays the navBar on the contact 
-  section only when we are in this section */
-  
+  section only when we are in this section.
+  Delays the display after click from main page on 500ms;
+   otherwise its instantly visible from the 
+  main page for each section
+  */
+
   useEffect(() => {
     const navBar = document.querySelector(".Nav-bar-wrapper");
 
@@ -30,22 +34,24 @@ const ContactFooter = () => {
       timer = setTimeout(() => {
         if (navBar) {
           navBar.classList.add("visible");
+          //save to storage ,otherwise the navBar is not visible on page reload
+          sessionStorage.setItem("navBarVisible", "true");
         }
       }, 500);
+    } else {
+      sessionStorage.clear();
     }
-    // else if (navBar) {
-
-    //   navBar.classList.remove('visible');
-
-    // }
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
+  // Check session storage for NavBar visibility state
+  const isNavBarVisible = sessionStorage.getItem("navBarVisible") === "true";
+
   return (
     <section className="contact-section">
-        {hasNavClicked ||  hasHomepageClicked ? <NavBar /> : ""}
-      {/* {hasNavClicked || (hasNavClicked && hasHomepageClicked)? <NavBar /> : ""} */}
+      {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
+
       <div className="contact-wrapper">
         <div className="contact-heading">
           <h2>04/</h2>

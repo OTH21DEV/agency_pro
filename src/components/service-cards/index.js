@@ -12,6 +12,7 @@ import backgroundDes from "../../assets/bg_des.jpg";
 import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
 // const ServiceCards = () => {
 //   const cn = bem("Plan");
 //   const [isOpen, setIsOpen] = useState(null);
@@ -98,6 +99,7 @@ import { useNavClick } from "../../app";
 
 function ServiceCards() {
   let servicesTitle = ["S", "E", "R", "V", "I", "C", "E", "S"];
+  const { hasHomepageClicked} = useHomeClick();
 
   const location = useLocation();
 
@@ -157,14 +159,13 @@ function ServiceCards() {
       timer = setTimeout(() => {
         if (navBar) {
           navBar.classList.add("visible");
+          sessionStorage.setItem("navBarVisible", "true");
         }
       }, 500);
     }
-    // else if (navBar) {
-
-    //   navBar.classList.remove('visible');
-
-    // }
+    else {
+      sessionStorage.clear();
+    }
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -173,10 +174,13 @@ function ServiceCards() {
     setIsOpen((prevIsOpen) => (prevIsOpen === index ? null : index));
   }
 
+
+    // Check session storage for NavBar visibility state
+    const isNavBarVisible = sessionStorage.getItem("navBarVisible") === "true";
   return (
     <section className="services-section">
   
-      {hasNavClicked ? <NavBar /> : ""}
+      {hasNavClicked ||  hasHomepageClicked || isNavBarVisible? <NavBar /> : ""}
       <div className="services-wrapper">
         <h2>02/</h2>
         <span className="title-wrapper">

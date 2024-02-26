@@ -14,6 +14,7 @@ import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { Link, useLocation } from "react-router-dom";
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
 // const ProjectCards = () => {
 //   const cn = bem("Slider");
 
@@ -72,8 +73,6 @@ import { useNavClick } from "../../app";
 //     console.log('Active after:', active);
 //   };
 
-
-
 //   useEffect(() => {
 //     let phoneFrames = document.querySelectorAll(".phone-frame");
 //     console.log(phoneFrames[active]);
@@ -110,12 +109,11 @@ import { useNavClick } from "../../app";
 //   return (
 //     // <section>
 //     <div className={cn("")}>
- 
 
 //       {projects.map((project, index) => (
 //         <ProjectCard   id={project.id} active={active} key={project.id} screen_image={project.backgroundImage} phone_frame={phone_frame} description={project.description} />
 //       ))}
- 
+
 //       <div id="prev" onClick={handlePrevClick}>
 //         <img src={arrow_slider} alt=""></img>
 //       </div>
@@ -141,68 +139,63 @@ import { useNavClick } from "../../app";
 //   )
 // }
 
-
-
-
 const ProjectCards = () => {
-  let projects = ["P", "R", "O", "J", "E", "C", "T", "S"]
+  let projects = ["P", "R", "O", "J", "E", "C", "T", "S"];
+  const { hasHomepageClicked } = useHomeClick();
   const location = useLocation();
 
-  const { hasNavClicked} = useNavClick(); 
+  const { hasNavClicked } = useNavClick();
   useEffect(() => {
     const navBar = document.querySelector(".Nav-bar-wrapper");
-  
+
     let timer;
-  
-    if (location.pathname === '/portfolio') {
+
+    if (location.pathname === "/portfolio") {
       timer = setTimeout(() => {
-        if(navBar) {
-         
-          navBar.classList.add('visible');
-  
-        
+        if (navBar) {
+          navBar.classList.add("visible");
+          sessionStorage.setItem("navBarVisible", "true");
         }
-      }, 500); 
-    } 
-    // else if (navBar) {
-    
-    //   navBar.classList.remove('visible');
-     
-    // }
-  
+      }, 500);
+    }
+    else {
+      sessionStorage.clear();
+    }
+
     return () => clearTimeout(timer);
   }, [location.pathname]);
-  
+
+
+  // Check session storage for NavBar visibility state
+  const isNavBarVisible = sessionStorage.getItem("navBarVisible") === "true";
+
 
   return (
-   
     <section className="projects-section">
-  { hasNavClicked ?<NavBar />:""}
-       <div className="services-wrapper">
-         <h2>03/</h2>
-         <span className="title-wrapper">
-           {projects.map((lettre, key) => {
-             const style = { transitionDelay: `${key * 0.07}s` };
-             return (
-               <span key={key} className="services-title" style={style}>
-                 {lettre}
-               </span>
-             );
-           })}
-         </span>
-       </div>
-       <div className="project-cards-heading">
-         <h3>PROJECTS</h3>
-         <p>Browse our handpicked selection of latest web projects, each a testament to our technical skill and creative innovation. </p>
-       </div> 
-    <ProjectCard></ProjectCard>
+      {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
+      <div className="services-wrapper">
+        <h2>03/</h2>
+        <span className="title-wrapper">
+          {projects.map((lettre, key) => {
+            const style = { transitionDelay: `${key * 0.07}s` };
+            return (
+              <span key={key} className="services-title" style={style}>
+                {lettre}
+              </span>
+            );
+          })}
+        </span>
+      </div>
+      <div className="project-cards-heading">
+        <h3>PROJECTS</h3>
+        <p>Browse our handpicked selection of latest web projects, each a testament to our technical skill and creative innovation. </p>
+      </div>
+      <ProjectCard></ProjectCard>
     </section>
-   
-  )
-}
+  );
+};
 
-
-export default transition(ProjectCards)
+export default transition(ProjectCards);
 
 //  {/* <div className="services-wrapper">
 //         <h2>03/</h2>

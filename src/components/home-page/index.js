@@ -22,20 +22,24 @@ const HomePage = () => {
   //need to clean effect in components,
   //usest o clean the state of nav clcik when come from pages to main page - for hide the navbar in each section 
   //otherwise its displayed in scroll
-  
+
   const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
   const { setHasNavClicked } = useNavClick();
 
   const location = useLocation();
+  
   useEffect(() => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
       setHasHomepageClicked(false);
       // setHasHomepageClicked(false);
     }
+    
   }, [location.pathname]);
 
 
+
+  
 
 
   return (
