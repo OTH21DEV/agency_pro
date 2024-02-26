@@ -28,7 +28,7 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(cn("--sticky"));
+
 
   return (
 
@@ -39,7 +39,7 @@ const NavBar = () => {
           <img src={browser} alt=""></img>
           <h2>fromScratch</h2>
         </div> */}
-      <Nav></Nav>
+      <Nav ></Nav>
       {/* <LangueBar></LangueBar> */}
     </div>
    

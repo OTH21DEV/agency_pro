@@ -8,6 +8,7 @@ import NavBar from "../nav-bar";
 import { Link, useLocation } from "react-router-dom";
 
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
 
 const ContactFooter = () => {
   const cn = bem("Contact");
@@ -15,7 +16,7 @@ const ContactFooter = () => {
   const location = useLocation();
 
   const { hasNavClicked } = useNavClick();
-
+  const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
 
   /*Displays the navBar on the contact 
   section only when we are in this section */
@@ -43,7 +44,8 @@ const ContactFooter = () => {
 
   return (
     <section className="contact-section">
-      {hasNavClicked ? <NavBar /> : ""}
+        {hasNavClicked ||  hasHomepageClicked ? <NavBar /> : ""}
+      {/* {hasNavClicked || (hasNavClicked && hasHomepageClicked)? <NavBar /> : ""} */}
       <div className="contact-wrapper">
         <div className="contact-heading">
           <h2>04/</h2>

@@ -20,20 +20,30 @@ export const NavClickProvider = ({ children }) => {
   return <NavClickContext.Provider value={{ hasNavClicked, setHasNavClicked }}>{children}</NavClickContext.Provider>;
 };
 
+// Create the context
+const ClickHomepage = createContext({
+  hasHomepageClicked: false,
+  setHasHomepageClicked: () => {},
+});
+// Custom hook to use the context
+export const useHomeClick = () => {
+  return useContext(ClickHomepage);
+};
+// Provider component
+export const HomepageClickProvider = ({ children }) => {
+  const [hasHomepageClicked, setHasHomepageClicked] = useState(false);
+  return (
+    <ClickHomepage.Provider value={{ hasHomepageClicked, setHasHomepageClicked}}>
+      {children}
+    </ClickHomepage.Provider>
+  );
+}
+
+
+
 const AnimatedRoutes = () => {
   const location = useLocation();
   const { hasNavClicked } = useNavClick();
-  // if (!hasNavClicked) {
-  //   // <Routes>
-  //   //   <Route path="/" element={<Main />} />
-  //   // </Routes>;
-  //   return (
-  //     <Routes>
-  //       <Route path="/" element={<Main />} />
-  //       {/* Other routes can be included here if needed */}
-  //     </Routes>
-  //   );
-  // }
 
   return (
     <AnimatePresence mode="wait" >
@@ -49,11 +59,13 @@ const AnimatedRoutes = () => {
 
 const App = () => {
   return (
+    <HomepageClickProvider>
     <NavClickProvider>
       <Router>
         <AnimatedRoutes />
       </Router>
     </NavClickProvider>
+    </HomepageClickProvider>
   );
 };
 

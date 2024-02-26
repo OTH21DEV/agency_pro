@@ -3,14 +3,16 @@
 
   background-color: #0d232a;
   transform: translateY(100vh);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out,opacity 0.5s ease-in-out;
 
   background-color: #e1dfdd;
-  /* overflow: hidden; */
+  opacity:0;
+  overflow: hidden;
 }
 
 .container.slide-in {
   transform: translateY(0);
+  opacity:1
   /* display: block; */
 }
 .page {

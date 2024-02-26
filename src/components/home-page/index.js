@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Gear from "../../components/gear";
 import gear from "../../assets/gear_black.png";
 import Heading from "../../components/Heading";
@@ -12,25 +12,31 @@ import Loader from "../loader";
 import DraggableImg from "../draggable-img";
 import arrow_big from "../../assets/arrow_down_outline.png";
 import "./style.css";
-import {useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import transition from "../../transition";
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
+
 
 const HomePage = () => {
-  const [loadingComplete, setLoadingComplete] = useState(false);
-  const containerRef = useRef();
-  const [loading, setLoading] = useState(true);
+  //need to clean effect in components,
+  //usest o clean the state of nav clcik when come from pages to main page - for hide the navbar in each section 
+  //otherwise its displayed in scroll
+  
+  const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
+  const { setHasNavClicked } = useNavClick();
 
-const location = useLocation()
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHasNavClicked(false);
+      setHasHomepageClicked(false);
+      // setHasHomepageClicked(false);
+    }
+  }, [location.pathname]);
 
-const { hasNavClicked} = useNavClick(); 
 
-  // useEffect(() => {
 
-  //   if (hasNavClicked && location.pathname === "/contact") {
-  //     setLoading(false);
-  //   }
-  // }, [hasNavClicked,setLoading,location.pathname]);
 
   return (
     <>
@@ -64,8 +70,8 @@ const { hasNavClicked} = useNavClick();
         <ContactFooter></ContactFooter>
         {/* <ScrollTop></ScrollTop> */}
       </div>
-      {document.querySelector(".container.slide-in") && <Gear icon={gear} />}
+      {/* {document.querySelector(".container.slide-in") && <Gear icon={gear} />} */}
     </>
   );
 };
-export default transition(HomePage)
+export default transition(HomePage);

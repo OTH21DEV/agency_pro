@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
 
 const Nav = () => {
   const cn = bem("Nav-wrapper");
@@ -10,6 +11,8 @@ const Nav = () => {
   const navRef = useRef(null);
 
   const { setHasNavClicked } = useNavClick();
+
+  const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
   /*
   Function to handle setting hasNavClicked
   when navigating from '/' to another path
@@ -24,18 +27,34 @@ const Nav = () => {
     }, 1500);
   };
 
+  const handleHomepage = () => {
+    setHasHomepageClicked(true);
+  };
+
   useEffect(() => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
+      // setHasHomepageClicked(false);
     }
   }, [location.pathname]);
 
   return (
     <div className={cn("")} ref={navRef}>
       <div>
-        <Link onClcik = {handleNavClick}  to="/">
+        <Link onClick={handleHomepage} to="/">
           FromScratch
         </Link>
+        {/* <Link
+          onClick={() => {
+            handleHomepage();
+            if (location.pathname === "/") {
+              handleNavClick();
+            }
+          }}
+          to="/"
+        >
+          FromScratch
+        </Link> */}
       </div>
       <div>
         <Link onClick={location.pathname === "/" ? handleNavClick : undefined} to="/services">

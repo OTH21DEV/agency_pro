@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../../assets/logo_white.png";
 import { useNavClick } from "../../app";
+import { useHomeClick } from "../../app";
 
 const Loader = () => {
   const [isLoaderFinished, setIsLoaderFinished] = useState(false);
@@ -14,7 +15,7 @@ const Loader = () => {
   const numberContainerEl = numberRef.current;
 
   const { hasNavClicked } = useNavClick();
-
+  const { hasHomepageClicked } = useHomeClick();
 
   // Function to generate two random numbers and add 100
   const generateRandomNumbers = () => {
@@ -42,10 +43,7 @@ const Loader = () => {
     const handleAnimationEnd = () => {
       if (numberIndex < 2) {
         setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
-      } 
-
-      
-      else {
+      } else {
         setIsSlidingUp(true);
         setIsLoaderFinished(true); // Trigger the end of the loading sequence
       }
@@ -58,12 +56,11 @@ const Loader = () => {
         numberRef.current.removeEventListener("animationend", handleAnimationEnd);
       }
     };
-  }, [numberIndex,hasNavClicked]);
+  }, [numberIndex, hasNavClicked]);
 
   const location = useLocation();
 
   useEffect(() => {
-    console.log(hasNavClicked)
     const showPageContainer = document.querySelector(".container");
     const navBar = document.querySelector(".Nav-bar-wrapper");
     const heading = document.querySelector(".Heading");
@@ -75,60 +72,34 @@ const Loader = () => {
 
     const loaderContainerEl = loaderContainerRef.current;
 
+    if (hasHomepageClicked) {
+      loaderContainerEl.style.display = "none"; // Hide the loader
+     
+      showPageContainer.classList.add("slide-in");
 
-    const elementsToMakeVisible = [
-      document.querySelector(".Nav-bar-wrapper"),
-      document.querySelector(".Heading"),
-      document.querySelector(".Heading-pro"),
-      document.querySelector(".Heading-text"),
-      document.querySelector(".arrow-big"),
-      document.querySelector(".Slogan"),
-      document.querySelector(".image-container-wrapper"),
-    ];
-  
-    const makeElementsVisible = () => {
-      elementsToMakeVisible.forEach((element) => {
-        if (element) {
-          element.classList.add("visible");
-        }
-      });
-    };
-  
-    // Immediately make elements visible if navigation was clicked
-    if (hasNavClicked) {
-      console.log('yes')
-      makeElementsVisible();
-      return; // Exit effect early since no slide-up or timed visibility management needed.
-    }
+      setTimeout(() => {
+        // showPageContainer.classList.add("slide-in"); // Slide in the main content
 
+        navBar.classList.add("visible"); // Slide in the main content
 
+        navBar.addEventListener("transitionend", () => {
+          // Only after the NavBar has finished transitioning, show the Heading
+          heading.classList.add("visible");
 
-
-
-
-
-
-
-
-
-
-
-
-
-    if (isSlidingUp ) {
-
-
-
-
-
-      
-
+          pro.classList.add("visible");
+          text.classList.add("visible");
+          arrow.classList.add("visible");
+          slogan.classList.add("visible");
+          image.classList.add("visible");
+          image.style.transitionDelay = ".3s";
+        });
+      }, 700);
+    } else if (isSlidingUp) {
       loaderContainerEl.classList.add("slide-up");
 
       let timerId;
 
       const transitionEndHandler = () => {
-
         // Instead of waiting for the transition to end, start a timer to slide in the container earlier
         const loaderTransitionDuration = getComputedStyle(loaderContainerRef.current).transitionDuration;
         // Convert seconds to milliseconds and decrease it slightly to slide in the container before the loader finishes
@@ -152,7 +123,6 @@ const Loader = () => {
             image.classList.add("visible");
             image.style.transitionDelay = ".3s";
           });
-
         }, earlyStartMs);
       };
 
@@ -165,12 +135,9 @@ const Loader = () => {
         if (loaderContainerEl) {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
         }
-
       };
     }
-  }, [isSlidingUp, location.pathname,hasNavClicked]);
-
-
+  }, [isSlidingUp, location.pathname, hasHomepageClicked]);
 
   const getClassName = () => {
     switch (numbers[numberIndex]) {
