@@ -90,8 +90,6 @@ elements will be displayed again (animation will rerun) - this check is added in
     setIsOpen((prevIsOpen) => (prevIsOpen === index ? null : index));
   }
 
-
-
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/
   const handleScroll = () => {
@@ -107,7 +105,7 @@ elements will be displayed again (animation will rerun) - this check is added in
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up 
+    // Clean up
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -123,18 +121,57 @@ elements will be displayed again (animation will rerun) - this check is added in
   so need to rerun the display effect of the elements there
    */
 
+  // useEffect(() => {
+  //   if (isNavBarVisible) {
+  //     setIsVisible(true);
+  //   } else {
+  //     setIsVisible(false);
+  //   }
+  // }, [isNavBarVisible]);
   useEffect(() => {
+    // Clear any existing timeouts when effect runs
+    let timeoutId;
+
     if (isNavBarVisible) {
-      setIsVisible(true);
+      // Set a timeout before making the navigation bar visible
+      timeoutId = setTimeout(() => {
+        setIsVisible(true);
+      }, 1800); // Replace 1000 with the number of milliseconds you want for your delay
     } else {
+      // Set isVisible to false immediately when the navbar should be hidden
       setIsVisible(false);
     }
+
+    // Specify how to clean up after this effect:
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [isNavBarVisible]);
 
   ////////////////////////
 
   const numberDelay = servicesTitle.length * 0.07;
-  const numberStyle = { transitionDelay: `${numberDelay + 0.3}s` };
+  const numberStyle = { transitionDelay: `${numberDelay + 0.9}s` };
+
+
+
+
+// Helper function to wrap each word on a line in a span, and each line in another span
+const wrapTextIntoLines = text => {
+  // Split the text by newlines to work with individual lines
+  return text.split('\n').map((line, lineIndex) => (
+    <span key={lineIndex} className="line">
+      {line}
+    </span>
+  ));
+};
+
+const text =`Specializing in custom and user-friendly web \nsolutions, the focus is on meeting specific \nclient needs through a commitment to \nexcellence and attention to detail. \nEach project is approached with the utmost care, \nensuring that the delivered websites are engaging, functional, and \nsuccessful in enhancing online presence \nfor businesses and individuals alike.`;
+
+const wrappedText = wrapTextIntoLines(text);
+
   return (
     <section className="services-section">
       {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
@@ -154,13 +191,13 @@ elements will be displayed again (animation will rerun) - this check is added in
           })}
         </span>
       </div>
-      <div className="contact-about">
-        <h3>ABOUT</h3>
-        <p>
-          {" "}
-          Specializing in custom and user-friendly web solutions, the focus is on meeting specific client needs through a commitment to excellence and attention to detail. Each project is approached
-          with the utmost care, ensuring that the delivered websites are engaging, functional, and successful in enhancing online presence for businesses and individuals alike.{" "}
-        </p>
+      <div className="services-about">
+        <h3 className="services-about-title">ABOUT</h3>
+
+<p className={`services-about-content ${isVisible ? "visible" : ""}`}>
+{wrappedText}
+</p>
+
       </div>
 
       <div className="service-card-wrapper">
