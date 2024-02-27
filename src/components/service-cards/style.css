@@ -3,27 +3,43 @@
   /* height: 100vh; */
   /* padding: 85px 50px; */
   background-color: #e1dfdd;
+  /* overflow: hidden; */
 }
 
 .services-wrapper {
   display:flex;
-
+  padding-top: 85px;
   width:80%;
   font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.services-wrapper h2 {
+.service-number {
   font-weight: 500;
-  font-size:1.4em
+  font-size:1.4em;
+  padding-top:1em;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  overflow: hidden;
+}
+.service-number.visible  {
+ opacity:1
 }
 
-.services-title{
+
+.services-section .services-wrapper .title-wrapper .services-title{
   font-family: 'Syne', sans-serif;
- 
+  display: inline-block;
   font-size: 6em;
+  line-height: 0.834;
+  opacity:0;
+  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99),height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);;
+  transform: translateY(80%); 
+}
+.services-section .services-wrapper .title-wrapper .services-title.visible{
+  transform: translateY(0%); 
+  opacity: 1;
 
 }
-
 .title-wrapper{
   margin-left:7.5em
 }

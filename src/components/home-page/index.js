@@ -27,11 +27,12 @@ const HomePage = () => {
   const { setHasNavClicked } = useNavClick();
 
   const location = useLocation();
-  
+
   useEffect(() => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
       setHasHomepageClicked(false);
+      sessionStorage.clear();
       // setHasHomepageClicked(false);
     }
     

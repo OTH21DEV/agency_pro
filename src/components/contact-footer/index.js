@@ -38,9 +38,10 @@ const ContactFooter = () => {
           sessionStorage.setItem("navBarVisible", "true");
         }
       }, 500);
-    } else {
-      sessionStorage.clear();
-    }
+    } 
+    // else {
+    //   sessionStorage.clear();
+    // }
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
