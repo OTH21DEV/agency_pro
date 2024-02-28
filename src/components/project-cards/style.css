@@ -1,77 +1,13 @@
-.Slider {
-  z-index: 99;
-  background-color: #f7f7f7;
-  overflow: hidden;
-  display: flex;
-  /*test*/
-  height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
 
-#next,
-#prev {
-  position: absolute;
-  top: 40%;
-
-  left: 50px;
-  color: black;
-  cursor: pointer;
-  top: 35%; 
-  transform: translateY(-35%); 
-  opacity:0.7;
-  transition: opacity 0.3s ease;
-}
-
-#next {
-  left: unset;
-  right: 50px;
-}
-#prev img {
-  transform: rotate(90deg);
-  width: 40px;
-}
-
-#next img {
-  transform: rotate(-90deg);
-  width: 40px;
-}
-
-#prev {
-  left: 12vw; /* Keeps a distance from the left edge based on viewport width */
-}
-
-#next {
-  right: 12vw; /* Keeps a distance from the right edge based on viewport width */
-}
-
-#prev img {
-  transform: translateX(-35%) rotate(90deg);
-  width: 40px;
-}
-
-#next img {
-  transform: translateX(35%) rotate(-90deg);
-  width: 40px;
-}
-
-#next:hover,
-#prev:hover {
-  opacity: 1; 
-}
-/*new version*/
 .projects-section{
-  /* height:100vh; */
-  /* padding: 85px 50px; */
+
   background:  #e1dfdd; 
   overflow: hidden;
+  padding: 7.5em;
 }
 
-.services-wrapper {
-  margin-left:7.5em;
+.projects-wrapper {
+  /* margin-left:7.5em; */
   margin-bottom:4em;
   display:flex;
   /* border-bottom:2px solid grey; */
@@ -82,32 +18,87 @@
 .title-wrapper{
   margin-left:7.5em
 }
-.service-card-wrapper{
-  margin:0 10em;
-  width:100%
+.project-number {
+  font-weight: 500;
+  font-size: 1.4em;
+
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  overflow: hidden;
+}
+.project-number.visible {
+  opacity: 1;
 }
 
-
-.project-cards-heading{
+.projects-title {
+  font-family: "Syne", sans-serif;
+  display: inline-block;
+  font-size: 6em;
+  line-height: 0.834;
+  opacity: 0;
+  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transform: translateY(80%);
+}
+.projects-title.visible {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.projects-about{
   display:flex;
   width:40%; justify-content: space-between;
-  margin-left:7.5em;
+
 
 font-family: PP Neue Montreal,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
-.project-cards-heading p{
+.projects-about-content{
   margin-top:0;
 text-align: justify;
 margin-left:4em;
 font-size: 1.2em;
 font-weight: 500;
 opacity: 0.8;
-
+display: inline-block;
+overflow: hidden;
 }
 
-.project-cards-heading h3{
+
+.projects-about-content .line {
+  display: block; /* Lines will be on separate blocks */
+  opacity: 0;
+  max-height: 0px;
+  transform: translateY(20px);
+  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), max-height 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+}
+
+/* When 'visible' class gets toggled, it starts the animation */
+.projects-about-content.visible .line {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 50px;
+}
+
+/* Apply staggered delays to each line based on index */
+.projects-about-content.visible .line:nth-child(1) {
+  transition-delay: 0.07s;
+}
+.projects-about-content.visible .line:nth-child(2) {
+  transition-delay: 0.14s;
+}
+.projects-about-content.visible .line:nth-child(3) {
+  transition-delay: 0.14s;
+}
+
+
+
+.project-about-title{
   margin-top:0;
   font-size: 1em;
-  
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+}
+
+
+.project-about-title.visible {
+  opacity: 1;
 }

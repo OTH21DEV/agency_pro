@@ -97,9 +97,6 @@ elements will be displayed again (animation will rerun) - this check is added in
     if (window.scrollY >= specialHeight) {
       setIsVisible(true);
     }
-    // else {
-    //   setIsVisible(false); // Remove the class if below the special height
-    // }
   };
 
   useEffect(() => {
@@ -121,28 +118,19 @@ elements will be displayed again (animation will rerun) - this check is added in
   so need to rerun the display effect of the elements there
    */
 
-  // useEffect(() => {
-  //   if (isNavBarVisible) {
-  //     setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
-  // }, [isNavBarVisible]);
   useEffect(() => {
-    // Clear any existing timeouts when effect runs
     let timeoutId;
 
     if (isNavBarVisible) {
       // Set a timeout before making the navigation bar visible
       timeoutId = setTimeout(() => {
         setIsVisible(true);
-      }, 1800); // Replace 1000 with the number of milliseconds you want for your delay
+      }, 1800); 
     } else {
-      // Set isVisible to false immediately when the navbar should be hidden
+   
       setIsVisible(false);
     }
 
-    // Specify how to clean up after this effect:
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
@@ -153,69 +141,68 @@ elements will be displayed again (animation will rerun) - this check is added in
   ////////////////////////
 
   const numberDelay = servicesTitle.length * 0.07;
-  const numberStyle = { transitionDelay: `${numberDelay + 0.9}s` };
+  const numberStyle = { transitionDelay: `${numberDelay + 0.07}s` };
+  const aboutDelay = servicesTitle.length * 0.07;
+  const aboutStyle = { transitionDelay: `${aboutDelay}s` };
 
-
-
-
-// Helper function to wrap each word on a line in a span, and each line in another span
-const wrapTextIntoLines = text => {
   // Split the text by newlines to work with individual lines
-  return text.split('\n').map((line, lineIndex) => (
-    <span key={lineIndex} className="line">
-      {line}
-    </span>
-  ));
-};
+  const wrapTextIntoLines = (text) => {
+    return text.split("\n").map((line, lineIndex) => (
+      <span key={lineIndex} className="line">
+        {line}
+      </span>
+    ));
+  };
 
-const text =`Specializing in custom and user-friendly web \nsolutions, the focus is on meeting specific \nclient needs through a commitment to \nexcellence and attention to detail. \nEach project is approached with the utmost care, \nensuring that the delivered websites are engaging, functional, and \nsuccessful in enhancing online presence \nfor businesses and individuals alike.`;
+  const text = `Specializing in custom and user-friendly web \nsolutions, the focus is on meeting specific \nclient needs through a commitment to \nexcellence and attention to detail. \nEach project is approached with the utmost care, \nensuring that the delivered websites are engaging, functional, and \nsuccessful in enhancing online presence \nfor businesses and individuals alike.`;
 
-const wrappedText = wrapTextIntoLines(text);
+  const wrappedText = wrapTextIntoLines(text);
 
   return (
-    <section className="services-section">
+    <div className="section">
       {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
-      <div className="services-wrapper">
-        <h2 className={`service-number ${isVisible ? "visible" : ""}`} style={numberStyle}>
-          02/
-        </h2>
-        <span className="title-wrapper">
-          {servicesTitle.map((lettre, key) => {
-            const style = { transitionDelay: `${key * 0.07}s` };
+      <section className="services-section">
+        <div className="services-wrapper">
+          <h2 className={`service-number ${isVisible ? "visible" : ""}`} style={numberStyle}>
+            02/
+          </h2>
+          <span className="title-wrapper">
+            {servicesTitle.map((lettre, key) => {
+              const style = { transitionDelay: `${key * 0.07}s` };
 
-            return (
-              <span key={key} className={`services-title ${isVisible ? "visible" : ""}`} style={style}>
-                {lettre}
-              </span>
-            );
-          })}
-        </span>
-      </div>
-      <div className="services-about">
-        <h3 className="services-about-title">ABOUT</h3>
+              return (
+                <span key={key} className={`services-title ${isVisible ? "visible" : ""}`} style={style}>
+                  {lettre}
+                </span>
+              );
+            })}
+          </span>
+        </div>
+        <div className="services-about">
+          <h3 className={`services-about-title ${isVisible ? "visible" : ""}`} style={aboutStyle}>
+            ABOUT
+          </h3>
 
-<p className={`services-about-content ${isVisible ? "visible" : ""}`}>
-{wrappedText}
-</p>
+          <p className={`services-about-content ${isVisible ? "visible" : ""}`}>{wrappedText}</p>
+        </div>
 
-      </div>
-
-      <div className="service-card-wrapper">
-        {services.map((service, index) => (
-          <ServiceCard
-            key={service.title}
-            title={service.title}
-            number={service.number}
-            description={service.description}
-            bulletPoints={service.bulletPoints}
-            index={index}
-            isOpen={index === isOpen}
-            onClick={() => handleClick(index)}
-            style={{ borderTop: "2px solid grey", marginTop: "85px" }}
-          />
-        ))}
-      </div>
-    </section>
+        <div className={`services-card-wrapper ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "1.2s" }}>
+          {services.map((service, index) => (
+            <ServiceCard
+              key={service.title}
+              title={service.title}
+              number={service.number}
+              description={service.description}
+              bulletPoints={service.bulletPoints}
+              index={index}
+              isOpen={index === isOpen}
+              onClick={() => handleClick(index)}
+              style={{ borderTop: "2px solid grey", marginTop: "85px" }}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
 
