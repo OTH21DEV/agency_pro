@@ -3,13 +3,7 @@ import ProjectCard from "../project-card";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 
-import phone_frame from "../../assets/phone_frame.png";
-import screen_image from "../../assets/ecran_mobile.png";
-import dashboard_screen from "../../assets/dasboard_screen.png";
-import rest_screen from "../../assets/rest_screen.png";
-import bank_screen from "../../assets/bank_screen.png";
-import immo_screen from "../../assets/immo_screen.png";
-import arrow_slider from "../../assets/arrow-slider.png";
+
 import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { Link, useLocation } from "react-router-dom";

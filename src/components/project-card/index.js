@@ -1,72 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
-// import network_img from "../../assets/network.jpg"
-// import dashboard_v1 from "../../assets/dashboard_v1.jpg"
-
 import network_img from "../../assets/test_1.png";
 import dashboard_v1 from "../../assets/test_2.png";
-
-// import network_img from "../../assets/network_img_tel.jpg"
-// import network_img from "../../assets/network_img_v3.jpg"
-// import network_img from "../../assets/network_img_v4.jpg"
 import { Controller, Scene } from "react-scrollmagic";
 
-// const ProjectCard = ({ phone_frame, screen_image, description, active, id }) => {
-//   const cn = bem("Nav-wrapper");
-//   const [showDescription, setShowDescription] = useState(false);
-//   const isActive = active === id;
 
-//   useEffect(() => {
-
-//     if (isActive) {
-//       setShowDescription(true);
-//     } else {
-//       setShowDescription(false);
-//     }
-//   }, [isActive]);
-
-//   const renderDescription = (desc) => {
-//     const splitIndex = desc.indexOf(":");
-//     const descriptionClassName = `description-content ${showDescription ? "animated" : ""}`;
-//     // const descriptionClassName = `${showDescription ? "animated" : "description-content"}`;
-//     if (splitIndex !== -1) {
-//       const title = desc.substring(0, splitIndex);
-//       const detail = desc.substring(splitIndex + 1);
-
-//       return (
-//         <div className={descriptionClassName}>
-//           <h3 className="project-title">{title}</h3>
-//           <p>{detail.trim()}</p>
-//         </div>
-//       );
-//     }
-
-//     return <div className={descriptionClassName}>{desc}</div>;
-//   };
-
-//   return (
-//     <>
-//       <div className="phone-frame">
-//         <img src={phone_frame} alt="Phone Frame" />
-//         <div className="screen-content">
-//           <img src={screen_image} alt="Web Project Screenshot" />
-//         </div>
-//       </div>
-
-//       {description.map((desc, index) => {
-//         return (
-//           <div key={index} className={`${cn(active !== id ? "hidden" : "project-description")}`}>
-//             {renderDescription(desc)}
-//           </div>
-//         );
-//       })}
-//     </>
-//   );
-// };
-
-// export default ProjectCard;
 
 const ProjectCard = () => {
   let networkTitle = ["I", "N", "T", "R", "A", "L", "I", "N", "K"];
@@ -86,7 +25,7 @@ const ProjectCard = () => {
   const handleMouseEnterNetwork = () => setNetworkTitleIsHovered(true);
   const handleMouseLeaveNetwork = () =>setNetworkTitleIsHovered(false);
 
-
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleMouseEnterSport = () => setSportTitleIsHovered(true);
   const handleMouseLeaveSport = () =>setSportTitleIsHovered(false);
@@ -109,6 +48,56 @@ const ProjectCard = () => {
     setSportUnderlineWidth(sportTotalWidth);
   }, []);
 
+
+
+
+
+
+
+
+  /*need to handle the scrollY to display 
+  services elements in the main page by adding visible class in jsx*/
+  const handleScroll = () => {
+    const specialHeight = 200;
+    const path = window.location.pathname;
+
+    if (window.scrollY >= 2000) {
+      setIsVisible(true);
+    }
+
+  
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+
+
+  const underlineDelay = (networkTitle.length * 0.07)+0.14;
+const descriptionDelay = underlineDelay+1
+// console.log(underlineDelay)
+const aboutStyle = { transitionDelay: `${descriptionDelay}s` };
+  // Split the text by newlines to work with individual lines
+  const wrapTextIntoLines = (text,style) => {
+    return text.split("\n").map((line, lineIndex) => (
+      <span key={lineIndex} className="line">
+        {line}
+      </span>
+    ));
+  };
+
+  const text = `A SECURE AND STREAMLINED PLATFORM \nDESIGNED TO ENHANCE CORPORATE COMMUNICATIONS.`;
+
+  const wrappedText = wrapTextIntoLines(text);
+
+
+
+
   return (
     <div className="parallax-container">
       <Controller>
@@ -116,21 +105,23 @@ const ProjectCard = () => {
           <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
             <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
               {networkTitle.map((letter, index) => {
+                 const style = { transitionDelay: `${index * 0.07}s` };
                 return (
-                  <span key={index} className="fixed-content-letter" ref={(el) => (networkTitleRef.current[index] = el)}>
+                  <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
                     {letter}
                   </span>
                 );
               })}
-              <div className="underline" style={{ width: networkUnderlineWidth }} />
+              <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth ,transitionDelay:`${underlineDelay}s`}} />
               <div className="project-card-title">
-                <p> {projectTitle.toLocaleUpperCase()}</p>
+                {/* <p> {projectTitle.toLocaleUpperCase()}</p> */}
+                <p className={`project-card-content ${isVisible ? "visible" : ""}`} > { wrappedText}</p>
               </div>
             </span>
             <span className="fixed-contentt" onMouseEnter={ handleMouseEnterSport } onMouseLeave={handleMouseLeaveSport}>
               {sportTitle.map((letter, index) => {
                 return (
-                  <span key={index} className="fixed-content-letter" ref={(el) => (sportTitleRef.current[index] = el)}>
+                  <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (sportTitleRef.current[index] = el)}>
                     {letter}
                   </span>
                 );

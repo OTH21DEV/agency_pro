@@ -15,6 +15,7 @@ function ServiceCards() {
   const [isOpen, setIsOpen] = useState(null);
   //handle the state of elements (titles etc)
   const [isVisible, setIsVisible] = useState(false);
+  const [isCardsVisible, setIsCardsVisible] = useState(false);
   const location = useLocation();
   const { hasHomepageClicked } = useHomeClick();
   const { hasNavClicked } = useNavClick();
@@ -94,15 +95,23 @@ elements will be displayed again (animation will rerun) - this check is added in
   services elements in the main page by adding visible class in jsx*/
   const handleScroll = () => {
     const specialHeight = 200;
+    const path = window.location.pathname;
+
     if (window.scrollY >= specialHeight) {
       setIsVisible(true);
     }
+
+    // Only for the homepage, check if we have scrolled past 650px.
+    if (path === "/" && window.scrollY >= 510) {
+      setIsCardsVisible(true);
+    }
   };
+
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -122,12 +131,13 @@ elements will be displayed again (animation will rerun) - this check is added in
     let timeoutId;
 
     if (isNavBarVisible) {
-      // Set a timeout before making the navigation bar visible
       timeoutId = setTimeout(() => {
+        // Set a timeout before making the navigation bar visible
         setIsVisible(true);
-      }, 1800); 
+        // Set a timeout before making the service cards visible in the service section page
+        setIsCardsVisible(true);
+      }, 1800);
     } else {
-   
       setIsVisible(false);
     }
 
@@ -186,7 +196,7 @@ elements will be displayed again (animation will rerun) - this check is added in
           <p className={`services-about-content ${isVisible ? "visible" : ""}`}>{wrappedText}</p>
         </div>
 
-        <div className={`services-card-wrapper ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "1.2s" }}>
+        <div className={`services-card-wrapper ${isCardsVisible ? "visible" : ""}`} style={{ transitionDelay: "1s" }}>
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
