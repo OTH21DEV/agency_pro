@@ -102,7 +102,7 @@ elements will be displayed again (animation will rerun) - this check is added in
     }
 
     // Only for the homepage, check if we have scrolled past 650px.
-    if (path === "/" && window.scrollY >= 510) {
+    if (path === "/" && window.scrollY >= 770) {
       setIsCardsVisible(true);
     }
   };
@@ -128,26 +128,37 @@ elements will be displayed again (animation will rerun) - this check is added in
    */
 
   useEffect(() => {
-    let timeoutId;
-
+    let navBarTimeoutId;
+    let cardsTimeoutId;
+  
     if (isNavBarVisible) {
-      timeoutId = setTimeout(() => {
-        // Set a timeout before making the navigation bar visible
+      // timeout before making the navigation bar visible in the service section page
+
+      navBarTimeoutId = setTimeout(() => {
         setIsVisible(true);
-        // Set a timeout before making the service cards visible in the service section page
-        setIsCardsVisible(true);
       }, 1800);
+  
+      // timeout before making the service cards visible in the service section page
+
+      cardsTimeoutId = setTimeout(() => {
+        setIsCardsVisible(true);
+      }, 3000); 
     } else {
       setIsVisible(false);
+    
+      setIsCardsVisible(false);
     }
-
+  
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      // Clear both timeouts when unmounting or if the effect re-runs
+      if (navBarTimeoutId) {
+        clearTimeout(navBarTimeoutId);
+      }
+      if (cardsTimeoutId) {
+        clearTimeout(cardsTimeoutId);
       }
     };
   }, [isNavBarVisible]);
-
   ////////////////////////
 
   const numberDelay = servicesTitle.length * 0.07;
@@ -196,7 +207,7 @@ elements will be displayed again (animation will rerun) - this check is added in
           <p className={`services-about-content ${isVisible ? "visible" : ""}`}>{wrappedText}</p>
         </div>
 
-        <div className={`services-card-wrapper ${isCardsVisible ? "visible" : ""}`} style={{ transitionDelay: "1s" }}>
+        <div className={`services-card-wrapper ${isCardsVisible ? "visible" : ""}`} >
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

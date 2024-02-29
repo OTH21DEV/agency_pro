@@ -4,6 +4,9 @@
 }
 .section {
   background-color: #e1dfdd;
+
+    overflow: hidden;
+  
 }
 .services-wrapper {
   display: flex;

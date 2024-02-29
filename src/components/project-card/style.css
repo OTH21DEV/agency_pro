@@ -1,47 +1,10 @@
-.phone-frame {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*test*/
-  position: absolute;
-  transition: 0.3s;
-  margin-bottom: 200px;
-}
-.phone-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  width: 400px;
-  height: 400px;
-}
-.screen-content {
-  position: absolute;
-  width: 173px;
-  height: 365px;
 
-  overflow: hidden;
-  width: 100%;
-  left: 28.5%;
-}
-
-.screen-content img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border-radius: 17px;
-  /* object-fit: contain; */
-  max-width: 173px;
-}
-
+/* 
 .Nav-wrapper-project-description {
   align-self: flex-end;
   width: 100%;
   background-color: white;
-  /* position: absolute; */
+
   margin: 0;
   font-family: TT Hoves, sans-serif;
 
@@ -64,7 +27,7 @@
   height: 100%;
   font-family: TT Hoves, sans-serif;
   padding: 0rem 3.12rem;
-}
+} */
 
 .project-title {
   letter-spacing: -0.14063rem;
@@ -81,7 +44,7 @@
   align-self: flex-end;
   width: 100%;
   background-color: white;
-  /* position: absolute; */
+ 
   margin: 0;
   font-family: TT Hoves, sans-serif;
 
@@ -112,6 +75,17 @@
   display: flex;
   height: 230vh;
   /* height: 300vh; */
+  opacity: 0;
+  transform: translateY(50px);
+overflow: hidden;
+  transition:transform 1.8s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.8s cubic-bezier(0.62, 0.05, 0.01, 0.99),
+}
+
+
+.parallax-container.visible {
+ 
+  opacity: 1;
+  transform: translateY(0%);
 }
 
 .fixed-content {
@@ -141,6 +115,29 @@
   opacity: 1;
 }
 
+
+
+
+.fixed-contentt .fixed-content-letter {
+  margin-right: -4px;
+  display: inline-block;
+  /* border-bottom: 10px solid black; */
+  position: relative;
+
+  font-size: 6em;
+  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  opacity: 0;
+  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transform: translateY(80%);
+}
+
+.fixed-contentt .fixed-content-letter.visible {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+
+
 .fixed-content .underline,
 .fixed-contentt .underline {
   content: "";
@@ -161,15 +158,11 @@
   opacity:1
 }
 
-/* .fixed-content:hover .underline.visible,
-.fixed-contentt:hover .underline.visible {
-  transform: scaleX(0); 
+.fixed-contentt .underline.visible {
+  transform: scaleX(1);
+  opacity:1
 }
-.fixed-content:hover .underline,
-.fixed-contentt:hover .underline {
-  transform: scaleX(0); 
-}
- */
+
 
 .fixed-contentt {
   width: 100%;
@@ -275,4 +268,19 @@
 
 .top-right img {
   margin-bottom: 30px;
+}
+
+.bottom-right .img, .top-right .img {
+  transition: transform 1.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+}
+
+.bottom-right .img:hover,
+.bottom-right .img.scaled,
+
+
+.top-right .img:hover,
+.top-right .img.scaled
+
+{
+  transform: scale(1.2);
 }

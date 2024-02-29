@@ -47,7 +47,7 @@ elements will be displayed again (animation will rerun) - this check is added in
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/
   const handleScroll = () => {
-    const specialHeight = 1500;
+    const specialHeight = 1450;
     if (window.scrollY >= specialHeight) {
       setIsVisible(true);
     }
@@ -135,7 +135,7 @@ elements will be displayed again (animation will rerun) - this check is added in
         <h3 className={`project-about-title ${isVisible ? "visible" : ""}`} style={aboutStyle}>PROJECTS</h3>
         <p className={`projects-about-content ${isVisible ? "visible" : ""}`}>{wrappedText} </p>
       </div>
-      <ProjectCard></ProjectCard>
+      <ProjectCard ></ProjectCard>
     </section>
     </div>
   );

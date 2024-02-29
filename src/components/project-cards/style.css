@@ -3,7 +3,9 @@
   overflow: hidden;
   padding: 7.5em;
 }
-
+.section{
+  overflow: hidden;
+}
 .projects-wrapper {
   /* margin-left:7.5em; */
   margin-bottom: 4em;
