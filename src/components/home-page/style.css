@@ -7,7 +7,7 @@
 
   background-color: #e1dfdd;
   opacity:0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container.slide-in {
@@ -17,8 +17,10 @@
 }
 .page {
   height: calc(100vh - 20vh);
+  height: calc(100vh - 140px);
   background-color: #e1dfdd;
   position: relative;
+  padding:0 7.5em;
 }
 .arrow-big {
   display: inline-block;

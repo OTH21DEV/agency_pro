@@ -5,6 +5,7 @@
   font-family: "Syne", sans-serif;
   justify-content: space-between;
   width: 100%;
+  /* background: #e1dfdd;  */
 }
 
 .Nav-wrapper a {
@@ -19,11 +20,10 @@
   font-size: 1.15rem;
   text-decoration: none;
   color: black;
-  /* -webkit-text-fill-color: #e1dfdd; 
-  -webkit-background-clip: text; 
-  background-clip: text;
-  mix-blend-mode:difference;
-  -webkit-tap-highlight-color: transparent; */
+/* 
+  mix-blend-mode: difference;  */
+
+
 }
 
 :root {

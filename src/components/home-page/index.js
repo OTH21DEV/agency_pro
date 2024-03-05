@@ -56,7 +56,7 @@ const HomePage = () => {
           <Heading text="stunning online experiences for Enterprises, Startups  & E-commerce" />
           {/* <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." /> */}
           <DraggableImg />
-          <div style={{ display: "flex", alignItems: "center", position: "absolute", bottom: "0", paddingLeft: "3rem" }}>
+          <div style={{ display: "flex", alignItems: "center", position: "absolute", bottom: "5px"}}>
             <div className="arrow-big">
               <img src={arrow_big} alt="" className="arrow-big-img"></img>
             </div>

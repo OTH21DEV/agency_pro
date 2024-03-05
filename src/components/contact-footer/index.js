@@ -137,7 +137,7 @@ const ContactFooter = () => {
 
   const wrappedText = wrapTextIntoLines(text);
 
-  let email = ["C", "O", "N", "T", "A", "C", "T", "@", "F", "R", "O", "M", "S", "C", "R", "A", "T", "C", "H", ".", "C", "O", "M"];
+  let email = [ "f", "r", "o", "m", "S", "c", "r", "a", "t", "c", "h"];
   // let email = ["C", "O", "N", "T", "A", "C", "T", "@"];
   useEffect(() => {
     let networkTotalWidth = 0;
