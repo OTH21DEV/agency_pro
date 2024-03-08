@@ -9,7 +9,6 @@ import browser from "../../assets/browser.png";
 const NavBar = () => {
   const cn = bem("Nav-bar-wrapper");
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY) {
@@ -29,20 +28,11 @@ const NavBar = () => {
     };
   }, []);
 
-
   return (
-
     <div className={cn("")}>
-        {/* <h2>fromScratch</h2> */}
-             {/* <div className="logo-wrapper">
-          <img src={logo} alt=""></img>
-          <img src={browser} alt=""></img>
-          <h2>fromScratch</h2>
-        </div> */}
-      <Nav ></Nav>
+      <Nav></Nav>
       {/* <LangueBar></LangueBar> */}
     </div>
-   
   );
 };
 

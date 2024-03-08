@@ -50,3 +50,18 @@ padding-left:20px;
     justify-content:flex-end;
     margin-right:30px
 }
+
+@media all and (min-width: 375px) and (max-width: 450px) {
+    .Slogan-wrapper{
+        margin-right:0
+    }
+    .Slogan li{
+ 
+        padding-left:0px; 
+    }
+    .Slogan {
+
+        padding-left:10px; 
+        font-size:1em;
+    }
+  }

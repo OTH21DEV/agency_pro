@@ -66,11 +66,11 @@ const ProjectCard = () => {
   
     // Conditions for Home ("/") Page
     if (path === "/") {
-      if (window.scrollY >= 2000) {
+      if (window.scrollY >= 1900) {
         setIsVisible(true);
       }
     
-      if (window.scrollY >= 3300) {
+      if (window.scrollY >= 3000) {
         setSecondTitleIsVisible(true);
       }
     }
@@ -143,13 +143,13 @@ const ProjectCard = () => {
     ));
   };
 
-  const text = `A SECURE AND STREAMLINED PLATFORM \nDESIGNED TO ENHANCE CORPORATE COMMUNICATIONS.`;
-  const project_Title = "AN ULTIMATE HUB FOR \nFITNESS ACTIVITES MONITORING";
+  const text = `A STREAMLINED COLLABORATION APP \nDESIGNED TO ENHANCE CORPORATE COMMUNICATIONS AND TEAMWORK.\nSECURE,PRIVATE AND EXCLUSIVE TO ORGANISATION MEMBERS.`;
+  const project_Title = "CHARTPLAY ANALYTICS IS AN ULTIMATE HUB FOR FITNESS ACTIVITES MONITORING.\nREAL TIME CHARTS FOR IN DEPTH PERFORMANCE ANALYSIS.";
   const wrappedText = wrapTextIntoLines(text);
   const secondText = wrapTextIntoLines(project_Title);
 
   return (
-    // <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
+
     <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
       <Controller>
         <Scene duration={"100%"} triggerHook={0.2} pin triggerElement={".test"}>

@@ -107,6 +107,8 @@ const Loader = () => {
 
         // Schedule sliding in the main content before the loader finishes
         timerId = setTimeout(() => {
+          showPageContainer.style.overflow = 'hidden';
+
           loaderContainerEl.style.display = "none"; // Hide the loader
           showPageContainer.classList.add("slide-in"); // Slide in the main content
 
@@ -115,7 +117,7 @@ const Loader = () => {
           navBar.addEventListener("transitionend", () => {
             // Only after the NavBar has finished transitioning, show the Heading
             heading.classList.add("visible");
-
+            showPageContainer.style.overflow = '';
             pro.classList.add("visible");
             text.classList.add("visible");
             arrow.classList.add("visible");
@@ -134,9 +136,12 @@ const Loader = () => {
         clearTimeout(timerId);
         if (loaderContainerEl) {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
+       
         }
+        showPageContainer.style.overflow = '';
       };
     }
+   
   }, [isSlidingUp, location.pathname, hasHomepageClicked]);
 
   const getClassName = () => {

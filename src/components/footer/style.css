@@ -28,6 +28,12 @@
   align-items: center;
   color:white
 }
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .Footer p {
+    width: 50vw;
+  }
+  
+}
 
 /* .scroll-text {
   display: inline-block;

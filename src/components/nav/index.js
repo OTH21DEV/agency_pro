@@ -44,19 +44,9 @@ const Nav = () => {
         <Link onClick={handleHomepage} to="/">
           FromScratch
         </Link>
-        {/* <Link
-          onClick={() => {
-            handleHomepage();
-            if (location.pathname === "/") {
-              handleNavClick();
-            }
-          }}
-          to="/"
-        >
-          FromScratch
-        </Link> */}
+
       </div>
-      <div>
+      <div className="Nav-links">
         <Link onClick={location.pathname === "/" ? handleNavClick : undefined} to="/services">
           01/ Services
         </Link>

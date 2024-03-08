@@ -29,3 +29,17 @@
 :root {
   --light-grey: #ddd;
 }
+
+.Nav-links{
+
+}
+
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .Nav-links{
+    display:flex;
+    flex-direction: column;
+  }
+  .Nav-links a{
+   margin:0
+  }
+}

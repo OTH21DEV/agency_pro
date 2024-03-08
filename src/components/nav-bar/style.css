@@ -8,9 +8,16 @@
   transform: translateY(-100%);
   transition: transform 0.5s ease-in-out 0.8s;
   background: #e1dfdd;
-
+  overflow: hidden;
 }
 
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .Nav-bar-wrapper{
+    margin: 0 0.5em 0 1.5em;
+    padding-bottom:0;
+  }
+  
+}
 .Nav-bar-wrapper.visible {
   transform: translateY(0);
 
@@ -24,7 +31,7 @@
   right: 0;
 
   z-index: 1000;
-  mix-blend-mode:difference;
+
   color: black;
   mix-blend-mode:difference;
   -webkit-text-fill-color: transparent;

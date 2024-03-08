@@ -32,6 +32,18 @@
   transform-origin: 50% 50%;
 }
 
+
+@media all and (min-width: 375px) and (max-width: 450px) {
+  #image-container{
+   clip-path: none;
+  }
+
+   
+  
+}
+
+
+
 #background-video {
   position: absolute;
   top: 50%;

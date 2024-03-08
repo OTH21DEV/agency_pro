@@ -76,8 +76,8 @@ const ContactFooter = () => {
       if (window.scrollY >= 3700) {
         setIsVisible(true);
       }
-      if (window.scrollY >= 4100) {
-        console.log('3900')
+      if (window.scrollY >= 3950) {
+
         setEmailIsVisible(true);
       }
    
@@ -137,7 +137,7 @@ const ContactFooter = () => {
 
   const wrappedText = wrapTextIntoLines(text);
 
-  let email = [ "f", "r", "o", "m", "S", "c", "r", "a", "t", "c", "h"];
+  let email = ["c", "o", "n", "t", "a", "c", "t", "@", "f", "r", "o", "m", "S", "c", "r", "a", "t", "c", "h",".","c","o","m"];
   // let email = ["C", "O", "N", "T", "A", "C", "T", "@"];
   useEffect(() => {
     let networkTotalWidth = 0;
@@ -149,7 +149,7 @@ const ContactFooter = () => {
     setNetworkUnderlineWidth(networkTotalWidth);
   }, []);
 
-  const underlineDelay = 1.30;
+  const underlineDelay = 2.35;
 
   return (
     <div className="section">
@@ -178,7 +178,7 @@ const ContactFooter = () => {
 
           <span className="footer-email">
             {email.map((letter, index) => {
-              const baseDelay = 0; // Starting delay for the first span
+              const baseDelay = 1; // Starting delay for the first span
               const incrementalDelay = 0.07; // Delay to add for each subsequent span
               const style = { transitionDelay: `${baseDelay + index * incrementalDelay}s` };
               return (
@@ -187,6 +187,7 @@ const ContactFooter = () => {
                 </span>
               );
             })}
+            {/* <div>contact@fromscratch.com</div> */}
             <div className={`underline ${isEmailVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
           </span>
         </div>

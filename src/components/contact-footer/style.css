@@ -14,6 +14,7 @@
 .contact-section{
   background-color: #e1dfdd;
   padding:7.5em;
+  min-height:60vh;
   /* height:100vh; */
 }
 .Contact-footer h1{
@@ -62,11 +63,12 @@
     opacity: 0;
     transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
     transform: translateY(80%);
+    font-weight: bold;
   }
 
 
 .Contact-footer {
-padding:7.5em 0em
+padding:3.5em 0em
 }
 .footer-email{
   position: relative;
@@ -154,7 +156,8 @@ cursor:pointer;
   justify-content: space-between;
   align-items: center;
   
-  width:80%;
+  /* width:80%; */
+  width:100%;
   font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   /* max-height: 3px;
   transform: translateY(80%);
@@ -216,7 +219,7 @@ font-family: PP Neue Montreal,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,O
 
 .contact-about-content{
   margin-top:0;
-text-align: justify;
+/* text-align: justify; */
 display: inline-block;
 font-size: 1.2em;
 font-weight: 500;
@@ -273,4 +276,26 @@ opacity: 0; */
   margin-top:0;
   font-size: 1em;
   
+}
+
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .contact-section{
+    padding:7.5em 1.5em
+  }
+.contact-about{
+  width:70%
+}
+  .contact-heading p{
+    text-align:unset;
+    margin-left:1em
+  }
+  .contact-heading-message{
+    margin-left:1em
+  }
+  .footer-email .footer-email-letter{
+    font-size:1.8em;
+  }
+  .contact-about-content.visible .line{
+    max-height:80px
+  }
 }
