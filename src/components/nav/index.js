@@ -41,7 +41,8 @@ const Nav = () => {
   return (
     <div className={cn("")} ref={navRef}>
       <div>
-        <Link onClick={handleHomepage} to="/">
+        {/* <Link onClick={handleHomepage} to="/"> */}
+        <Link onClick={location.pathname !== "/" ? handleHomepage: undefined} to="/">
           FromScratch
         </Link>
 

@@ -138,7 +138,7 @@ const Loader = () => {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
        
         }
-        showPageContainer.style.overflow = '';
+        // showPageContainer.style.overflow = '';
       };
     }
    

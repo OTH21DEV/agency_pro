@@ -45,10 +45,10 @@ const ContactFooter = () => {
       }, 500);
       timer1 = setTimeout(() => {
         setIsVisible(true);
-      }, 1800); // Adjust the timeout as needed
+      }, 1500); 
       timer2 = setTimeout(() => {
         setEmailIsVisible(true);
-      }, 4500);
+      }, 1900);
 
     
     }
@@ -149,7 +149,7 @@ const ContactFooter = () => {
     setNetworkUnderlineWidth(networkTotalWidth);
   }, []);
 
-  const underlineDelay = 2.35;
+  const underlineDelay = 4.34;
 
   return (
     <div className="section">
@@ -178,9 +178,10 @@ const ContactFooter = () => {
 
           <span className="footer-email">
             {email.map((letter, index) => {
-              const baseDelay = 1; // Starting delay for the first span
+              const baseDelay = 3; // Starting delay for the first span
               const incrementalDelay = 0.07; // Delay to add for each subsequent span
               const style = { transitionDelay: `${baseDelay + index * incrementalDelay}s` };
+              console.log(style)
               return (
                 <span key={index} className={`footer-email-letter ${isEmailVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
                   {letter}

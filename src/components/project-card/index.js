@@ -150,54 +150,108 @@ const ProjectCard = () => {
 
   return (
 
-    <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
-      <Controller>
-        <Scene duration={"100%"} triggerHook={0.2} pin triggerElement={".test"}>
-          <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
-            <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
-              {networkTitle.map((letter, index) => {
-                const style = { transitionDelay: `${index * 0.07}s` };
-                return (
-                  <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
-                    {letter}
-                  </span>
-                );
-              })}
-              <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
-              <div className="project-card-title">
+    // <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
+    //   <Controller>
+    //     <Scene duration={"100%"} triggerHook={0.2} pin triggerElement={".test"}>
+    //       <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
+    //         <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
+    //           {networkTitle.map((letter, index) => {
+    //             const style = { transitionDelay: `${index * 0.07}s` };
+    //             return (
+    //               <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
+    //                 {letter}
+    //               </span>
+    //             );
+    //           })}
+    //           <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
+    //           <div className="project-card-title">
         
-                <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
-              </div>
-            </span>
-            <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
-              {sportTitle.map((letter, index) => {
-                const style = { transitionDelay: `${index * 0.07}s` };
-                return (
-                  <span key={index} className={`fixed-content-letter ${isSecondTitleVisible ? "visible" : ""}`} ref={(el) => (sportTitleRef.current[index] = el)} style={style}>
-                    {letter}
-                  </span>
-                );
-              })}
-              <div className={`underline ${isSecondTitleVisible ? "visible" : ""}`} style={{ width: sportUnderlineWidth, transitionDelay: `${secondUnderlineDelay}s` }} />
-              <div className="project-card-title">
-                <p className={`project-card-content ${isSecondTitleVisible ? "visible" : ""}`}> {secondText}</p>
-              </div>
-            </span>
-          </div>
-        </Scene>
-      </Controller>
+    //             <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
+    //           </div>
+    //         </span>
+    //         <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
+    //           {sportTitle.map((letter, index) => {
+    //             const style = { transitionDelay: `${index * 0.07}s` };
+    //             return (
+    //               <span key={index} className={`fixed-content-letter ${isSecondTitleVisible ? "visible" : ""}`} ref={(el) => (sportTitleRef.current[index] = el)} style={style}>
+    //                 {letter}
+    //               </span>
+    //             );
+    //           })}
+    //           <div className={`underline ${isSecondTitleVisible ? "visible" : ""}`} style={{ width: sportUnderlineWidth, transitionDelay: `${secondUnderlineDelay}s` }} />
+    //           <div className="project-card-title">
+    //             <p className={`project-card-content ${isSecondTitleVisible ? "visible" : ""}`}> {secondText}</p>
+    //           </div>
+    //         </span>
+    //       </div>
+    //     </Scene>
+    //   </Controller>
 
-      {/* Scrollable content */}
-      <div className="scroll-content">
-        <div className="top-right">
-          <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
-        </div>
+    //   {/* Scrollable content */}
+    //   <div className="scroll-content">
+    //     <div className="top-right">
+    //       <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
+    //     </div>
 
-        <div className="bottom-right">
-          <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+    //     <div className="bottom-right">
+    //       <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+    //     </div>
+    //   </div>
+    // </div>
+
+
+
+
+
+
+    <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
+    <Controller>
+      <Scene duration={"100%"} triggerHook={0} pin triggerElement={".test"} offset={300} >
+        <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
+          <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
+            {networkTitle.map((letter, index) => {
+              const style = { transitionDelay: `${index * 0.07}s` };
+              return (
+                <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
+                  {letter}
+                </span>
+              );
+            })}
+            <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
+            <div className="project-card-title">
+      
+              <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
+            </div>
+          </span>
+          {/* <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
+            {sportTitle.map((letter, index) => {
+              const style = { transitionDelay: `${index * 0.07}s` };
+              return (
+                <span key={index} className={`fixed-content-letter ${isSecondTitleVisible ? "visible" : ""}`} ref={(el) => (sportTitleRef.current[index] = el)} style={style}>
+                  {letter}
+                </span>
+              );
+            })}
+            <div className={`underline ${isSecondTitleVisible ? "visible" : ""}`} style={{ width: sportUnderlineWidth, transitionDelay: `${secondUnderlineDelay}s` }} />
+            <div className="project-card-title">
+              <p className={`project-card-content ${isSecondTitleVisible ? "visible" : ""}`}> {secondText}</p>
+            </div>
+          </span> */}
         </div>
+      </Scene>
+    </Controller>
+
+    {/* Scrollable content */}
+    <div className="scroll-content">
+      <div className="top-right">
+        <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
       </div>
+
+      {/* <div className="bottom-right">
+        <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+      </div> */}
     </div>
+  </div>
   );
 };
 
