@@ -280,7 +280,8 @@ opacity: 0; */
 
 @media all and (min-width: 375px) and (max-width: 450px) {
   .contact-section{
-    padding:7.5em 1.5em
+    margin-top:-50px;
+    padding:0em 1.5em
   }
 .contact-about{
   width:70%

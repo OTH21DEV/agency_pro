@@ -181,7 +181,7 @@ const ContactFooter = () => {
               const baseDelay = 3; // Starting delay for the first span
               const incrementalDelay = 0.07; // Delay to add for each subsequent span
               const style = { transitionDelay: `${baseDelay + index * incrementalDelay}s` };
-              console.log(style)
+       
               return (
                 <span key={index} className={`footer-email-letter ${isEmailVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
                   {letter}

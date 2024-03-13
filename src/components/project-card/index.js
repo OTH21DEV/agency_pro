@@ -4,6 +4,10 @@ import { cn as bem } from "@bem-react/classname";
 import network_img from "../../assets/test_1.png";
 import dashboard_v1 from "../../assets/test_2.png";
 import { Controller, Scene } from "react-scrollmagic";
+import { useLayoutEffect } from 'react';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ProjectCard = () => {
   let networkTitle = ["I", "N", "T", "R", "A", "L", "I", "N", "K"];
@@ -12,6 +16,11 @@ const ProjectCard = () => {
   const networkTitleRef = useRef([]);
   // useRef for sportTitle letters
   const sportTitleRef = useRef([]);
+
+  const parallaxContainerRef = useRef(null);
+
+  const parallaxContainerrRef = useRef(null);
+
   const [networkUnderlineWidth, setNetworkUnderlineWidth] = useState(0);
   const [sportUnderlineWidth, setSportUnderlineWidth] = useState(0);
   const projectTitle = "A secure and streamlined platform designed to enhance corporate communications";
@@ -27,12 +36,19 @@ const ProjectCard = () => {
   const handleMouseLeaveNetwork = () => setNetworkTitleIsHovered(false);
   const handleMouseEnterSport = () => setSportTitleIsHovered(true);
   const handleMouseLeaveSport = () => setSportTitleIsHovered(false);
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(useGSAP);
 
   useEffect(() => {
     let networkTotalWidth = 0;
     networkTitleRef.current.forEach((element) => {
       if (element) {
-        networkTotalWidth += element.offsetWidth;
+        const elementWidth = element.getBoundingClientRect().width;
+        const style = window.getComputedStyle(element);
+        const marginLeft = parseFloat(style.marginLeft);
+        const marginRight = parseFloat(style.marginRight);
+
+        networkTotalWidth += elementWidth + marginLeft + marginRight;
       }
     });
     setNetworkUnderlineWidth(networkTotalWidth);
@@ -40,7 +56,12 @@ const ProjectCard = () => {
     let sportTotalWidth = 0;
     sportTitleRef.current.forEach((element) => {
       if (element) {
-        sportTotalWidth += element.offsetWidth;
+        const elementWidth = element.getBoundingClientRect().width;
+        const style = window.getComputedStyle(element);
+        const marginLeft = parseFloat(style.marginLeft);
+        const marginRight = parseFloat(style.marginRight);
+
+        sportTotalWidth += elementWidth + marginLeft + marginRight;
       }
     });
     setSportUnderlineWidth(sportTotalWidth);
@@ -51,7 +72,6 @@ const ProjectCard = () => {
   // const handleScroll = () => {
   //   const path = window.location.pathname;
 
-
   //   if (path === "/" && window.scrollY >= 2000) {
   //     setIsVisible(true);
   //   }
@@ -61,30 +81,50 @@ const ProjectCard = () => {
   //   };
 
   // };
+
+  //to handle this more dynamically is by referencing actual element offsets
+  // const homeOffset = document.querySelector('.home-anchor').offsetTop;
+  // Then use `homeOffset` instead of `1900`
+
   const handleScroll = () => {
-    const path = window.location.pathname;
-  
-    // Conditions for Home ("/") Page
-    if (path === "/") {
-      if (window.scrollY >= 1900) {
-        setIsVisible(true);
-      }
-    
-      if (window.scrollY >= 3000) {
-        setSecondTitleIsVisible(true);
-      }
+    ScrollTrigger.refresh();
+
+    const scrollY = window.scrollY + window.innerHeight;
+
+    if (parallaxContainerRef.current && scrollY >= parallaxContainerRef.current.offsetTop) {
+      setIsVisible(true);
     }
-    // Condition for Non-Home (other) Pages
-    else {
-      if (window.scrollY >= 200) {
-        setIsVisible(true);
-      }
-      if (window.scrollY >= 1200) {
-        setSecondTitleIsVisible(true);
-      }
+
+    if (parallaxContainerrRef.current && scrollY >= parallaxContainerrRef.current.offsetTop) {
+      setSecondTitleIsVisible(true);
     }
   };
-  
+
+  // const handleScroll = () => {
+  //   const path = window.location.pathname;
+  //   ScrollTrigger.refresh()
+
+  //   // Conditions for Home ("/") Page
+  //   if (path === "/") {
+  //     if (window.scrollY >= 1900) {
+  //       setIsVisible(true);
+  //     }
+
+  //     if (window.scrollY >= 3000) {
+  //       setSecondTitleIsVisible(true);
+  //     }
+  //   }
+  //   // Condition for Non-Home (other) Pages
+  //   else {
+  //     if (window.scrollY >= 200) {
+  //       setIsVisible(true);
+  //     }
+  //     if (window.scrollY >= 1200) {
+  //       setSecondTitleIsVisible(true);
+  //     }
+  //   }
+  // };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -111,7 +151,6 @@ const ProjectCard = () => {
   //       // setSecondTitleIsVisible(true);
   //     }, 1800);
 
-   
   //   } else {
   //     setIsVisible(false);
   //     setSecondTitleIsVisible(false);
@@ -147,9 +186,52 @@ const ProjectCard = () => {
   const project_Title = "CHARTPLAY ANALYTICS IS AN ULTIMATE HUB FOR FITNESS ACTIVITES MONITORING.\nREAL TIME CHARTS FOR IN DEPTH PERFORMANCE ANALYSIS.";
   const wrappedText = wrapTextIntoLines(text);
   const secondText = wrapTextIntoLines(project_Title);
+  const testElementRef = useRef(null);
+
+
+
+
+
+
+  useEffect(() => {
+    const initAnimations = () => {
+      // Network Animation
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".parallax-container .scroll-content", 
+            start: "top bottom",
+            scrub: true,
+            onEnter: () => console.log("Network onEnter"),
+            onLeave: () => console.log("Network onLeave"),
+          },
+        })
+        .to(".parallax-container .scroll-content", { yPercent: -250, ease: "none" });
+
+      // Sport Animation
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".parallax-containerr .scroll-content", 
+            start: "top bottom",
+            scrub: true,
+            onEnter: () => console.log("Sport onEnter"),
+            onLeave: () => console.log("Sport onLeave"),
+          },
+        })
+        .to(".parallax-containerr .scroll-content", { yPercent: -250, ease: "none" });
+    };
+
+    const timeoutId = setTimeout(initAnimations, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      gsap.killTweensOf(".scroll-content");
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
-
     // <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
     //   <Controller>
     //     <Scene duration={"100%"} triggerHook={0.2} pin triggerElement={".test"}>
@@ -165,7 +247,7 @@ const ProjectCard = () => {
     //           })}
     //           <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
     //           <div className="project-card-title">
-        
+
     //             <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
     //           </div>
     //         </span>
@@ -199,15 +281,9 @@ const ProjectCard = () => {
     //   </div>
     // </div>
 
-
-
-
-
-
-    <div className={`parallax-container ${isVisible ? "visible" : ""}`} >
-    <Controller>
-      <Scene duration={"100%"} triggerHook={0} pin triggerElement={".test"} offset={300} >
-        <div className="test" style={{ display: "flex", width: "50%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
+    <>
+      <div className={`parallax-container ${isVisible ? "visible" : ""}`} ref={parallaxContainerRef}>
+        <div className="test" style={{ display: "flex", width: "100%", flexDirection: "column" }}>
           <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
             {networkTitle.map((letter, index) => {
               const style = { transitionDelay: `${index * 0.07}s` };
@@ -219,11 +295,24 @@ const ProjectCard = () => {
             })}
             <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
             <div className="project-card-title">
-      
               <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
             </div>
           </span>
-          {/* <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
+        </div>
+
+        {/* Scrollable content */}
+
+        <div className="scroll-content">
+          <div className="top-right">
+    <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
+          </div>
+        </div>
+
+      </div>
+
+      <div className={`parallax-containerr ${isVisible ? "visible" : ""}`} ref={parallaxContainerrRef}>
+        <div className="testt" style={{ display: "flex", width: "100%", flexDirection: "column" }}>
+          <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
             {sportTitle.map((letter, index) => {
               const style = { transitionDelay: `${index * 0.07}s` };
               return (
@@ -236,23 +325,101 @@ const ProjectCard = () => {
             <div className="project-card-title">
               <p className={`project-card-content ${isSecondTitleVisible ? "visible" : ""}`}> {secondText}</p>
             </div>
-          </span> */}
+          </span>
         </div>
-      </Scene>
-    </Controller>
 
-    {/* Scrollable content */}
-    <div className="scroll-content">
-      <div className="top-right">
-        <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
+        {/* Scrollable content */}
+        <div className="scroll-content">
+          <div className="bottom-right">
+            <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+          </div>
+        </div>
       </div>
 
-      {/* <div className="bottom-right">
-        <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+      {/* 
+      <div className={`parallax-containerr ${isVisible ? "visible" : ""}`}>
+        <Controller>
+          <Scene duration={"100%"} triggerHook={0} pin triggerElement={".testt"} >
+            <div className="testt" style={{ display: "flex", width: "100%", flexDirection: "column", height: "100vh", position: "relative 0!important" }}>
+                    <span className="fixed-contentt" onMouseEnter={handleMouseEnterSport} onMouseLeave={handleMouseLeaveSport}>
+             {sportTitle.map((letter, index) => {
+               const style = { transitionDelay: `${index * 0.07}s` };
+               return (
+                 <span key={index} className={`fixed-content-letter ${isSecondTitleVisible ? "visible" : ""}`} ref={(el) => (sportTitleRef.current[index] = el)} style={style}>
+                   {letter}
+                 </span>
+               );
+             })}
+             <div className={`underline ${isSecondTitleVisible ? "visible" : ""}`} style={{ width: sportUnderlineWidth, transitionDelay: `${secondUnderlineDelay}s` }} />
+             <div className="project-card-title">
+               <p className={`project-card-content ${isSecondTitleVisible ? "visible" : ""}`}> {secondText}</p>
+             </div>
+           </span>
+            </div>
+          </Scene>
+        </Controller>
+
+        <div className="scroll-content">
+             <div className="bottom-right">
+         <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+        </div>
+        </div>
       </div> */}
-    </div>
-  </div>
+    </>
   );
 };
 
 export default ProjectCard;
+
+// {/* <div className="parallax-container visible"> */}
+// <Controller>
+// {/* <div className={`parallax-container ${isVisible ? "visible" : ""}`}> */}
+//   <div className="parallax-container">
+//     <Scene triggerHook={0}  pin={true} triggerElement={".test" } >
+//       {/* <div ref={testElementRef}  className="test" style={{ display: "flex", width: "100%", flexDirection: "column"}}>
+//         <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
+//           {networkTitle.map((letter, index) => {
+//             const style = { transitionDelay: `${index * 0.07}s` };
+//             return (
+//               <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
+//                 {letter}
+//               </span>
+//             );
+//           })}
+//           <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
+//           <div className="project-card-title">
+//             <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
+//           </div>
+//         </span>
+//       </div> */}
+//       {(progress, event) => {
+//     // Use progress and event to debug your ScrollMagic behavior
+//     console.log(progress, event);
+//     return (
+//       <div ref={testElementRef}  className="test" style={{ display: "flex", width: "100%", flexDirection: "column"}}>
+//       <span className="fixed-content" onMouseEnter={handleMouseEnterNetwork} onMouseLeave={handleMouseLeaveNetwork}>
+//         {networkTitle.map((letter, index) => {
+//           const style = { transitionDelay: `${index * 0.07}s` };
+//           return (
+//             <span key={index} className={`fixed-content-letter ${isVisible ? "visible" : ""}`} ref={(el) => (networkTitleRef.current[index] = el)} style={style}>
+//               {letter}
+//             </span>
+//           );
+//         })}
+//         <div className={`underline ${isVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
+//         <div className="project-card-title">
+//           <p className={`project-card-content ${isVisible ? "visible" : ""}`}> {wrappedText}</p>
+//         </div>
+//       </span>
+//     </div>
+//     );
+//   }}
+//     </Scene>
+//   {/* Scrollable content */}
+//   <div className="scroll-content">
+//     <div className="top-right">
+//       <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
+//     </div>
+//   </div>
+// </div>
+//   </Controller>

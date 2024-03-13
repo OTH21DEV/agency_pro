@@ -136,6 +136,7 @@ elements will be displayed again (animation will rerun) - this check is added in
         <p className={`projects-about-content ${isVisible ? "visible" : ""}`}>{wrappedText} </p>
       </div>
       <ProjectCard ></ProjectCard>
+
     </section>
     </div>
   );

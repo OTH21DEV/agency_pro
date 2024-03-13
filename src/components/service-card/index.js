@@ -7,7 +7,7 @@ function ServiceCard({ number, title, style, description, bulletPoints, isOpen, 
   const cn = bem("Plan");
 
   return (
-    <div className="service-card" style={{ borderTop: index === 0 ? "2px solid grey" : undefined, marginTop: index === 0 ? "85px" : undefined }}>
+    <div className="service-card" style={{ borderTop: index === 0 ? "2px solid grey" : undefined, marginTop: index === 0 ? "7.5em" : undefined }}>
       <div className="service-card-header" onClick={onClick}>
         <div className="service-card-header-wrapper">
           <span>{number}</span>
