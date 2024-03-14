@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-
+import "../../styles/variables.css";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";

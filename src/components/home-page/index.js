@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import Gear from "../../components/gear";
-import gear from "../../assets/gear_black.png";
+import React, { useEffect } from "react";
+// import Gear from "../../components/gear";
+// import gear from "../../assets/gear_black.png";
 import Heading from "../../components/Heading";
 import Footer from "../../components/footer";
 import Slogan from "../slogan";
@@ -10,17 +10,18 @@ import ProjectCards from "../project-cards";
 import ContactFooter from "../contact-footer";
 import Loader from "../loader";
 import DraggableImg from "../draggable-img";
-import arrow_big from "../../assets/arrow_down_outline.png";
-import "./style.css";
-import { useLocation } from "react-router-dom";
+import ArrowBig from "../arrow-big";
+import BottomLayout from "../bottom-layout";
 import transition from "../../transition";
+import { useLocation } from "react-router-dom";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
-
+import "./style.css";
+import "../../styles/variables.css";
 
 const HomePage = () => {
   //need to clean effect in components,
-  //usest o clean the state of nav clcik when come from pages to main page - for hide the navbar in each section 
+  //usest o clean the state of nav clcik when come from pages to main page - for hide the navbar in each section
   //otherwise its displayed in scroll
 
   const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
@@ -33,48 +34,37 @@ const HomePage = () => {
       setHasNavClicked(false);
       setHasHomepageClicked(false);
       sessionStorage.clear();
-      // setHasHomepageClicked(false);
     }
-    
   }, [location.pathname]);
-
-
-
-  
-
 
   return (
     <>
-      <Loader> </Loader>
+      <Loader />
 
       <div className={"container"}>
-        <NavBar></NavBar>
+        <NavBar />
 
         {/* <LangueBar /> */}
 
         <div className="page">
           <Heading text="stunning online experiences for Enterprises, Startups  & E-commerce" />
-          {/* <Heading text="designs and develops stunning online experiences for Enterprises, Startups  & E-commerce." /> */}
           <DraggableImg />
-          <div style={{ display: "flex", alignItems: "center", position: "absolute", bottom: "0"}}>
-            <div className="arrow-big">
-              <img src={arrow_big} alt="" className="arrow-big-img"></img>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column-reverse", alignItems: "flex-end" }}>
-              <Slogan></Slogan>
-            </div>
-          </div>
+
+          <BottomLayout>
+            <ArrowBig />
+            <Slogan />
+          </BottomLayout>
         </div>
 
         <Footer />
 
-        <ServiceCards></ServiceCards>
+        <ServiceCards />
 
-        <ProjectCards></ProjectCards>
+        <ProjectCards />
 
-        <ContactFooter></ContactFooter>
-        {/* <ScrollTop></ScrollTop> */}
+        <ContactFooter />
       </div>
+      {/* <Gear icon={gear} /> */}
       {/* {document.querySelector(".container.slide-in") && <Gear icon={gear} />} */}
     </>
   );

@@ -1,141 +1,56 @@
-import React, { useRef, useEffect } from "react";
-
+import React from "react";
+import "../../styles/variables.css";
 import "./style.css";
-import { cn as bem } from "@bem-react/classname";
 
-const Heading = ({ title, text, icon }) => {
-  const cn = bem("Heading");
+const Heading = ({  text }) => {
+  let creates = ["C", "R", "E", "A", "T", "E", "S"];
+  let builds = ["B", "U", "I", "L", "D", "S"];
+  let and = ["&"];
 
-  // return (
-  //     <div className="Heading">
-  //       <h1 className="Heading-title">
-  //         Web{" "}
-  //         <span className="Heading-accuracy-pro">
-  //           <span>accuracy</span>
-  //           <span className="Heading-pro">PRO</span>
-  //         </span>
-  //         <div className="agency-container">
-  //           <span>agency</span>
-  //           <span className="Heading-text">{text}</span>
-  //         </div>
-  //       </h1>
-
-  //     </div>
-  //   );
-  // };
-
-  // let web = ["W", "E", "B"];
-  // let accuracy = ["A", "C", "C", "U", "R", "A", "C", "Y"];
-  // let agency = ["A", "G", "E", "N", "C", "Y"];
-  // let pro = ["P", "R", "O"];
-
-
-  let web = ["C", "R", "E","A","T","E","S"];
-  // let accuracy = ["&"];
-  let agency = ["B", "U", "I", "L", "D", "S"];
-  let pro = ["&"];
-
-
-  const baseDelayPro = web.length * 0.07;
-  const style = { transitionDelay: `${baseDelayPro + 0.07}s` };
+  const baseDelayAnd = creates.length * 0.07;
+  const style = { transitionDelay: `${baseDelayAnd + 0.07}s` };
 
   return (
-
-
-    <div className="Heading">
+    <div className="heading-section">
       {/* Heading titles */}
-      <div className="Heading-title-wrapper">
-        {web.map((lettre, key) => {
+        {/* Group "creates" and "and"together so they can wrap together */}
+      <div className="heading-creates-and-wrapper">
+        {creates.map((lettre, key) => {
           const style = { transitionDelay: `${key * 0.07}s` };
           return (
-            <span key={key} className="Heading-title" style={style}>
+            <span key={key} className="heading-letter" style={style}>
               {lettre}
             </span>
           );
         })}
-    <span style={{ margin: "0 10px" }}></span>
-        {/* Group accuracy and PRO together so they can wrap together */}
-        <div className="Heading-accuracy-pro">
-          {/* {accuracy.map((lettre, key) => {
-            const baseDelay = web.length * 0.07;
-            const style = { transitionDelay: `${baseDelay + key * 0.07}s` };
-            return (
-              <span key={key} className="Heading-title" style={style}>
-                {lettre}
-              </span>
-            );
-          })} */}
-          <span className="Heading-pro" style={style}>{pro}</span>
+        <span style={{ margin: "0 10px" }}></span>
+      
+        <div className="heading-word-and-wrapper">
+          <span className="heading-word-and" style={style}>
+            {and}
+          </span>
         </div>
       </div>
-  
- 
-  
-      {/* Agency data */}
-      <div className="Heading-test">
-        {agency.map((lettre, key) => {
-          const baseDelayWebAndAccuracy = web.length * 0.07;
-          const style = { transitionDelay: `${baseDelayWebAndAccuracy + key * 0.07}s` };
+
+      {/* Builds word */}
+      <div className="heading-builds-text-wrapper">
+        {builds.map((lettre, key) => {
+          const baseDelayCreates= creates.length * 0.07;
+          const style = { transitionDelay: `${baseDelayCreates + key * 0.07}s` };
           return (
-            <div key={key} className="agency-container">
-              <span className="Heading-title" style={style}>
+            <div key={key} className="builds-container">
+              <span className="heading-letter" style={style}>
                 {lettre}
               </span>
             </div>
           );
         })}
-             {/* Heading text */}
-      <div className="Heading-text" style={style}>{text}</div>
+        {/* Additional text */}
+        <div className="heading-text" style={style}>
+          {text}
+        </div>
       </div>
     </div>
   );
-
-  //   <div className="Heading">
-  //     {/* Heading titles */}
-  //     <div className="Heading-title-wrapper">
-  //       {web.map((lettre, key) => {
-  //         const style = { transitionDelay: `${key * 0.07}s` };
-  //         return (
-  //           <span key={key} className="Heading-title" style={style}>
-  //             {lettre}
-  //           </span>
-  //         );
-  //       })}
-  //   <span style={{ margin: "0 10px" }}></span>
-  //       {/* Group accuracy and PRO together so they can wrap together */}
-  //       <div className="Heading-accuracy-pro">
-  //         {accuracy.map((lettre, key) => {
-  //           const baseDelay = web.length * 0.07;
-  //           const style = { transitionDelay: `${baseDelay + key * 0.07}s` };
-  //           return (
-  //             <span key={key} className="Heading-title" style={style}>
-  //               {lettre}
-  //             </span>
-  //           );
-  //         })}
-  //         <span className="Heading-pro" style={style}>PRO</span>
-  //       </div>
-  //     </div>
-  
- 
-  
-  //     {/* Agency data */}
-  //     <div className="Heading-test">
-  //       {agency.map((lettre, key) => {
-  //         const baseDelayWebAndAccuracy = web.length * 0.07;
-  //         const style = { transitionDelay: `${baseDelayWebAndAccuracy + key * 0.07}s` };
-  //         return (
-  //           <div key={key} className="agency-container">
-  //             <span className="Heading-title" style={style}>
-  //               {lettre}
-  //             </span>
-  //           </div>
-  //         );
-  //       })}
-  //            {/* Heading text */}
-  //     <div className="Heading-text" style={style}>{text}</div>
-  //     </div>
-  //   </div>
-  // );
 };
 export default Heading;

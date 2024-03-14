@@ -4,7 +4,7 @@ import { cn as bem } from "@bem-react/classname";
 import "./style.css";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
-
+import "../../styles/variables.css"
 const Nav = () => {
   const cn = bem("Nav-wrapper");
   const location = useLocation();

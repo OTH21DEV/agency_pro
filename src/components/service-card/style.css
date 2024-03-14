@@ -1,51 +1,49 @@
-
-.service-card-wrapper{
+.service-card-wrapper {
   /* margin-top:4.5em; */
-
 }
 
-.service-card-title{
-  display:flex;
+.service-card-title {
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  width:65%;
-  width:90%
+  width: 65%;
+  width: 90%;
 }
-.service-card{
+.service-card {
   /* display:flex; */
   align-items: center;
   justify-content: space-between;
   /* margin-left:10em;
   margin-right:10em; */
 
-  width:80%;
-  padding:2em 0em;
+  width: 80%;
+  padding: 2em 0em;
 
-  border-bottom:2px solid grey;
-  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  border-bottom: 2px solid grey;
+  font-family: var(--font-family);
 }
 
-.service-card h2{
+.service-card h2 {
   font-weight: 500;
-  font-size:1.2em;
-  opacity:0.8
+  font-size: 1.2em;
+  opacity: 0.8;
 }
 
-.service-card p{
+.service-card p {
   /* font-weight: 500; */
-  font-size:1.2em;
+  font-size: 1.2em;
   font-weight: 500;
-  opacity:0.8;
+  opacity: 0.8;
   text-align: start;
   text-align: justify;
-  width:60%;
-  width:90%
+  width: 60%;
+  width: 90%;
 }
 
-.service-card span{
+.service-card span {
   font-weight: 500;
   /* font-weight: bold; */
-  font-size:2.4em
+  font-size: 2.4em;
 }
 
 .toggle-button {
@@ -57,7 +55,6 @@
   width: 20px;
   height: 20px;
   font-weight: 500;
-
 }
 
 .bar {
@@ -69,7 +66,6 @@
 .horizontal {
   height: 2px;
   width: 20px;
-
 }
 
 .vertical {
@@ -82,71 +78,61 @@
 }
 
 .service-card-content {
- 
-max-height: 0px;
+  max-height: 0px;
   overflow: hidden;
-  transition: max-height .8s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: max-height 0.8s cubic-bezier(var(--cubic-bezier));
 }
 
 .service-card-content.open {
-  max-height: 180px; 
-
+  max-height: 180px;
 }
 
-.service-card-header{
-  display:flex;
+.service-card-header {
+  display: flex;
   align-items: center;
 
-
-
-
   justify-content: space-between;
-
-
 }
 
-.service-card-header-wrapper{
-  display:flex;
-  align-items:center
+.service-card-header-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-
-.service-card-header-wrapper span{
-margin-right:3em;
-font-weight: 500;
-font-size:1.2em;
-opacity:0.8
-  
-}
-
- .service-card-content.open span,
-.service-card-content.closed span
-{
-  font-size:1.2em;
+.service-card-header-wrapper span {
+  margin-right: 3em;
   font-weight: 500;
-  opacity:0.8;
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.service-card-content.open span,
+.service-card-content.closed span {
+  font-size: 1.2em;
+  font-weight: 500;
+  opacity: 0.8;
 
   text-align: justify;
 
   /* width:90% */
-
 }
 
 .service-card-content.open,
 .service-card-content.closed {
-margin-left:5em;
-width:82%;
-text-align: justify;
+  margin-left: 5em;
+  width: 82%;
+  text-align: justify;
 }
 
 @media all and (min-width: 375px) and (max-width: 450px) {
-.service-card{
-  width:100%;
-}
-.service-card-content.open, .service-card-content.closed {
-  width:unset
-}
-.service-card p{
-  text-align:unset
-}
+  .service-card {
+    width: 100%;
+  }
+  .service-card-content.open,
+  .service-card-content.closed {
+    width: unset;
+  }
+  .service-card p {
+    text-align: unset;
+  }
 }

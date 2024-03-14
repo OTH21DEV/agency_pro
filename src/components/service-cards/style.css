@@ -6,14 +6,13 @@
 .section {
   background-color: #e1dfdd;
 
-    /* overflow: hidden; */
-  
+  /* overflow: hidden; */
 }
 .services-wrapper {
   display: flex;
-  margin-bottom:4em;
+  margin-bottom: 4em;
   width: 80%;
-  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
 }
 
 .service-number {
@@ -21,7 +20,7 @@
   font-size: 1.4em;
 
   opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: opacity 0.3s cubic-bezier(var(--cubic-bezier));
   overflow: hidden;
 }
 .service-number.visible {
@@ -34,31 +33,25 @@
   font-size: 6em;
   line-height: 0.834;
   opacity: 0;
-  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: transform 1.1s cubic-bezier(var(--cubic-bezier)), opacity 1.1s cubic-bezier(var(--cubic-bezier)), height 1.1s cubic-bezier(var(--cubic-bezier));
   transform: translateY(80%);
 }
-
-
-
 
 .services-title.visible {
   transform: translateY(0%);
   opacity: 1;
 }
 
-.services-card-wrapper{
-  
+.services-card-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   opacity: 0;
-  transition: opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
-
+  transition: opacity 1.1s cubic-bezier(var(--cubic-bezier)), height 1.1s cubic-bezier(var(--cubic-bezier));
 }
 
 .services-card-wrapper.visible {
-  
   opacity: 1;
 }
 
@@ -67,8 +60,7 @@
   width: 50%;
   justify-content: space-between;
 
-
-  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
 }
 
 .services-about-content {
@@ -86,7 +78,7 @@
   margin-top: 0;
   font-size: 1em;
   opacity: 0;
-  transition: opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: opacity 1.1s cubic-bezier(var(--cubic-bezier)), height 1.1s cubic-bezier(var(--cubic-bezier));
 }
 .services-about-title.visible {
   opacity: 1;
@@ -96,7 +88,7 @@
   opacity: 0;
   max-height: 0px;
   transform: translateY(20px);
-  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), max-height 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: transform 1.1s cubic-bezier(var(--cubic-bezier)), opacity 1.1s cubic-bezier(var(--cubic-bezier)), max-height 0.5s cubic-bezier(var(--cubic-bezier));
 }
 
 /* When 'visible' class gets toggled, it starts the animation */
@@ -137,23 +129,22 @@
     font-size: 4em;
   }
   .services-section {
-    padding:7.5em 1.5em;
+    padding: 7.5em 1.5em;
   }
   .services-wrapper {
     flex-direction: column;
-    width:100%
+    width: 100%;
   }
-  .title-wrapper{
-    margin-left:0
+  .title-wrapper {
+    margin-left: 0;
   }
-  .services-about{
-    width:100%
+  .services-about {
+    width: 100%;
   }
   .services-about-content.visible .line {
-   
     max-height: 110px;
   }
   .services-about-title {
-    margin-right:1.5em;
+    margin-right: 1.5em;
   }
 }

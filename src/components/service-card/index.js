@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import arrow_down from "../../assets/arrow_down.png";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
+import "../../styles/variables.css"
 
 function ServiceCard({ number, title, style, description, bulletPoints, isOpen, index, onClick }) {
   const cn = bem("Plan");

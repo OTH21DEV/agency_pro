@@ -1,7 +1,7 @@
 import { React, memo } from "react";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
-
+import "../../styles/variables.css"
 const PageLayout = ({ children }) => {
   const cn = bem("PageLayout");
   return <div className={cn()}>{children}</div>;

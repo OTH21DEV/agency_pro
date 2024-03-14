@@ -3,8 +3,7 @@ import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 import network_img from "../../assets/test_1.png";
 import dashboard_v1 from "../../assets/test_2.png";
-import { Controller, Scene } from "react-scrollmagic";
-import { useLayoutEffect } from 'react';
+import "../../styles/variables.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +19,7 @@ const ProjectCard = () => {
   const parallaxContainerRef = useRef(null);
 
   const parallaxContainerrRef = useRef(null);
-
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
   const [networkUnderlineWidth, setNetworkUnderlineWidth] = useState(0);
   const [sportUnderlineWidth, setSportUnderlineWidth] = useState(0);
   const projectTitle = "A secure and streamlined platform designed to enhance corporate communications";
@@ -38,6 +37,26 @@ const ProjectCard = () => {
   const handleMouseLeaveSport = () => setSportTitleIsHovered(false);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(useGSAP);
+
+
+
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobileView(window.innerWidth <= 768);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   useEffect(() => {
     let networkTotalWidth = 0;
@@ -89,8 +108,8 @@ const ProjectCard = () => {
   const handleScroll = () => {
     ScrollTrigger.refresh();
 
-    const scrollY = window.scrollY + window.innerHeight;
-
+    // const scrollY = window.scrollY + window.innerHeight;
+    const scrollY = window.scrollY + window.innerHeight/2;
     if (parallaxContainerRef.current && scrollY >= parallaxContainerRef.current.offsetTop) {
       setIsVisible(true);
     }
@@ -304,7 +323,7 @@ const ProjectCard = () => {
 
         <div className="scroll-content">
           <div className="top-right">
-    <img className={`img ${isNetworkTitleHovered ? "scaled" : ""}`} src={network_img} alt="" />
+    <img className={`img ${isNetworkTitleHovered && !isMobileView ? "scaled" : ""}`} src={network_img} alt="" />
           </div>
         </div>
 
@@ -331,7 +350,7 @@ const ProjectCard = () => {
         {/* Scrollable content */}
         <div className="scroll-content">
           <div className="bottom-right">
-            <img className={`img ${isSportTitleHovered ? "scaled" : ""}`} src={dashboard_v1} alt="" />
+            <img className={`img ${isSportTitleHovered && !isMobileView ? "scaled" : ""}`} src={dashboard_v1} alt="" />
           </div>
         </div>
       </div>

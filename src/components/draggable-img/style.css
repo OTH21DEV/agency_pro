@@ -1,11 +1,9 @@
-
 .image-container-wrapper {
-  /* position:relative; */
   height: 300px;
   opacity: 0;
   overflow: hidden;
-  transition: transform 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99);
-  transform: scaleY(40%); /* Start state */
+  transition: transform 1.25s cubic-bezier(var(--cubic-bezier)), opacity 1.25s cubic-bezier(var(--cubic-bezier));
+  transform: scaleY(40%);
   transform-origin: bottom;
 }
 .image-container-wrapper.visible {
@@ -14,8 +12,6 @@
 }
 
 #image-container {
-  /* margin-left: 3em;
-  margin-right: 15em; */
   margin-top: 2em;
   position: relative;
   max-width: none;
@@ -25,24 +21,9 @@
   background-repeat: no-repeat;
   background-position: center;
   clip-path: inset(0 calc(600px - var(--x)) 0 var(--x));
-
   cursor: none;
-
-  /* transition: transform 1s cubic-bezier(0.62,0.05,0.01,0.99),    clip-path 1s cubic-bezier(0.62,0.05,0.01,0.99); */
   transform-origin: 50% 50%;
 }
-
-
-@media all and (min-width: 375px) and (max-width: 450px) {
-  #image-container{
-   clip-path: none;
-  }
-
-   
-  
-}
-
-
 
 #background-video {
   position: absolute;
@@ -58,45 +39,47 @@
 }
 
 #image-container.dragging {
-
   /* Override the scaleX transformation by setting scaleX(1), but keep scaleY at 1.2 */
   transform: scale(1, 1.2);
-  /* Transition only for clip-path, as we're handling transform with JS during the drag operation */
-  transition: clip-path 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  /* Transition only for clip-path, as handling transform with JS during the drag operation */
+  transition: clip-path 1s cubic-bezier(var(--cubic-bezier));
 }
 
 /* Add normal transition effects for scale changes when not dragging */
 #image-container:not(.dragging) {
-  transition: transform 1s cubic-bezier(0.62, 0.05, 0.01, 0.99), clip-path 1.25s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: transform 1s cubic-bezier(var(--cubic-bezier)), clip-path 1.25s cubic-bezier(var(--cubic-bezier));
 }
-
 
 .custom-cursor {
-width: 91px;
-height: 91px;
-position: absolute;
-pointer-events: none;
-background-image: url("../../assets/Untitled.svg");
-background-size: contain;
-background-repeat: no-repeat;
-transform: scale(0,0);
-opacity: 0;
-transition: transform 1s cubic-bezier(0.62, 0.05, 0.01, 0.99) , opacity 1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
-will-change: transform, opacity;
-z-index: 9999;
+  width: 91px;
+  height: 91px;
+  position: absolute;
+  pointer-events: none;
+  background-image: url("../../assets/Untitled.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: scale(0, 0);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(var(--cubic-bezier)), opacity 1s cubic-bezier(var(--cubic-bezier));
+  will-change: transform, opacity;
+  z-index: 9999;
 }
 
+.hide-cursor {
+  display: none;
+}
 
-
-#image-container:hover .custom-cursor{
-
+#image-container:hover .custom-cursor {
   transform: scale(1);
   opacity: 1;
-  }
- 
-#image-container:active .custom-cursor {
+}
 
+#image-container:active .custom-cursor {
   transform: scaleX(1.2);
   opacity: 1;
+}
+@media all and (min-width: 375px) and (max-width: 450px) {
+  #image-container {
+    clip-path: none;
   }
- 
+}

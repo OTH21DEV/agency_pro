@@ -5,7 +5,7 @@ import { cn as bem } from "@bem-react/classname";
 import "./style.css";
 import logo from "../../assets/logo_new.png";
 import browser from "../../assets/browser.png";
-
+import "../../styles/variables.css"
 const NavBar = () => {
   const cn = bem("Nav-bar-wrapper");
 

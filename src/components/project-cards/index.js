@@ -3,7 +3,7 @@ import ProjectCard from "../project-card";
 import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 
-
+import "../../styles/variables.css";
 import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { Link, useLocation } from "react-router-dom";
@@ -18,6 +18,7 @@ const ProjectCards = () => {
   const location = useLocation();
     //handle the state of elements (titles etc)
     const [isVisible, setIsVisible] = useState(false);
+    const projectsSectionRef =useRef()
   /*
 delay the display of navBar when redirected from main page to the services section
 and set the state of navbar in session storage , so when the page reload the 
@@ -47,11 +48,20 @@ elements will be displayed again (animation will rerun) - this check is added in
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/
   const handleScroll = () => {
-    const specialHeight = 1450;
-    if (window.scrollY >= specialHeight) {
+  
+    const scrollY = window.scrollY + window.innerHeight/2;
+    if (projectsSectionRef.current && scrollY >= projectsSectionRef.current.offsetTop) {
       setIsVisible(true);
     }
+    
   };
+
+  // const handleScroll = () => {
+  //   const specialHeight = 1450;
+  //   if (window.scrollY >= specialHeight) {
+  //     setIsVisible(true);
+  //   }
+  // };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -117,7 +127,7 @@ elements will be displayed again (animation will rerun) - this check is added in
   return (
     <div className="section">
       {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
-    <section className="projects-section">
+    <section className="projects-section" ref={projectsSectionRef}>
       <div className="projects-wrapper">
         <h2 className={`project-number ${isVisible ? "visible" : ""}`}style={numberStyle}>03/</h2>
         <span className="title-wrapper">

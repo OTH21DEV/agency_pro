@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import arrow_down from "../../assets/arrow_down.png";
+import "../../styles/variables.css";
 // import "./style.css";
 import { cn as bem } from "@bem-react/classname";
 import Canva from "../canva";

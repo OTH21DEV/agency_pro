@@ -1,0 +1,6 @@
+.bottom-layout {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}

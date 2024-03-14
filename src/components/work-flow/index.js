@@ -2,7 +2,7 @@ import React from "react";
 import { cn as bem } from "@bem-react/classname";
 import WorkFlowCard from "../work-flow-card";
 import "./style.css";
-
+import "../../styles/variables.css";
 const WorkFlow = () => {
   const cn = bem("Work-flow-section");
   return (

@@ -1,0 +1,16 @@
+.arrow-big {
+  display: inline-block;
+  opacity: 0;
+  transition: transform 1.1s cubic-bezier(var(--cubic-bezier)), opacity 1.1s cubic-bezier(var(--cubic-bezier)), line-height 1.1s cubic-bezier(var(--cubic-bezier));
+  transform: translateY(-20px) scaleY(0);
+  transform-origin: top;
+}
+.arrow-big-img {
+  width: 130px;
+  height: 100px;
+}
+
+.arrow-big.visible {
+  transform: translateY(0) scaleY(1);
+  opacity: 1;
+}

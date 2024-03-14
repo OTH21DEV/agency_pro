@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import ServiceCard from "../service-card";
 import { Link, useLocation } from "react-router-dom";
 import { cn as bem } from "@bem-react/classname";
 import "./style.css";
-
+import "../../styles/variables.css";
 import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { useNavClick } from "../../app";
@@ -19,7 +19,8 @@ function ServiceCards() {
   const location = useLocation();
   const { hasHomepageClicked } = useHomeClick();
   const { hasNavClicked } = useNavClick();
-
+  const servicesSectionRef =useRef()
+  const servicesListRef =useRef()
   const services = [
     {
       title: "Design Services",
@@ -93,19 +94,18 @@ elements will be displayed again (animation will rerun) - this check is added in
 
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/
-  const handleScroll = () => {
-    const specialHeight = 200;
-    const path = window.location.pathname;
 
-    if (window.scrollY >= specialHeight) {
+  const handleScroll = () => {
+    const scrollY = window.scrollY + window.innerHeight/2;
+    if (servicesSectionRef.current && scrollY >= servicesSectionRef.current.offsetTop) {
       setIsVisible(true);
     }
-
-    // Only for the homepage, check if we have scrolled past 650px.
-    if (path === "/" && window.scrollY >= 770) {
+    if (servicesListRef.current && scrollY >= servicesListRef.current.offsetTop) {
       setIsCardsVisible(true);
     }
+
   };
+
 
 
 
@@ -182,7 +182,7 @@ elements will be displayed again (animation will rerun) - this check is added in
   return (
     <div className="section">
       {hasNavClicked || hasHomepageClicked || isNavBarVisible ? <NavBar /> : ""}
-      <section className="services-section">
+      <section className="services-section" ref={servicesSectionRef}>
         <div className="services-wrapper">
           <h2 className={`service-number ${isVisible ? "visible" : ""}`} style={numberStyle}>
             02/
@@ -207,7 +207,7 @@ elements will be displayed again (animation will rerun) - this check is added in
           <p className={`services-about-content ${isVisible ? "visible" : ""}`}>{wrappedText}</p>
         </div>
 
-        <div className={`services-card-wrapper ${isCardsVisible ? "visible" : ""}`} >
+        <div className={`services-card-wrapper ${isCardsVisible ? "visible" : ""}`} ref={servicesListRef}>
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}

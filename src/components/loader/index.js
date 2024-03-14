@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import logo from "../../assets/logo_white.png";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
+import "../../styles/variables.css"
 
 const Loader = () => {
   const [isLoaderFinished, setIsLoaderFinished] = useState(false);
@@ -63,11 +64,11 @@ const Loader = () => {
   useEffect(() => {
     const showPageContainer = document.querySelector(".container");
     const navBar = document.querySelector(".Nav-bar-wrapper");
-    const heading = document.querySelector(".Heading");
-    const pro = document.querySelector(".Heading-pro");
-    const text = document.querySelector(".Heading-text");
+    const heading = document.querySelector(".heading-section");
+    const pro = document.querySelector(".heading-word-and");
+    const text = document.querySelector(".heading-text");
     const arrow = document.querySelector(".arrow-big");
-    const slogan = document.querySelector(".Slogan");
+    const slogan = document.querySelector(".slogan");
     const image = document.querySelector(".image-container-wrapper");
 
     const loaderContainerEl = loaderContainerRef.current;

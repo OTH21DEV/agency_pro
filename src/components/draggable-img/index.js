@@ -1,20 +1,24 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
-
-// import { motion, useMotionValue, useTransform } from "framer-motion";
 import video from "../../assets/video.mp4";
-
+import "../../styles/variables.css";
 import "./style.css";
 
 const DraggableImg = () => {
   const containerRef = useRef(null);
   const customCursorRef = useRef(null);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
 
-  // Assuming the container scales to 120%
-  const containerScaleFactor = 1.2;
-  // Calculate the inverse scale factor
-  const invertScaleFactor = 1 / containerScaleFactor;
+  // Handler to check the Mobile view
+  useEffect(() => {
+    const handleResize = () => {
+      // Set mobile view status based on window width
+      setIsMobileView(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
-  //test
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const disableTransition = () => {
     if (containerRef.current) {
@@ -25,7 +29,6 @@ const DraggableImg = () => {
   // Function to restore transitions
   const enableTransition = () => {
     if (containerRef.current) {
-      // Replace this with the actual transition styles you wish to restore
       containerRef.current.style.transition = "transform 1s cubic-bezier(0.62,0.05,0.01,0.99),clip-path 1.25s cubic-bezier(0.62,0.05,0.01,0.99)";
     }
   };
@@ -35,16 +38,16 @@ const DraggableImg = () => {
 
   const onMouseDown = useCallback(
     (e) => {
-        disableTransition();
+      if (isMobileView) return;
+      disableTransition();
       const pos = posRef.current;
       startPosRef.current = e.clientX; // Store the starting X position
 
       const imageContainer = containerRef.current;
-      if (imageContainer ) {
-        enableTransition()
+      if (imageContainer) {
+        enableTransition();
         imageContainer.classList.add("dragging");
         imageContainer.style.transform = `scaleY(1.2)`;
-       
       }
 
       const onMouseMove = (moveEvent) => {
@@ -56,15 +59,12 @@ const DraggableImg = () => {
       const onMouseUp = () => {
         document.removeEventListener("mousemove", onMouseMove);
         document.removeEventListener("mouseup", onMouseUp);
-        //   pos.style.setProperty("--x", `0px`); // Reset the --x position after drag ends
-        //   if (imageContainer) {
-        //     imageContainer.classList.remove("dragging");
-        //   }
+
         requestAnimationFrame(() => {
           pos.style.setProperty("--x", `0px`);
-          if (imageContainer ) {
+          if (imageContainer) {
             imageContainer.classList.remove("dragging");
-          
+
             imageContainer.style.transform = ""; // Remove the inline transform style
             enableTransition();
           }
@@ -74,10 +74,11 @@ const DraggableImg = () => {
       document.addEventListener("mousemove", onMouseMove);
       document.addEventListener("mouseup", onMouseUp);
     },
-    [disableTransition, enableTransition]
+    [isMobileView, disableTransition, enableTransition]
   );
 
   const moveCursor = (e) => {
+    if (isMobileView || !containerRef.current || !customCursorRef.current) return;
     if (containerRef.current && customCursorRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       customCursorRef.current.style.left = `${e.clientX - rect.left}px`;
@@ -87,19 +88,24 @@ const DraggableImg = () => {
 
   // Attach and clean up the mousemove event listener
   useEffect(() => {
-    //Reset the image position  for --x property after reload to 0
+    //Reseted the image position  for --x property after reload to 0
     const pos = posRef.current;
-    if (pos) {
+
+    const container = containerRef.current;
+
+    if (!container) return;
+
+    if (pos && !isMobileView) {
       pos.style.setProperty("--x", "0px");
     }
 
-    const container = containerRef.current;
-    container.addEventListener("mousemove", moveCursor);
-
+    if (!isMobileView) {
+      container.addEventListener("mousemove", moveCursor);
+    }
     return () => {
       container.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [isMobileView, moveCursor]);
 
   return (
     <div className="image-container-wrapper" ref={posRef} onMouseDown={onMouseDown} style={{ cursor: "grab" }}>
@@ -109,9 +115,8 @@ const DraggableImg = () => {
           Your browser does not support the video tag.
         </video>
 
-        <div class="custom-cursor" ref={customCursorRef}></div>
+        <div className={`custom-cursor ${isMobileView ? "hide-cursor" : ""}`} ref={customCursorRef}></div>
       </div>
-      {/* <div class="custom-cursor" ref={customCursorRef}></div> */}
     </div>
   );
 };

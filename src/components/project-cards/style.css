@@ -3,7 +3,7 @@
   /* overflow: hidden; */
   padding: 7.5em 7.5em 0 7.5em;
 }
-.section{
+.section {
   /* overflow: hidden; */
 }
 .projects-wrapper {
@@ -12,21 +12,19 @@
   display: flex;
   /* border-bottom:2px solid grey; */
   width: 80%;
-  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
 }
 
 .title-wrapper {
   margin-left: 7.5em;
 }
 
-
-
 .project-number {
   font-weight: 500;
   font-size: 1.4em;
 
   opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: opacity 0.3s cubic-bezier(var(--cubic-bezier));
   overflow: hidden;
 }
 .project-number.visible {
@@ -39,7 +37,7 @@
   font-size: 6em;
   line-height: 0.834;
   opacity: 0;
-  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: transform 1.1s cubic-bezier(var(--cubic-bezier)), opacity 1.1s cubic-bezier(var(--cubic-bezier)), height 1.1s cubic-bezier(var(--cubic-bezier));
   transform: translateY(80%);
 }
 .projects-title.visible {
@@ -51,7 +49,7 @@
   width: 40%;
   justify-content: space-between;
 
-  font-family: PP Neue Montreal, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
 }
 
 .projects-about-content {
@@ -70,7 +68,7 @@
   opacity: 0;
   max-height: 0px;
   transform: translateY(20px);
-  transition: transform 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), max-height 0.5s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: transform 1.1s cubic-bezier(var(--cubic-bezier)), opacity 1.1s cubic-bezier(var(--cubic-bezier)), max-height 0.5s cubic-bezier(var(--cubic-bezier));
 }
 
 /* When 'visible' class gets toggled, it starts the animation */
@@ -95,7 +93,7 @@
   margin-top: 0;
   font-size: 1em;
   opacity: 0;
-  transition: opacity 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99), height 1.1s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  transition: opacity 1.1s cubic-bezier(var(--cubic-bezier)), height 1.1s cubic-bezier(var(--cubic-bezier));
 }
 
 .project-about-title.visible {
@@ -103,25 +101,23 @@
 }
 
 @media all and (min-width: 375px) and (max-width: 450px) {
-  
-  .title-wrapper{
-    margin-left:0
+  .title-wrapper {
+    margin-left: 0;
   }
   .projects-section {
-
-    padding: 7.5em 1.5em ;
+    padding: 7.5em 1.5em;
   }
-  .projects-wrapper{
+  .projects-wrapper {
     flex-direction: column;
-    width:100%
+    width: 100%;
   }
-  .projects-title{
+  .projects-title {
     font-size: 4em;
   }
-  .projects-about{
-    width:100%
+  .projects-about {
+    width: 100%;
   }
-  .projects-about-content{
-    margin-left:1em;
+  .projects-about-content {
+    margin-left: 1em;
   }
 }
