@@ -1,17 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { cn as bem } from "@bem-react/classname";
-import "./style.css";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
-import "../../styles/variables.css"
+import "./style.css";
+import "../../styles/variables.css";
+
 const Nav = () => {
-  const cn = bem("Nav-wrapper");
   const location = useLocation();
   const navRef = useRef(null);
-
   const { setHasNavClicked } = useNavClick();
-
   const { hasHomepageClicked, setHasHomepageClicked } = useHomeClick();
   /*
   Function to handle setting hasNavClicked
@@ -34,20 +31,17 @@ const Nav = () => {
   useEffect(() => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
-      // setHasHomepageClicked(false);
     }
   }, [location.pathname]);
 
   return (
-    <div className={cn("")} ref={navRef}>
+    <div className="nav-wrapper" ref={navRef}>
       <div>
-        {/* <Link onClick={handleHomepage} to="/"> */}
-        <Link onClick={location.pathname !== "/" ? handleHomepage: undefined} to="/">
+        <Link onClick={location.pathname !== "/" ? handleHomepage : undefined} to="/">
           FromScratch
         </Link>
-
       </div>
-      <div className="Nav-links">
+      <div className="nav-links">
         <Link onClick={location.pathname === "/" ? handleNavClick : undefined} to="/services">
           01/ Services
         </Link>

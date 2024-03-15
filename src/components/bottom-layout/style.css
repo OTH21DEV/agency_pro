@@ -2,5 +2,7 @@
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  /* bottom: 0; */
+  bottom: 5em;
+  z-index: 2;
 }

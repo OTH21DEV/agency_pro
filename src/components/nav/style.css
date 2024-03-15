@@ -1,45 +1,30 @@
-.Nav-wrapper {
+.nav-wrapper {
   margin: 0;
   display: flex;
   list-style: none;
-  font-family: "Syne", sans-serif;
+  font-family: var(--font-family-titles);
   justify-content: space-between;
   width: 100%;
-  /* background: #e1dfdd;  */
 }
 
-.Nav-wrapper a {
+.nav-wrapper a {
   padding-right: 0.9rem;
   margin: 10px 0;
   height: 1.5rem;
   letter-spacing: -0.03rem;
   cursor: pointer;
-
   font-weight: bold;
-
   font-size: 1.15rem;
   text-decoration: none;
   color: black;
-/* 
-  mix-blend-mode: difference;  */
-
-
-}
-
-:root {
-  --light-grey: #ddd;
-}
-
-.Nav-links{
-
 }
 
 @media all and (min-width: 375px) and (max-width: 450px) {
-  .Nav-links{
-    display:flex;
+  .nav-links {
+    display: flex;
     flex-direction: column;
   }
-  .Nav-links a{
-   margin:0
+  .nav-links a {
+    margin: 0;
   }
 }

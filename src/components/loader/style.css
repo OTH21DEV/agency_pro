@@ -5,24 +5,19 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: #0d232a;
   background-color: black;
-  /* padding-right: 3.12rem; */
   transition: transform 0.5s ease-in-out;
-  /* visibility: hidden; */
 }
 
 .loader-container div {
   color: white;
   justify-self: flex-end;
-  /* padding-left: 3.12rem; */
   letter-spacing: -0.14063rem;
   padding-top: 1rem;
-  font-family: TT Hoves, sans-serif;
+  font-family: var(--font-family-titles);
   font-size: 1.213rem;
   color: #e1dfdd;
-  width:50%;
-
+  width: 50%;
 }
 .loader-container div p,
 .loader-container div h2 {
@@ -33,19 +28,17 @@
   font-size: 5rem;
   color: white;
   letter-spacing: -0.14063rem;
-  font-family: TT Hoves, sans-serif;
+  font-family: var(--font-family);
   font-size: 7.813rem;
   font-weight: 400;
   align-self: flex-end;
   color: #e1dfdd;
 }
 
-/* The initial state of number before and after '23' */
 .animated-number {
   opacity: 1;
 }
 
-/* Keyframes for 23 to slide up and fade out, while scaling down */
 @keyframes slideUpFadeOut {
   to {
     transform: translateY(-100%);
@@ -118,17 +111,17 @@
   padding: 0;
 }
 @media all and (min-width: 375px) and (max-width: 450px) {
-  .loader-container{
-   padding :0 1.5em
+  .loader-container {
+    padding: 0 1.5em;
   }
-.animated-number {
-font-size:6em;
-}
-@keyframes slideUpFor100 {
-  to {
-    opacity: 1;
-    /* transform: translateY(-400%); */
-    transform: translateY(-650%);
+  .animated-number {
+    font-size: 6em;
   }
-}
+  @keyframes slideUpFor100 {
+    to {
+      opacity: 1;
+      /* transform: translateY(-400%); */
+      transform: translateY(-600%);
+    }
+  }
 }

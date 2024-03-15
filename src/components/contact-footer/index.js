@@ -1,17 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./style.css";
-import "../../styles/variables.css";
-
-
 import transition from "../../transition";
 import NavBar from "../nav-bar";
 import { useLocation } from "react-router-dom";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
+import "./style.css";
+import "../../styles/variables.css";
 
 const ContactFooter = () => {
-
-
   const location = useLocation();
   const networkTitleRef = useRef([]);
   const { hasNavClicked, setHasNavClicked } = useNavClick();
@@ -30,7 +26,7 @@ const ContactFooter = () => {
   */
 
   useEffect(() => {
-    const navBar = document.querySelector(".Nav-bar-wrapper");
+    const navBar = document.querySelector(".nav-bar-wrapper");
     let timer1, timer2;
     let timer;
 
@@ -80,8 +76,6 @@ const ContactFooter = () => {
     };
   }, []);
 
-
-
   // Split the text by newlines to work with individual lines
   const wrapTextIntoLines = (text, style) => {
     return text.split("\n").map((line, lineIndex) => (
@@ -96,7 +90,6 @@ const ContactFooter = () => {
   const wrappedText = wrapTextIntoLines(text);
 
   let email = ["c", "o", "n", "t", "a", "c", "t", "@", "f", "r", "o", "m", "S", "c", "r", "a", "t", "c", "h", ".", "c", "o", "m"];
- 
 
   useEffect(() => {
     let networkTotalWidth = 0;
@@ -147,7 +140,7 @@ const ContactFooter = () => {
                 </span>
               );
             })}
-       
+
             <div className={`underline ${isEmailVisible ? "visible" : ""}`} style={{ width: networkUnderlineWidth, transitionDelay: `${underlineDelay}s` }} />
           </span>
         </div>

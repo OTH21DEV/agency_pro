@@ -1,13 +1,12 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ServiceCard from "../service-card";
-import { Link, useLocation } from "react-router-dom";
-import { cn as bem } from "@bem-react/classname";
-import "./style.css";
-import "../../styles/variables.css";
 import transition from "../../transition";
 import NavBar from "../nav-bar";
+import { useLocation } from "react-router-dom";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
+import "./style.css";
+import "../../styles/variables.css";
 
 function ServiceCards() {
   let servicesTitle = ["S", "E", "R", "V", "I", "C", "E", "S"];
@@ -19,8 +18,8 @@ function ServiceCards() {
   const location = useLocation();
   const { hasHomepageClicked } = useHomeClick();
   const { hasNavClicked } = useNavClick();
-  const servicesSectionRef =useRef()
-  const servicesListRef =useRef()
+  const servicesSectionRef = useRef();
+  const servicesListRef = useRef();
   const services = [
     {
       title: "Design Services",
@@ -72,7 +71,7 @@ and set the state of navbar in session storage , so when the page reload the
 elements will be displayed again (animation will rerun) - this check is added in jsx
  */
   useEffect(() => {
-    const navBar = document.querySelector(".Nav-bar-wrapper");
+    const navBar = document.querySelector(".nav-bar-wrapper");
 
     let timer;
 
@@ -96,18 +95,14 @@ elements will be displayed again (animation will rerun) - this check is added in
   services elements in the main page by adding visible class in jsx*/
 
   const handleScroll = () => {
-    const scrollY = window.scrollY + window.innerHeight/2;
+    const scrollY = window.scrollY + window.innerHeight / 2;
     if (servicesSectionRef.current && scrollY >= servicesSectionRef.current.offsetTop) {
       setIsVisible(true);
     }
     if (servicesListRef.current && scrollY >= servicesListRef.current.offsetTop) {
       setIsCardsVisible(true);
     }
-
   };
-
-
-
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -130,25 +125,25 @@ elements will be displayed again (animation will rerun) - this check is added in
   useEffect(() => {
     let navBarTimeoutId;
     let cardsTimeoutId;
-  
+
     if (isNavBarVisible) {
       // timeout before making the navigation bar visible in the service section page
 
       navBarTimeoutId = setTimeout(() => {
         setIsVisible(true);
       }, 1800);
-  
+
       // timeout before making the service cards visible in the service section page
 
       cardsTimeoutId = setTimeout(() => {
         setIsCardsVisible(true);
-      }, 3000); 
+      }, 3000);
     } else {
       setIsVisible(false);
-    
+
       setIsCardsVisible(false);
     }
-  
+
     return () => {
       // Clear both timeouts when unmounting or if the effect re-runs
       if (navBarTimeoutId) {
@@ -159,7 +154,7 @@ elements will be displayed again (animation will rerun) - this check is added in
       }
     };
   }, [isNavBarVisible]);
-  ////////////////////////
+
 
   const numberDelay = servicesTitle.length * 0.07;
   const numberStyle = { transitionDelay: `${numberDelay + 0.07}s` };

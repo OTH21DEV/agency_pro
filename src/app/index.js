@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import React, { createContext, useContext, useState } from "react";
 import Main from "./main";
-
-import { AnimatePresence } from "framer-motion";
 import ContactFooter from "../components/contact-footer";
 import ServiceCards from "../components/service-cards";
 import ProjectCards from "../components/project-cards";
+import { AnimatePresence } from "framer-motion";
 
 const NavClickContext = createContext({
   hasNavClicked: false,
@@ -32,21 +31,15 @@ export const useHomeClick = () => {
 // Provider component
 export const HomepageClickProvider = ({ children }) => {
   const [hasHomepageClicked, setHasHomepageClicked] = useState(false);
-  return (
-    <ClickHomepage.Provider value={{ hasHomepageClicked, setHasHomepageClicked}}>
-      {children}
-    </ClickHomepage.Provider>
-  );
-}
-
-
+  return <ClickHomepage.Provider value={{ hasHomepageClicked, setHasHomepageClicked }}>{children}</ClickHomepage.Provider>;
+};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  const { hasNavClicked } = useNavClick();
+  // const { hasNavClicked } = useNavClick();
 
   return (
-    <AnimatePresence mode="wait" >
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/*" element={<Main />}></Route>
         <Route path="/services" element={<ServiceCards></ServiceCards>}></Route>
@@ -60,15 +53,13 @@ const AnimatedRoutes = () => {
 const App = () => {
   return (
     <HomepageClickProvider>
-    <NavClickProvider>
-      <Router>
-        <AnimatedRoutes />
-      </Router>
-    </NavClickProvider>
+      <NavClickProvider>
+        <Router>
+          <AnimatedRoutes />
+        </Router>
+      </NavClickProvider>
     </HomepageClickProvider>
   );
 };
 
 export default App;
-
-

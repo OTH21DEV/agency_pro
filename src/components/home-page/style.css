@@ -18,12 +18,13 @@ body {
   opacity: 1;
 }
 .page {
-  height: calc(100vh - 160px);
+  /* height: calc(100vh - 160px); */
   background-color: var(--primary-color);
   position: relative;
   padding: 0 7.5em;
+  padding-bottom: 40px; /* Adjusted to accommodate the initial footer height */
+  margin-bottom: 20px;
 }
-
 
 .show-in {
   position: fixed;
@@ -44,6 +45,7 @@ body {
 }
 @media all and (min-width: 375px) and (max-width: 450px) {
   .page {
-    padding: 0 1.5em;
+    padding: 3.5em 1.5em;
+    /* max-height: 70vh; */
   }
 }

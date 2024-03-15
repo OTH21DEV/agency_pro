@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import arrow_down from "../../assets/arrow_down.png";
+import React from "react";
 import "./style.css";
-import { cn as bem } from "@bem-react/classname";
-import "../../styles/variables.css"
+import "../../styles/variables.css";
 
-function ServiceCard({ number, title, style, description, bulletPoints, isOpen, index, onClick }) {
-  const cn = bem("Plan");
-
+function ServiceCard({ number, title, bulletPoints, isOpen, index, onClick }) {
   return (
     <div className="service-card" style={{ borderTop: index === 0 ? "2px solid grey" : undefined, marginTop: index === 0 ? "7.5em" : undefined }}>
       <div className="service-card-header" onClick={onClick}>

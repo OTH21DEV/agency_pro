@@ -1,19 +1,18 @@
 import "./style.css";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import logo from "../../assets/logo_white.png";
 import { useNavClick } from "../../app";
 import { useHomeClick } from "../../app";
-import "../../styles/variables.css"
+import "../../styles/variables.css";
 
 const Loader = () => {
-  const [isLoaderFinished, setIsLoaderFinished] = useState(false);
+  // const [isLoaderFinished, setIsLoaderFinished] = useState(false);
   const [isSlidingUp, setIsSlidingUp] = useState(false); // To manage the slide up state
   const [numbers, setNumbers] = useState([25, 89, 100]);
   const [numberIndex, setNumberIndex] = useState(0);
   const numberRef = useRef();
   const loaderContainerRef = useRef();
-  const numberContainerEl = numberRef.current;
+  // const numberContainerEl = numberRef.current;
 
   const { hasNavClicked } = useNavClick();
   const { hasHomepageClicked } = useHomeClick();
@@ -46,7 +45,7 @@ const Loader = () => {
         setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
       } else {
         setIsSlidingUp(true);
-        setIsLoaderFinished(true); // Trigger the end of the loading sequence
+      
       }
     };
     numberRef.current.addEventListener("animationend", handleAnimationEnd);
@@ -63,7 +62,7 @@ const Loader = () => {
 
   useEffect(() => {
     const showPageContainer = document.querySelector(".container");
-    const navBar = document.querySelector(".Nav-bar-wrapper");
+    const navBar = document.querySelector(".nav-bar-wrapper");
     const heading = document.querySelector(".heading-section");
     const pro = document.querySelector(".heading-word-and");
     const text = document.querySelector(".heading-text");
@@ -74,13 +73,11 @@ const Loader = () => {
     const loaderContainerEl = loaderContainerRef.current;
 
     if (hasHomepageClicked) {
-      loaderContainerEl.style.display = "none"; // Hide the loader
-     
+      loaderContainerEl.style.display = "none";
+
       showPageContainer.classList.add("slide-in");
 
       setTimeout(() => {
-        // showPageContainer.classList.add("slide-in"); // Slide in the main content
-
         navBar.classList.add("visible"); // Slide in the main content
 
         navBar.addEventListener("transitionend", () => {
@@ -108,7 +105,7 @@ const Loader = () => {
 
         // Schedule sliding in the main content before the loader finishes
         timerId = setTimeout(() => {
-          showPageContainer.style.overflow = 'hidden';
+          showPageContainer.style.overflow = "hidden";
 
           loaderContainerEl.style.display = "none"; // Hide the loader
           showPageContainer.classList.add("slide-in"); // Slide in the main content
@@ -118,7 +115,7 @@ const Loader = () => {
           navBar.addEventListener("transitionend", () => {
             // Only after the NavBar has finished transitioning, show the Heading
             heading.classList.add("visible");
-            showPageContainer.style.overflow = '';
+            showPageContainer.style.overflow = "";
             pro.classList.add("visible");
             text.classList.add("visible");
             arrow.classList.add("visible");
@@ -137,12 +134,10 @@ const Loader = () => {
         clearTimeout(timerId);
         if (loaderContainerEl) {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
-       
         }
-        // showPageContainer.style.overflow = '';
+        showPageContainer.style.overflow = '';
       };
     }
-   
   }, [isSlidingUp, location.pathname, hasHomepageClicked]);
 
   const getClassName = () => {
@@ -160,9 +155,6 @@ const Loader = () => {
     <div ref={loaderContainerRef} className="loader-container">
       <div>
         <h2>fromScratch</h2>
-        {/* <div className="logo-wrapper">
-          <img src={logo} alt=""></img>
-        </div> */}
         <p>© 2024 ALL RIGHTS RESERVED.</p>
       </div>
       <span ref={numberRef} className={`animated-number ${getClassName()}`}>

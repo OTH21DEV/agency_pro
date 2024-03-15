@@ -42,6 +42,7 @@ const HomePage = () => {
       <Loader />
 
       <div className={"container"}>
+       <div style={{position:"relative",height:"100vh"}}>
         <NavBar />
 
         {/* <LangueBar /> */}
@@ -50,13 +51,17 @@ const HomePage = () => {
           <Heading text="stunning online experiences for Enterprises, Startups  & E-commerce" />
           <DraggableImg />
 
-          <BottomLayout>
+          {/* <BottomLayout>
+            <ArrowBig />
+            <Slogan />
+          </BottomLayout> */}
+        </div>
+        <BottomLayout>
             <ArrowBig />
             <Slogan />
           </BottomLayout>
-        </div>
-
         <Footer />
+        </div>
 
         <ServiceCards />
 
