@@ -1,8 +1,17 @@
 .bottom-layout {
   display: flex;
   align-items: center;
-  position: absolute;
-  /* bottom: 0; */
-  bottom: 5em;
-  z-index: 2;
+  /* margin-top: auto; */
+  /* margin-bottom: 1em; */
+  margin-bottom: 2em;
+}
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .bottom-layout {
+    /* margin-bottom: 2em; */
+  }
+}
+@media all and (min-width: 451px) and (max-width: 2500px) {
+  .bottom-layout {
+    /* margin-bottom: 2em; */
+  }
 }

@@ -85,6 +85,7 @@
   display: flex;
   background-color: var(--primary-color);
   margin-bottom: 7.5em;
+  margin-top:10em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -172,8 +173,8 @@
 
 @media all and (min-width: 375px) and (max-width: 450px) {
   .contact-section {
-    padding: 7.5em 1.5em;
-    height: 90vh;
+    padding: 0em 1.5em 7.5em 1.5em;
+    /* height: 90vh; */
   }
   .contact-about {
     width: 70%;
@@ -195,7 +196,7 @@
     max-height: 80px;
   }
   .contact-footer {
-    padding: 7.5em 0em;
-    height: 30vh;
+    /* padding: 7.5em 0em;
+    height: 30vh; */
   }
 }

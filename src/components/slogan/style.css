@@ -1,19 +1,21 @@
-
-.slogan-section{
-  display:flex;
+.slogan-section {
+  display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
 }
 .slogan {
   color: white;
-  font-family: var(--font-family-titles );
+  font-family: var(--font-family-titles);
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5em;
   list-style: none;
-
+  margin: 0;
   padding-left: 20px;
   overflow: hidden;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 .slogan li {
   margin-bottom: 0;
@@ -32,7 +34,7 @@
   max-height: 25px;
 }
 .slogan.visible li:nth-child(2) {
-  transition-delay: 0.5s; 
+  transition-delay: 0.5s;
   transform: translateY(0);
   opacity: 1;
   max-height: 25px;
@@ -51,9 +53,10 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 30px;
+  height: 100px;
 }
 
-@media all and (min-width: 375px) and (max-width: 450px) {
+@media all and (min-width: 375px) and (max-width: 520px) {
   .slogan-wrapper {
     margin-right: 0;
   }
@@ -63,5 +66,17 @@
   .slogan {
     padding-left: 10px;
     font-size: 1em;
+  }
+}
+@media all and (min-width: 521px) and (max-width: 1000px) {
+  .slogan-wrapper {
+    margin-right: 0;
+  }
+  .slogan li {
+    padding-left: 0px;
+  }
+  .slogan {
+    padding-left: 10px;
+    font-size: 1.2em;
   }
 }

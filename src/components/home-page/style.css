@@ -22,8 +22,10 @@ body {
   background-color: var(--primary-color);
   position: relative;
   padding: 0 7.5em;
-  padding-bottom: 40px; /* Adjusted to accommodate the initial footer height */
-  margin-bottom: 20px;
+  /* padding-bottom: 40px; 
+  margin-bottom: 20px; */
+  display: flex;
+  flex-direction: column;
 }
 
 .show-in {
@@ -43,9 +45,31 @@ body {
   background: black;
   transform-origin: top;
 }
+/* @media all and (min-width: 375px) and (max-width: 450px) {
+  .page {
+    padding: 7.5em 1.5em 1em 1.5em;
+ 
+  }
+} */
 @media all and (min-width: 375px) and (max-width: 450px) {
   .page {
-    padding: 3.5em 1.5em;
+    padding: 6em 1.5em 1em 1.5em;
     /* max-height: 70vh; */
   }
+}
+@media all and (min-width: 451px) and (max-width: 900px) {
+  .page {
+    padding: 6em 1.5em 1em 1.5em;
+   
+  }
+}
+@media all and (min-height: 900px) {
+  .page{
+    padding-top: 7.5em;
+  }
+  }
+.test{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

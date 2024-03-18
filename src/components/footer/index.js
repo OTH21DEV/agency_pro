@@ -22,7 +22,7 @@ const Footer = () => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
-      if (currentScrollPos < 5) {
+      if (currentScrollPos < 20) {
         setIsScrollingDown(false);
       }
       if (currentScrollPos > lastScrollTop) {

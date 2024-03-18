@@ -15,7 +15,8 @@
 
 .heading-text {
   margin-left: 20px;
-  font-weight: 500;
+  line-height: 0.9em;
+  /* font-weight: 500; */
   color: black;
   font-size: 1.25em;
   word-wrap: break-word;
@@ -88,43 +89,97 @@
   flex-direction: row;
   align-items: center;
 }
-@media all and (min-width: 375px) and (max-width: 450px) {
-  .heading-builds-text-wrapper{
-    flex-wrap: wrap;
-  }
-  .heading-text {
-    margin: 20px 0 20px 0;
-  }
-}
 
-@media all and (min-width: 375px) and (max-width: 500px) {
+
+/* @media all and (min-width: 375px) and (max-width: 500px) {
   .heading-letter {
     padding: 10px 0;
   }
-}
+} */
 @media all and (max-width: 2500px) {
   .heading-letter {
-    font-size: 14em;
+    font-size: 12em;
   }
+  .heading-text {
+    font-size : 2.5em;
+    }
 }
 
 @media all and (max-width: 1600px) {
   .heading-letter {
-    font-size: 7em;
-  }
-}
-
-@media all and (max-width: 768px) {
-  .heading-letter{
     font-size: 5em;
   }
+  .heading-text {
+    font-size : 2.1em;
+    }
+
+}
+@media all and (max-width: 1300px) {
+
+  .heading-text {
+    font-size : 1.8em;
+    }
+
+}
+@media all and (max-width: 1200px) {
+
+  .heading-text {
+    font-size : 1.6em;
+    }
+  
+}
+@media all and (max-width: 1000px) {
+  .heading-letter{
+    font-size: 4em;
+  }
+
+}
+@media all and (max-width: 768px) {
+  .heading-letter{
+    font-size: 4em;
+  }
+  .heading-text {
+    font-size : 1.6em;
+    }
 }
 
 @media all and (max-width: 480px) {
   .heading-letter{
     font-size: 3em;
+    /* padding: 10px 0; */
   }
   .heading-word-and{
     font-size: 3em;
   }
+  /* .heading-text {
+    font-size : 1.5em;
+    } */
 }
+/* @media all and (min-width: 375px) and (max-width: 450px) {
+  .heading-builds-text-wrapper{
+    flex-wrap: wrap;
+  }
+  .heading-text {
+    margin-left:0
+    }
+} */
+
+
+@media all and (min-width: 375px) and (max-width: 1000px) {
+  .heading-builds-text-wrapper{
+    flex-wrap: wrap;
+  }
+  .heading-text {
+    margin-left:0;
+    margin-top:10px;
+    }
+
+    .heading-word-and{
+      font-size: 3em;
+    }
+    .heading-text {
+      font-size : 1.5em;
+      }
+}
+
+

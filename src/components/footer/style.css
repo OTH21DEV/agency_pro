@@ -50,3 +50,24 @@
     width: 50vw;
   }
 }
+
+
+@media all and (min-width: 375px) and (max-width: 900px) {
+  .footer p {
+    width: 50vw;
+  }
+
+  .footer{
+    height:40px;
+  }
+}
+
+
+
+/* @media all and (min-width: 901px) and (max-width: 2500px) {
+  #image-container {
+    clip-path: inset(0 calc(30vh - var(--x)) 0 var(--x));
+  }
+  #background-video {
+    height: 200px;
+  } */

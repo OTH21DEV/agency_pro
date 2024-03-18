@@ -6,13 +6,13 @@ import "./style.css";
 const DraggableImg = () => {
   const containerRef = useRef(null);
   const customCursorRef = useRef(null);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
 
   // Handler to check the Mobile view
   useEffect(() => {
     const handleResize = () => {
       // Set mobile view status based on window width
-      setIsMobileView(window.innerWidth <= 768);
+      setIsMobileView(window.innerWidth <= 900);
     };
     window.addEventListener("resize", handleResize);
     handleResize();

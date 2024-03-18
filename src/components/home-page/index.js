@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import Gear from "../../components/gear";
 // import gear from "../../assets/gear_black.png";
 import Heading from "../../components/Heading";
@@ -37,30 +37,94 @@ const HomePage = () => {
     }
   }, [location.pathname]);
 
+  const [pageHeight, setPageHeight] = useState("100vh");
+  const [textHeight, setTextHeight] = useState("0");
+  const [arrayHeight, setArrayHeight] = useState("0");
+  const textAreaRef = useRef(null);
+  const arrayRef = useRef(null);
+
+  useEffect(() => {
+    let pagePadding;
+    // Function to update heights
+    const updateHeights = () => {
+      if(textAreaRef.current){
+        const computedStyles = window.getComputedStyle(textAreaRef.current);
+        const paddingTop = computedStyles.paddingTop;
+        const paddingBottom = computedStyles.paddingBottom;
+  
+        const paddingTopValue = parseInt(paddingTop, 10);
+        const paddingBottomValue = parseInt(paddingBottom, 10);
+
+        pagePadding = paddingTopValue + paddingBottomValue
+      }
+      // Get the height of the navbar and footer
+      const navbarHeight = document.querySelector(".nav-bar-wrapper").offsetHeight;
+      const footerHeight = document.querySelector(".footer-wrapper").offsetHeight;
+      const testElement = document.querySelector(".test");
+     
+      // Calculate the new page and text heights
+      const newPageHeight = `calc(100vh - ${navbarHeight}px)`;
+      const newTextHeight = `calc(100vh - ${pagePadding}px - ${navbarHeight}px - ${footerHeight}px)`;
+
+
+///
+let testHeight = "0";
+const testComputedStyles = window.getComputedStyle(testElement);
+const paddingTopTest = parseInt(testComputedStyles.paddingTop, 10);
+const paddingBottomTest = parseInt(testComputedStyles.paddingBottom, 10);
+const marginTopTest = parseInt(testComputedStyles.marginTop, 10);
+const marginBottomTest = parseInt(testComputedStyles.marginBottom, 10);
+
+// Calculate the effective height of the .test element
+testHeight = `calc(${newTextHeight} - 20vh - ${paddingTopTest + paddingBottomTest + marginTopTest + marginBottomTest}px)`;
+
+///
+
+      // Set the state with the new values
+      setPageHeight(newPageHeight);
+      setTextHeight(newTextHeight);
+      setArrayHeight(testHeight);
+    };
+
+
+
+    // Run once and also on window resize
+    window.addEventListener("resize", updateHeights);
+    updateHeights(); // Initial call
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", updateHeights);
+  }, []);
+
+//"stunning online experiences for Enterprises, Startups  & E-commerce"
+//"STUNNING ONLINE EXPERIENCE FOR ENTERPRISES, STARTUPS & E-COMMERCE"
   return (
     <>
       <Loader />
 
       <div className={"container"}>
-       <div style={{position:"relative",height:"100vh"}}>
         <NavBar />
+        <div
+          style={{
+            position: "relative",
+            height: pageHeight,
+          }}
+        >
+          {/* <LangueBar /> */}
 
-        {/* <LangueBar /> */}
+          <div className="page" style={{ height: textHeight }} ref={textAreaRef}>
+            <Heading text="stunning online experiences for Enterprises, Startups and E-commerce" />
+          <div className="test" style={{ height: arrayHeight }}>
+            <DraggableImg />
 
-        <div className="page">
-          <Heading text="stunning online experiences for Enterprises, Startups  & E-commerce" />
-          <DraggableImg />
+            <BottomLayout>
+              <ArrowBig />
+              <Slogan />
+            </BottomLayout>
+            </div>
+          </div>
 
-          {/* <BottomLayout>
-            <ArrowBig />
-            <Slogan />
-          </BottomLayout> */}
-        </div>
-        <BottomLayout>
-            <ArrowBig />
-            <Slogan />
-          </BottomLayout>
-        <Footer />
+          <Footer />
         </div>
 
         <ServiceCards />

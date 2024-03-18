@@ -11,12 +11,7 @@
   opacity: 0;
 }
 
-@media all and (min-width: 375px) and (max-width: 450px) {
-  .nav-bar-wrapper {
-    margin: 0 0.5em 0 1.5em;
-    padding-bottom: 0;
-  }
-}
+
 .nav-bar-wrapper.visible {
   transform: translateY(0);
   opacity:1
@@ -35,4 +30,16 @@
   -webkit-background-clip: text;
   -webkit-tap-highlight-color: transparent;
  
+}
+@media all and (min-width: 375px) and (max-width: 450px) {
+  .nav-bar-wrapper {
+    margin: 0 0.5em 0 1.5em;
+    padding-bottom: 0;
+  }
+}
+@media all and (min-width: 451px) and (max-width: 900px) {
+  .nav-bar-wrapper {
+    margin: 0 0.5em 0 1.5em;
+    
+  }
 }
