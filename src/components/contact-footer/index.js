@@ -110,7 +110,7 @@ const ContactFooter = () => {
         <div className="contact-wrapper">
           <div className="contact-heading">
             <h2 className={`contact-heading-number ${isVisible ? "visible" : ""}`} style={location.pathname === "/" ? { transitionDelay: "1s" } : {}}>
-              04/
+              03/
             </h2>
             <p className={`contact-heading-title ${isVisible ? "visible" : ""}`} style={location.pathname === "/" ? { transitionDelay: "1s" } : {}}>
               {"GOT A PROJECT IN MIND?"}

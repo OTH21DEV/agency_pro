@@ -107,7 +107,7 @@ elements will be displayed again (animation will rerun) - this check is added in
       <section className="projects-section" ref={projectsSectionRef}>
         <div className="projects-wrapper">
           <h2 className={`project-number ${isVisible ? "visible" : ""}`} style={numberStyle}>
-            03/
+            02/
           </h2>
           <span className="title-wrapper">
             {projects.map((lettre, key) => {

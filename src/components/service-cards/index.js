@@ -180,7 +180,7 @@ elements will be displayed again (animation will rerun) - this check is added in
       <section className="services-section" ref={servicesSectionRef}>
         <div className="services-wrapper">
           <h2 className={`service-number ${isVisible ? "visible" : ""}`} style={numberStyle}>
-            02/
+            01/
           </h2>
           <span className="title-wrapper">
             {servicesTitle.map((lettre, key) => {

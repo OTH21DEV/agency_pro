@@ -16,7 +16,7 @@ const ProjectCard = () => {
 
   const parallaxContainerRef = useRef(null);
   const parallaxContainerrRef = useRef(null);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 900);
   const [networkUnderlineWidth, setNetworkUnderlineWidth] = useState(0);
   const [sportUnderlineWidth, setSportUnderlineWidth] = useState(0);
 
@@ -37,7 +37,7 @@ const ProjectCard = () => {
 
   useEffect(() => {
     function handleResize() {
-      setIsMobileView(window.innerWidth <= 768);
+      setIsMobileView(window.innerWidth <= 900);
     }
 
     window.addEventListener("resize", handleResize);

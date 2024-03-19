@@ -70,7 +70,8 @@
 }
 .project-card-content {
   margin-top: 80px;
-  margin-left: 4em;
+  /* margin-left: 4em; */
+  margin-left: 5em;
   font-size: 1.2em;
   font-weight: 500;
   opacity: 0.8;
@@ -139,6 +140,38 @@
 }
 
 @media all and (min-width: 375px) and (max-width: 450px) {
+  .first-parallax-container,
+  .second-parallax-container {
+    height: 100vh;
+  }
+
+  .first-fixed-content .fixed-content-letter,
+  .second-fixed-content .fixed-content-letter {
+    font-size: 4em;
+  }
+  .first-fixed-content .underline,
+  .second-fixed-content .underline {
+    top: unset;
+  }
+
+  .scroll-content .top-right img,
+  .scroll-content {
+    margin-left: 0;
+  }
+
+  .top-right,
+  .bottom-right {
+    height: 55vh;
+  }
+
+  .first-parallax-container .scroll-content,
+  .second-parallax-container .scroll-content {
+    width: 100%;
+    margin-top: 30vh;
+  }
+}
+
+@media all and (min-width: 451px) and (max-width: 900px) {
   .first-parallax-container,
   .second-parallax-container {
     height: 100vh;

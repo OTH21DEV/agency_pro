@@ -98,7 +98,7 @@
 } */
 @media all and (max-width: 2500px) {
   .heading-letter {
-    font-size: 12em;
+    font-size: 10em;
   }
   .heading-text {
     font-size : 2.5em;
@@ -107,7 +107,7 @@
 
 @media all and (max-width: 1600px) {
   .heading-letter {
-    font-size: 5em;
+    font-size: 6em;
   }
   .heading-text {
     font-size : 2.1em;
