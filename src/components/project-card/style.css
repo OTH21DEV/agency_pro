@@ -244,6 +244,10 @@
     flex-direction: row;
 
   }
+  .top-right,
+  .bottom-right {
+    height: 100vh;
+  }
 }
 
 

@@ -69,7 +69,7 @@ const Loader = () => {
     const arrow = document.querySelector(".arrow-big");
     const slogan = document.querySelector(".slogan");
     const image = document.querySelector(".image-container-wrapper");
-
+    const marquee = document.querySelector(".footer-wrapper");
     const loaderContainerEl = loaderContainerRef.current;
 
     if (hasHomepageClicked) {
@@ -90,9 +90,11 @@ const Loader = () => {
           slogan.classList.add("visible");
           image.classList.add("visible");
           image.style.transitionDelay = ".3s";
+          marquee.style.opacity ="1"
         });
       }, 700);
-    } else if (isSlidingUp) {
+    } 
+    else if (isSlidingUp) {
       loaderContainerEl.classList.add("slide-up");
 
       let timerId;
@@ -122,6 +124,7 @@ const Loader = () => {
             slogan.classList.add("visible");
             image.classList.add("visible");
             image.style.transitionDelay = ".3s";
+            marquee.style.opacity ="1"
           });
         }, earlyStartMs);
       };
@@ -154,8 +157,9 @@ const Loader = () => {
   return (
     <div ref={loaderContainerRef} className="loader-container">
       <div>
-        <h2>fromScratch</h2>
+        <h2>FromScratch</h2>
         <p>© 2024 ALL RIGHTS RESERVED.</p>
+        {/* <p>©2024 all rights reserved</p> */}
       </div>
       <span ref={numberRef} className={`animated-number ${getClassName()}`}>
         {numbers[numberIndex]}

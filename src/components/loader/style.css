@@ -7,22 +7,26 @@
   overflow: hidden;
   background-color: black;
   transition: transform 0.5s ease-in-out;
+  padding: 0 1.5em;
 }
 
 .loader-container div {
   color: white;
   justify-self: flex-end;
-  letter-spacing: -0.14063rem;
+  /* letter-spacing: -0.14063rem; */
   padding-top: 1rem;
-  font-family: var(--font-family-titles);
+  font-family: var(--font-family);
   font-size: 1.213rem;
   color: #e1dfdd;
-  width: 50%;
+  /* width: 20%; */
 }
 .loader-container div p,
 .loader-container div h2 {
   margin: 0;
-  font-size: 1 rem;
+  font-size: 1.2em;
+}
+.loader-container div p {
+  font-size: 0.7em;
 }
 .animated-number {
   font-size: 5rem;
@@ -85,7 +89,7 @@
   to {
     opacity: 1;
     /* transform: translateY(-400%); */
-    transform: translateY(-400%);
+    transform: translateY(-100vh);
   }
 }
 /* Adding a transition for the slide up effect */
@@ -117,11 +121,19 @@
   .animated-number {
     font-size: 6em;
   }
-  @keyframes slideUpFor100 {
-    to {
-      opacity: 1;
-      /* transform: translateY(-400%); */
-      transform: translateY(-600%);
-    }
+
+}
+
+@media all and (min-width: 1001px) and (max-width: 2500px) {
+
+  .loader-container div h2 {
+    margin: 0;
+    font-size: 1.7em;
+  }
+  .loader-container div p
+ {
+    margin: 0;
+    font-size: 0.8em;
   }
 }
+
