@@ -35,47 +35,97 @@ const ProjectCard = () => {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(useGSAP);
 
+
   useEffect(() => {
-    function handleResize() {
-      setIsMobileView(window.innerWidth <= 900);
+    function updateUnderlineWidth() {
+      let networkTotalWidth = 0;
+      networkTitleRef.current.forEach((element) => {
+        if (element) {
+          const elementWidth = element.getBoundingClientRect().width;
+          const style = window.getComputedStyle(element);
+          const marginLeft = parseFloat(style.marginLeft);
+          const marginRight = parseFloat(style.marginRight);
+
+          networkTotalWidth += elementWidth + marginLeft + marginRight;
+        }
+      });
+      setNetworkUnderlineWidth(networkTotalWidth);
+
+      let sportTotalWidth = 0;
+      sportTitleRef.current.forEach((element) => {
+        if (element) {
+          const elementWidth = element.getBoundingClientRect().width;
+          const style = window.getComputedStyle(element);
+          const marginLeft = parseFloat(style.marginLeft);
+          const marginRight = parseFloat(style.marginRight);
+
+          sportTotalWidth += elementWidth + marginLeft + marginRight;
+        }
+      });
+      setSportUnderlineWidth(sportTotalWidth);
     }
 
-    window.addEventListener("resize", handleResize);
+    function handleResize() {
+      setIsMobileView(window.innerWidth <= 900);
+      updateUnderlineWidth(); // Recalculate widths when resizing
+    }
 
-    handleResize();
+    // Calculate the widths on mount
+    updateUnderlineWidth();
 
+    // Add listener for future resizes
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup: remove listener when the component unmounts or before rerunning this effect
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  useEffect(() => {
-    let networkTotalWidth = 0;
-    networkTitleRef.current.forEach((element) => {
-      if (element) {
-        const elementWidth = element.getBoundingClientRect().width;
-        const style = window.getComputedStyle(element);
-        const marginLeft = parseFloat(style.marginLeft);
-        const marginRight = parseFloat(style.marginRight);
 
-        networkTotalWidth += elementWidth + marginLeft + marginRight;
-      }
-    });
-    setNetworkUnderlineWidth(networkTotalWidth);
 
-    let sportTotalWidth = 0;
-    sportTitleRef.current.forEach((element) => {
-      if (element) {
-        const elementWidth = element.getBoundingClientRect().width;
-        const style = window.getComputedStyle(element);
-        const marginLeft = parseFloat(style.marginLeft);
-        const marginRight = parseFloat(style.marginRight);
+  
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setIsMobileView(window.innerWidth <= 900);
+  //   }
 
-        sportTotalWidth += elementWidth + marginLeft + marginRight;
-      }
-    });
-    setSportUnderlineWidth(sportTotalWidth);
-  }, []);
+  //   window.addEventListener("resize", handleResize);
+
+  //   handleResize();
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   let networkTotalWidth = 0;
+  //   networkTitleRef.current.forEach((element) => {
+  //     if (element) {
+  //       const elementWidth = element.getBoundingClientRect().width;
+  //       const style = window.getComputedStyle(element);
+  //       const marginLeft = parseFloat(style.marginLeft);
+  //       const marginRight = parseFloat(style.marginRight);
+
+  //       networkTotalWidth += elementWidth + marginLeft + marginRight;
+  //     }
+  //   });
+  //   setNetworkUnderlineWidth(networkTotalWidth);
+
+  //   let sportTotalWidth = 0;
+  //   sportTitleRef.current.forEach((element) => {
+  //     if (element) {
+  //       const elementWidth = element.getBoundingClientRect().width;
+  //       const style = window.getComputedStyle(element);
+  //       const marginLeft = parseFloat(style.marginLeft);
+  //       const marginRight = parseFloat(style.marginRight);
+
+  //       sportTotalWidth += elementWidth + marginLeft + marginRight;
+  //     }
+  //   });
+  //   setSportUnderlineWidth(sportTotalWidth);
+  // }, []);
 
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/

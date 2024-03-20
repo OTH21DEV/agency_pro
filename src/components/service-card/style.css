@@ -2,7 +2,8 @@
 .service-card {
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  /* width: 80%; */
+  width: 100%;
   padding: 2em 0em;
   border-bottom: 2px solid grey;
   font-family: var(--font-family);

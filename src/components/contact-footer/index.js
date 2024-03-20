@@ -89,17 +89,51 @@ const ContactFooter = () => {
 
   const wrappedText = wrapTextIntoLines(text);
 
-  let email = ["c", "o", "n", "t", "a", "c", "t", "@", "f", "r", "o", "m", "S", "c", "r", "a", "t", "c", "h", ".", "c", "o", "m"];
+  let email = ["C", "O", "N", "T", "A", "C", "T", "@", "F", "R", "O", "M", "S", "C", "R", "A", "T", "C", "H", ".", "L", "U"];
+
+  // useEffect(() => {
+  //   let networkTotalWidth = 0;
+  //   networkTitleRef.current.forEach((element) => {
+  //     if (element) {
+  //       networkTotalWidth += element.offsetWidth;
+  //     }
+  //   });
+  //   setNetworkUnderlineWidth(networkTotalWidth);
+  // }, []);
+
+
 
   useEffect(() => {
-    let networkTotalWidth = 0;
-    networkTitleRef.current.forEach((element) => {
-      if (element) {
-        networkTotalWidth += element.offsetWidth;
-      }
-    });
-    setNetworkUnderlineWidth(networkTotalWidth);
+    function updateUnderlineWidth() {
+      let totalWidth = 0;
+      networkTitleRef.current.forEach((element) => {
+        if (element) {
+          totalWidth += element.offsetWidth;
+        }
+      });
+      setNetworkUnderlineWidth(totalWidth);
+    }
+    
+    // Call the function on mount to initialize the width
+    updateUnderlineWidth();
+
+    function handleResize() {
+      updateUnderlineWidth(); // Recalculate widths when resizing
+    }
+
+    // Add event listener for when the window is resized
+    window.addEventListener('resize', handleResize);
+
+    // Add event listener for when the window is reloaded
+    window.addEventListener('load', updateUnderlineWidth);
+
+    // Cleanup function to remove the event listeners when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', updateUnderlineWidth);
+    };
   }, []);
+
 
   const underlineDelay = 4.34;
 

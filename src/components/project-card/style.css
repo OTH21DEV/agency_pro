@@ -147,11 +147,12 @@
 
   .first-fixed-content .fixed-content-letter,
   .second-fixed-content .fixed-content-letter {
-    font-size: 4em;
+    font-size: 3em;
   }
   .first-fixed-content .underline,
   .second-fixed-content .underline {
     top: unset;
+    height:6px;
   }
 
   .scroll-content .top-right img,
@@ -171,7 +172,7 @@
   }
 }
 
-@media all and (min-width: 451px) and (max-width: 900px) {
+@media all and (min-width: 451px) and (max-width: 1000px) {
   .first-parallax-container,
   .second-parallax-container {
     height: 100vh;
@@ -202,3 +203,47 @@
     margin-top: 30vh;
   }
 }
+@media all and (min-width: 1001px) and (max-width: 2500px) {
+  .first-parallax-container,
+  .second-parallax-container {
+    height: 100vh;
+  }
+
+  .first-fixed-content .fixed-content-letter,
+  .second-fixed-content .fixed-content-letter {
+    font-size: 6em;
+  }
+  .first-fixed-content .underline,
+  .second-fixed-content .underline {
+    top: unset;
+  }
+
+  .scroll-content .top-right img,
+  .scroll-content {
+    margin-left: 0;
+  }
+
+  .top-right,
+  .bottom-right {
+    height: 55vh;
+  }
+
+  .first-parallax-container .scroll-content,
+  .second-parallax-container .scroll-content {
+    width: 100%;
+    margin-top: 30vh;
+  }
+}
+
+
+@media all and (min-width: 1200px) and (max-width: 2500px) {
+
+  
+  .first-parallax-container,
+  .second-parallax-container {
+    flex-direction: row;
+
+  }
+}
+
+
