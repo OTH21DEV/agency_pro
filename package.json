@@ -2,6 +2,9 @@
   "name": "agency_pro",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.17.0"
+  },
   "dependencies": {
     "@bem-react/classname": "^1.6.0",
     "@gsap/react": "^2.1.0",
