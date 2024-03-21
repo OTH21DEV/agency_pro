@@ -33,7 +33,7 @@ const Nav = () => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
     }
-  }, [setHasNavClicked]);
+  }, [setHasNavClicked,location.pathname]);
 
   return (
     <div className="nav-wrapper" ref={navRef}>
