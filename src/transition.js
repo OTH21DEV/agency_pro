@@ -1,20 +1,17 @@
 import { motion } from "framer-motion";
-import { useEffect } from 'react';
-
+import { useEffect } from "react";
 
 const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-    //   behavior: 'instant' // Use 'auto' or omit the 'behavior' property for instant scrolling
-    });
-  };
-  
+  window.scrollTo({
+    top: 0,
+  });
+};
 
 const transition = (OgComponent) => {
   return () => {
     useEffect(() => {
-        scrollToTop();
-      }, []);
+      scrollToTop();
+    }, []);
     return (
       <>
         <OgComponent />

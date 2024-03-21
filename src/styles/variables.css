@@ -1,7 +1,6 @@
 :root {
   --primary-color: #e1dfdd;
-  --font-family: PP Neue Montreal,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  --font-family: PP Neue Montreal,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   --font-family-titles :"Syne", sans-serif;
   --cubic-bezier: 0.62,0.05,0.01,0.99;
-  --slide-up-distance: 100vh;
 }

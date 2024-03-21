@@ -155,7 +155,6 @@ elements will be displayed again (animation will rerun) - this check is added in
     };
   }, [isNavBarVisible]);
 
-
   const numberDelay = servicesTitle.length * 0.07;
   const numberStyle = { transitionDelay: `${numberDelay + 0.07}s` };
   const aboutDelay = servicesTitle.length * 0.07;

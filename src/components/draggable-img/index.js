@@ -11,7 +11,7 @@ const DraggableImg = () => {
   // Handler to check the Mobile view
   useEffect(() => {
     const handleResize = () => {
-      // Set mobile view status based on window width
+   
       setIsMobileView(window.innerWidth <= 900);
     };
     window.addEventListener("resize", handleResize);

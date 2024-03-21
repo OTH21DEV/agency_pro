@@ -18,13 +18,13 @@ const ContactFooter = () => {
   const [isEmailVisible, setEmailIsVisible] = useState(false);
   const contactSectionRef = useRef();
   const emailRef = useRef();
+
   /*Displays the navBar on the contact 
   section only when we are in this section.
   Delays the display after click from main page on 500ms;
    otherwise its instantly visible from the 
   main page for each section
   */
-
   useEffect(() => {
     const navBar = document.querySelector(".nav-bar-wrapper");
     let timer1, timer2;
@@ -91,18 +91,6 @@ const ContactFooter = () => {
 
   let email = ["C", "O", "N", "T", "A", "C", "T", "@", "F", "R", "O", "M", "S", "C", "R", "A", "T", "C", "H", ".", "L", "U"];
 
-  // useEffect(() => {
-  //   let networkTotalWidth = 0;
-  //   networkTitleRef.current.forEach((element) => {
-  //     if (element) {
-  //       networkTotalWidth += element.offsetWidth;
-  //     }
-  //   });
-  //   setNetworkUnderlineWidth(networkTotalWidth);
-  // }, []);
-
-
-
   useEffect(() => {
     function updateUnderlineWidth() {
       let totalWidth = 0;
@@ -113,7 +101,7 @@ const ContactFooter = () => {
       });
       setNetworkUnderlineWidth(totalWidth);
     }
-    
+
     // Call the function on mount to initialize the width
     updateUnderlineWidth();
 
@@ -122,18 +110,17 @@ const ContactFooter = () => {
     }
 
     // Add event listener for when the window is resized
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Add event listener for when the window is reloaded
-    window.addEventListener('load', updateUnderlineWidth);
+    window.addEventListener("load", updateUnderlineWidth);
 
     // Cleanup function to remove the event listeners when the component unmounts
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('load', updateUnderlineWidth);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", updateUnderlineWidth);
     };
   }, []);
-
 
   const underlineDelay = 4.34;
 
@@ -155,13 +142,10 @@ const ContactFooter = () => {
           </p>
         </div>
         <div className="contact-about">
-          {/* <h3>ABOUT</h3> */}
           <p className={`contact-about-content ${isVisible ? "visible" : ""}`}> {wrappedText} </p>
         </div>
 
         <div className="contact-footer">
-          {/* <div> */}
-
           <span className="footer-email" ref={emailRef}>
             {email.map((letter, index) => {
               const baseDelay = 3; // Starting delay for the first span

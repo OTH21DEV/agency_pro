@@ -101,10 +101,8 @@
   }
   .projects-section {
     padding: 7.5em 1.5em;
- 
   }
   .projects-wrapper {
-    /* flex-direction: column; */
     width: 100%;
   }
   .projects-title {
@@ -123,7 +121,6 @@
   }
   .projects-section {
     padding: 7.5em 1.5em;
- 
   }
   .projects-wrapper .title-wrapper {
     margin-left: 0;
@@ -132,12 +129,11 @@
     width: 100%;
   }
 }
-@media all and (min-width: 901px) and (max-width:2500px) {
+@media all and (min-width: 901px) and (max-width: 2500px) {
   .projects-section {
     padding: 7.5em 7.5em;
- 
   }
   .projects-wrapper .title-wrapper {
     margin-left: 0;
   }
-  }
+}

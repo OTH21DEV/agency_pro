@@ -13,12 +13,10 @@
 .loader-container div {
   color: white;
   justify-self: flex-end;
-  /* letter-spacing: -0.14063rem; */
   padding-top: 1rem;
   font-family: var(--font-family);
   font-size: 1.213rem;
   color: #e1dfdd;
-  /* width: 20%; */
 }
 .loader-container div p,
 .loader-container div h2 {
@@ -57,9 +55,8 @@
   animation-timing-function: ease;
 }
 
-/* Style for number '67' to start from where '23' ended, scaled down, and slide into place */
 .from-middle-position {
-  transform: translateY(-100%); /* Start from '23's end position and scaled down */
+  transform: translateY(-100%);
   animation-name: fadeInSlideDownScaleUp;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -67,7 +64,6 @@
   animation-timing-function: ease;
 }
 
-/* Keyframes for 67 to fade in, slide down, and scale up into position */
 @keyframes fadeInSlideDownScaleUp {
   to {
     opacity: 1;
@@ -76,7 +72,7 @@
 }
 
 .from-end-position {
-  transform: translateY(-200%); /* Start from '67's end position */
+  transform: translateY(-200%);
   animation-name: slideUpFor100;
   animation-duration: 0.5s;
   animation-timing-function: ease;
@@ -88,7 +84,6 @@
 @keyframes slideUpFor100 {
   to {
     opacity: 1;
-    /* transform: translateY(-400%); */
     transform: translateY(-100vh);
   }
 }
@@ -100,8 +95,7 @@
 /* When the loader container is finished, it should slide up */
 .loader-container.slide-up {
   transform: translateY(-100vh);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Added opacity to transition */
-  /* display: none; */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 .logo-wrapper {
   width: 150px;
@@ -121,19 +115,15 @@
   .animated-number {
     font-size: 6em;
   }
-
 }
 
 @media all and (min-width: 1001px) and (max-width: 2500px) {
-
   .loader-container div h2 {
     margin: 0;
     font-size: 1.7em;
   }
-  .loader-container div p
- {
+  .loader-container div p {
     margin: 0;
     font-size: 0.8em;
   }
 }
-

@@ -36,7 +36,6 @@ export const HomepageClickProvider = ({ children }) => {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  // const { hasNavClicked } = useNavClick();
 
   return (
     <AnimatePresence mode="wait">

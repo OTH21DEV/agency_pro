@@ -1,22 +1,18 @@
-.Langue{
-    display:flex;
-    justify-content:flex-end;
-    height:45px;
-    /* background-color: white; */
-    margin-right:40px;
-    align-items: center;
+.Langue {
+  display: flex;
+  justify-content: flex-end;
+  height: 45px;
+  margin-right: 40px;
+  align-items: center;
 }
-.Langue img{
-    width: 20px;
-
-    /* cursor:pointer */
+.Langue img {
+  width: 20px;
 }
 
-.Langue-text{
-    /* font-weight: bold; */
-    font-size:1em;
-    color:#001c25;
-    color:white;
-    margin-left: 10px;
-    cursor: pointer;
+.Langue-text {
+  font-size: 1em;
+  color: #001c25;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
 }

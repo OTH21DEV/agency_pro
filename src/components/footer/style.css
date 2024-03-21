@@ -2,13 +2,12 @@
   display: flex;
   background-color: black;
   width: 100vw;
-  /* bottom: 1em; */
   bottom: 0;
   left: 0;
   transition: height 0.3s ease;
   overflow: hidden;
-  position:absolute;
-  opacity:0;
+  position: absolute;
+  opacity: 0;
   transition: opacity 1.1s cubic-bezier(var(--cubic-bezier));
 }
 
@@ -23,6 +22,7 @@
   white-space: nowrap;
   align-items: center;
   color: white;
+  font-family: var(--font-family);
 }
 
 .footer {
@@ -53,23 +53,12 @@
   }
 }
 
-
 @media all and (min-width: 375px) and (max-width: 900px) {
   .footer p {
     width: 50vw;
   }
 
-  .footer{
-    height:40px;
+  .footer {
+    height: 40px;
   }
 }
-
-
-
-/* @media all and (min-width: 901px) and (max-width: 2500px) {
-  #image-container {
-    clip-path: inset(0 calc(30vh - var(--x)) 0 var(--x));
-  }
-  #background-video {
-    height: 200px;
-  } */

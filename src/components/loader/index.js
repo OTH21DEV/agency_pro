@@ -6,13 +6,11 @@ import { useHomeClick } from "../../app";
 import "../../styles/variables.css";
 
 const Loader = () => {
-  // const [isLoaderFinished, setIsLoaderFinished] = useState(false);
   const [isSlidingUp, setIsSlidingUp] = useState(false); // To manage the slide up state
   const [numbers, setNumbers] = useState([25, 89, 100]);
   const [numberIndex, setNumberIndex] = useState(0);
   const numberRef = useRef();
   const loaderContainerRef = useRef();
-  // const numberContainerEl = numberRef.current;
 
   const { hasNavClicked } = useNavClick();
   const { hasHomepageClicked } = useHomeClick();
@@ -45,7 +43,6 @@ const Loader = () => {
         setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
       } else {
         setIsSlidingUp(true);
-      
       }
     };
     numberRef.current.addEventListener("animationend", handleAnimationEnd);
@@ -90,11 +87,10 @@ const Loader = () => {
           slogan.classList.add("visible");
           image.classList.add("visible");
           image.style.transitionDelay = ".3s";
-          marquee.style.opacity ="1"
+          marquee.style.opacity = "1";
         });
       }, 700);
-    } 
-    else if (isSlidingUp) {
+    } else if (isSlidingUp) {
       loaderContainerEl.classList.add("slide-up");
 
       let timerId;
@@ -124,7 +120,7 @@ const Loader = () => {
             slogan.classList.add("visible");
             image.classList.add("visible");
             image.style.transitionDelay = ".3s";
-            marquee.style.opacity ="1"
+            marquee.style.opacity = "1";
           });
         }, earlyStartMs);
       };
@@ -138,7 +134,7 @@ const Loader = () => {
         if (loaderContainerEl) {
           loaderContainerEl.removeEventListener("transitionstart", transitionEndHandler);
         }
-        showPageContainer.style.overflow = '';
+        showPageContainer.style.overflow = "";
       };
     }
   }, [isSlidingUp, location.pathname, hasHomepageClicked]);
@@ -159,7 +155,6 @@ const Loader = () => {
       <div>
         <h2>FromScratch</h2>
         <p>© 2024 ALL RIGHTS RESERVED.</p>
-        {/* <p>©2024 all rights reserved</p> */}
       </div>
       <span ref={numberRef} className={`animated-number ${getClassName()}`}>
         {numbers[numberIndex]}

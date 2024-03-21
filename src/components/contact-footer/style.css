@@ -30,7 +30,6 @@
   margin: 0;
   border-style: none;
   border-color: #000;
-  /* font-size: 3.5rem; */
   display: inline-block;
   position: relative;
   opacity: 0;
@@ -67,28 +66,25 @@
   opacity: 1;
 }
 
-
 .contact-heading {
   display: flex;
   align-items: center;
 }
 .contact-heading p {
   text-align: justify;
-  /* margin-left: 4em; */
   font-size: 1.2em;
   font-weight: 500;
   opacity: 0.8;
   width: 100%;
-  margin:0;
+  margin: 0;
 }
 .contact-heading-message {
-  margin:0;
+  margin: 0;
 }
 .contact-wrapper {
   display: flex;
   background-color: var(--primary-color);
   margin-bottom: 7.5em;
-  /* margin-top:10em; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,8 +93,7 @@
 }
 
 .contact-heading-number {
-  /* font-weight: 500; */
-  margin:0;
+  margin: 0;
   font-size: 1.4em;
   max-height: 5px;
   transform: translateY(20px);
@@ -178,14 +173,12 @@
 @media all and (min-width: 375px) and (max-width: 450px) {
   .contact-section {
     padding: 7.5em 1.5em 7.5em 1.5em;
-    /* height: 90vh; */
   }
   .contact-about {
     width: 70%;
   }
   .contact-heading p {
     text-align: unset;
-    /* margin-left: 1em; */
   }
   .contact-heading-message {
     margin-left: 1em;
@@ -199,79 +192,57 @@
   .contact-about-content.visible .line {
     max-height: 80px;
   }
-  .contact-footer {
-    /* padding: 7.5em 0em;
-    height: 30vh; */
-  }
 }
 @media all and (min-width: 451px) and (max-width: 500px) {
-
   .footer-email .footer-email-letter {
     font-size: 1.4em;
   }
- 
 }
 @media all and (min-width: 501px) and (max-width: 600px) {
-
   .footer-email .footer-email-letter {
     font-size: 1.6em;
   }
- 
 }
 @media all and (min-width: 601px) and (max-width: 650px) {
-
   .footer-email .footer-email-letter {
     font-size: 2em;
   }
- 
 }
 @media all and (min-width: 651px) and (max-width: 900px) {
-
   .footer-email .footer-email-letter {
     font-size: 2.2em;
-  }}
-  @media all and (min-width: 901px) and (max-width: 1100px) {
-
-    .footer-email .footer-email-letter {
-      font-size: 2.4em;
-    }
+  }
+}
+@media all and (min-width: 901px) and (max-width: 1100px) {
+  .footer-email .footer-email-letter {
+    font-size: 2.4em;
+  }
 }
 @media all and (min-width: 1101px) and (max-width: 2500px) {
-
   .footer-email .footer-email-letter {
     font-size: 3em;
   }
-  /* .footer-email .underline {
-    height: 0.3em;
-  } */
 }
 @media all and (min-width: 451px) and (max-width: 900px) {
   .contact-section {
     padding: 7.5em 1.5em 7.5em 1.5em;
-    /* height: 90vh; */
   }
   .contact-about {
     width: 70%;
   }
   .contact-heading p {
     text-align: unset;
-    margin:0;
-    /* margin-left: 1em; */
+    margin: 0;
   }
   .contact-heading-message {
     margin-left: 1em;
   }
-  /* .footer-email .footer-email-letter {
-    font-size: 2em;
-  } */
+
   .footer-email .underline {
     height: 0.3em;
   }
   .contact-about-content.visible .line {
     max-height: 80px;
   }
-  .contact-footer {
-    /* padding: 7.5em 0em;
-    height: 30vh; */
-  }
+
 }
