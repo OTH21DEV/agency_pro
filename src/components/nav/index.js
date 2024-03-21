@@ -21,6 +21,7 @@ const Nav = () => {
   const handleNavClick = () => {
     setTimeout(() => {
       setHasNavClicked(true);
+      sessionStorage.setItem("navBarVisible", "true");
     }, 1500);
   };
 
@@ -32,7 +33,7 @@ const Nav = () => {
     if (location.pathname === "/") {
       setHasNavClicked(false);
     }
-  }, [location.pathname]);
+  }, [setHasNavClicked]);
 
   return (
     <div className="nav-wrapper" ref={navRef}>

@@ -72,7 +72,7 @@ elements will be displayed again (animation will rerun) - this check is added in
  */
   useEffect(() => {
     const navBar = document.querySelector(".nav-bar-wrapper");
-    console.log('Current Path:', location.pathname);
+    console.log(location.pathname);
     let timer;
 
     if (location.pathname === "/services") {
@@ -138,7 +138,8 @@ elements will be displayed again (animation will rerun) - this check is added in
       cardsTimeoutId = setTimeout(() => {
         setIsCardsVisible(true);
       }, 3000);
-    } else {
+    } 
+    else {
       setIsVisible(false);
 
       setIsCardsVisible(false);
@@ -172,6 +173,9 @@ elements will be displayed again (animation will rerun) - this check is added in
   const text = `Specializing in custom and user-friendly web \nsolutions, the focus is on meeting specific \nclient needs through a commitment to \nexcellence and attention to detail. \nEach project is approached with the utmost care, \nensuring that the delivered websites are engaging, functional, and \nsuccessful in enhancing online presence \nfor businesses and individuals alike.`;
 
   const wrappedText = wrapTextIntoLines(text);
+console.log(hasNavClicked)
+console.log(hasHomepageClicked)
+console.log(isNavBarVisible)
 
   return (
     <div className="section">
