@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import Heading from "../heading";
+import Heading from "../heading"
 import Footer from "../../components/footer";
 import Slogan from "../slogan";
 import NavBar from "../nav-bar";
