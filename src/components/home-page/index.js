@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import Heading from "../heading"
+import Heading from "../../components/heading"
 import Footer from "../../components/footer";
-import Slogan from "../slogan";
-import NavBar from "../nav-bar";
-import ServiceCards from "../service-cards";
-import ProjectCards from "../project-cards";
-import ContactFooter from "../contact-footer";
-import Loader from "../loader";
-import DraggableImg from "../draggable-img";
-import ArrowBig from "../arrow-big";
-import BottomLayout from "../bottom-layout";
+import Slogan from "../../components/slogan";
+import NavBar from "../../components/nav-bar";
+import ServiceCards from "../../components/service-cards";
+import ProjectCards from "../../components/project-cards";
+import ContactFooter from "../../components/contact-footer";
+import Loader from "../../components/loader";
+import DraggableImg from "../../components/draggable-img";
+import ArrowBig from "../../components/arrow-big";
+import BottomLayout from "../../components/bottom-layout";
 import transition from "../../transition";
 import { useLocation } from "react-router-dom";
 import { useNavClick } from "../../app";
