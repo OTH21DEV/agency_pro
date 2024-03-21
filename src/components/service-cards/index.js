@@ -72,7 +72,7 @@ elements will be displayed again (animation will rerun) - this check is added in
  */
   useEffect(() => {
     const navBar = document.querySelector(".nav-bar-wrapper");
-
+    console.log('Current Path:', location.pathname);
     let timer;
 
     if (location.pathname === "/services") {
