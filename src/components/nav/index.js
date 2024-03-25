@@ -38,8 +38,9 @@ const Nav = () => {
   return (
     <div className="nav-wrapper" ref={navRef}>
       <div>
+       
         <Link onClick={location.pathname !== "/" ? handleHomepage : undefined} to="/">
-          FromScratch
+          LAVCRAFT
         </Link>
       </div>
       <div className="nav-links">

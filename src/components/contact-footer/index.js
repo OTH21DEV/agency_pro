@@ -89,7 +89,7 @@ const ContactFooter = () => {
 
   const wrappedText = wrapTextIntoLines(text);
 
-  let email = ["C", "O", "N", "T", "A", "C", "T", "@", "F", "R", "O", "M", "S", "C", "R", "A", "T", "C", "H", ".", "L", "U"];
+  let email = ["C", "O", "N", "T", "A", "C", "T", "@", "L", "A", "V", "C", "R", "A", "F", "T",".", "C", "O","M"];
 
   useEffect(() => {
     function updateUnderlineWidth() {

@@ -5,6 +5,7 @@
   font-family: var(--font-family-titles);
   justify-content: space-between;
   width: 100%;
+ 
 }
 
 .nav-wrapper a {
@@ -18,6 +19,7 @@
   text-decoration: none;
   color: black;
 }
+
 
 @media all and (min-width: 375px) and (max-width: 560px) {
   .nav-links {

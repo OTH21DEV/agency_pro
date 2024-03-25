@@ -153,7 +153,7 @@ const Loader = () => {
   return (
     <div ref={loaderContainerRef} className="loader-container">
       <div>
-        <h2>FromScratch</h2>
+        <h2>LAVCRAFT</h2>
         <p>© 2024 ALL RIGHTS RESERVED.</p>
       </div>
       <span ref={numberRef} className={`animated-number ${getClassName()}`}>
