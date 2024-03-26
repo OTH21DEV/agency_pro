@@ -92,14 +92,14 @@
   font-size: 1.2em;
   font-weight: 500;
   opacity: 0.8;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .service-card-content.open,
 .service-card-content.closed {
   margin-left: 5em;
   width: 82%;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 @media all and (min-width: 375px) and (max-width: 450px) {
