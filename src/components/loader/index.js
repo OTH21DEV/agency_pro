@@ -126,7 +126,7 @@ const Loader = () => {
       };
 
       // Listen for the start of the transition, not the end
-      loaderContainerEl.addEventListener("transitionstart", transitionEndHandler);
+      loaderContainerEl.addEventListener("transmitionstart", transitionEndHandler);
 
       // Clean up both event listener and timeout
       return () => {
@@ -164,3 +164,26 @@ const Loader = () => {
 };
 
 export default Loader;
+
+
+const aboutMe = {
+  name: "John Doe",
+  title: "Software Engineer",
+  location: "San Francisco, CA",
+  experience: [
+    { 
+      company: "TechCorp", 
+      role: "Frontend Developer",
+      duration: "2 years"
+    },
+    { 
+      company: "Web Solutions Inc.", 
+      role: "Full Stack Developer",
+      duration: "3 years"
+    }
+  ],
+  skills: ["JavaScript", "React", "Node.js", "CSS", "HTML"],
+  hobbies: ["Coding", "Open Source Contributions", "Blogging"]
+};
+
+console.log(aboutMe);
