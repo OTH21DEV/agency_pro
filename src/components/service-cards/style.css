@@ -3,7 +3,7 @@
 }
 .section {
   background-color: var(--primary-color);
-  height:100vh;
+height:100%;
 }
 .services-wrapper {
   display: flex;
