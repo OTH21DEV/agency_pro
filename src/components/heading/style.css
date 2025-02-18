@@ -90,7 +90,7 @@
   align-items: center;
 }
 
-@media all and (max-width: 2500px) {
+@media all and (max-width: 2700px) {
   .heading-letter {
     font-size: 10em;
   }
