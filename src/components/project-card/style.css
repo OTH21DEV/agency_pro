@@ -1,9 +1,17 @@
 .first-parallax-container,
 .second-parallax-container {
   flex-direction: column;
-  margin-top: 200px;
+  /* margin-top: 200px; */
+  /* margin-top: 200px; */
   width: 100%;
   display: flex;
+}
+.first-parallax-container,.second-parallax-container {
+  margin-top:100px;
+}
+.second-parallax-container {
+  margin-top:450px;
+  margin-bottom:150px;
 }
 
 .first-fixed-content-wrapper,
