@@ -22,38 +22,75 @@ const Loader = () => {
 
     return [first, second, 100].sort((a, b) => a - b);
   };
-
   useEffect(() => {
-    //need to perform the top to scroll when reload -slide main section after the loader
+    // Ensure scroll restoration behavior
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
     window.scrollTo(0, 0);
-
-    // Reset the loader display when the component mounts
-    loaderContainerRef.current.style.display = "flex";
-
-    loaderContainerRef.current.classList.remove("slide-up");
+  
+    // Set initial loader display and reset classes
+    const loaderEl = loaderContainerRef.current;
+    loaderEl.style.display = "flex";
+    loaderEl.classList.remove("slide-up");
     document.querySelector(".container").classList.remove("slide-in");
-    // Set new random numbers when the component mounts
+  
+    // Initialize random numbers on component mount
     setNumbers(generateRandomNumbers());
-
+  
+    // Capture the current numberRef during the effect's initial execution
+    const numberElement = numberRef.current;
+  
+    // Handle animation end event
     const handleAnimationEnd = () => {
       if (numberIndex < 2) {
-        setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
+        setNumberIndex((prevIndex) => prevIndex + 1);
       } else {
         setIsSlidingUp(true);
       }
     };
-    numberRef.current.addEventListener("animationend", handleAnimationEnd);
-
-    // Clean up event listener
+  
+    // Attach event listener using the captured reference
+    numberElement.addEventListener("animationend", handleAnimationEnd);
+  
+    // Cleanup function to remove event listener
     return () => {
-      if (numberRef.current) {
-        numberRef.current.removeEventListener("animationend", handleAnimationEnd);
+      if (numberElement) {
+        numberElement.removeEventListener("animationend", handleAnimationEnd);
       }
     };
   }, [numberIndex, hasNavClicked]);
+  // useEffect(() => {
+  //   //need to perform the top to scroll when reload -slide main section after the loader
+  //   if ("scrollRestoration" in window.history) {
+  //     window.history.scrollRestoration = "manual";
+  //   }
+  //   window.scrollTo(0, 0);
+
+  //   // Reset the loader display when the component mounts
+  //   loaderContainerRef.current.style.display = "flex";
+
+  //   loaderContainerRef.current.classList.remove("slide-up");
+  //   document.querySelector(".container").classList.remove("slide-in");
+  //   // Set new random numbers when the component mounts
+  //   setNumbers(generateRandomNumbers());
+
+  //   const handleAnimationEnd = () => {
+  //     if (numberIndex < 2) {
+  //       setNumberIndex((prevIndex) => prevIndex + 1); // Move to the next number
+  //     } else {
+  //       setIsSlidingUp(true);
+  //     }
+  //   };
+  //   numberRef.current.addEventListener("animationend", handleAnimationEnd);
+
+  //   // Clean up event listener
+  //   return () => {
+  //     if (numberRef.current) {
+  //       numberRef.current.removeEventListener("animationend", handleAnimationEnd);
+  //     }
+  //   };
+  // }, [numberIndex, hasNavClicked]);
 
   const location = useLocation();
 
@@ -90,7 +127,9 @@ const Loader = () => {
           marquee.style.opacity = "1";
         });
       }, 700);
-    } else if (isSlidingUp) {
+    } else if (isSlidingUp  ) {
+   
+      console.log('true')
       loaderContainerEl.classList.add("slide-up");
 
       let timerId;
@@ -103,6 +142,7 @@ const Loader = () => {
 
         // Schedule sliding in the main content before the loader finishes
         timerId = setTimeout(() => {
+          console.log( showPageContainer)
           showPageContainer.style.overflow = "hidden";
 
           loaderContainerEl.style.display = "none"; // Hide the loader
@@ -126,7 +166,7 @@ const Loader = () => {
       };
 
       // Listen for the start of the transition, not the end
-      loaderContainerEl.addEventListener("transmitionstart", transitionEndHandler);
+      loaderContainerEl.addEventListener("transitionstart", transitionEndHandler);
 
       // Clean up both event listener and timeout
       return () => {

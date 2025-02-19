@@ -84,24 +84,37 @@ const ProjectCard = () => {
   /*need to handle the scrollY to display 
   services elements in the main page by adding visible class in jsx*/
 
-  const handleScroll = () => {
-    ScrollTrigger.refresh();
-
-    const scrollY = window.scrollY + window.innerHeight / 2;
-    if (parallaxContainerRef.current && scrollY >= parallaxContainerRef.current.offsetTop) {
-      setIsVisible(true);
-    }
-
-    if (parallaxContainerrRef.current && scrollY >= parallaxContainerrRef.current.offsetTop) {
-      setSecondTitleIsVisible(true);
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const updateVisibility = () => {
+      requestAnimationFrame(() => {
+        // Calculate dynamic scrollY for each update
+        // const scrollY = window.scrollY + window.innerHeight / 2;
+
+        if (parallaxContainerRef.current) {
+          const rect1 = parallaxContainerRef.current.getBoundingClientRect();
+          if (rect1.top <= window.innerHeight/2 && rect1.bottom >= 0) {
+            setIsVisible(true);
+          }
+        }
+
+        if (parallaxContainerrRef.current) {
+          const rect2 = parallaxContainerrRef.current.getBoundingClientRect();
+          if (rect2.top <= window.innerHeight/2 && rect2.bottom >= 0) {
+            setSecondTitleIsVisible(true);
+          }
+        }
+      });
+    };
+
+    // Add the scroll event listener
+    window.addEventListener("scroll", updateVisibility);
+
+    // Initial check in case elements are already in view
+    updateVisibility();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      // Clean up the scroll event listener
+      window.removeEventListener("scroll", updateVisibility);
     };
   }, []);
 
